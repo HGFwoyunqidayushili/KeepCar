@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100px"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#343434"
+    android:gravity="center_vertical">
+    <jiyun.com.keepcar.view.MyApptitle
+        app:leftImgWight="30px"
+        app:leftImgHeight="30px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/App_title"
+        app:centerTvSize="40px"
+        app:rightTvSize="35px"
+        app:leftImgMarginleft="5px"
+        app:rightTvMarginright="30px"
+        >
+
+
+    </jiyun.com.keepcar.view.MyApptitle>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+       android:orientation="vertical"
+
+    tools:context="jiyun.com.keepcar.MainActivity">
+ <com.zhy.autolayout.AutoRelativeLayout
+     android:layout_width="match_parent"
+     android:layout_height="100px">
+   <include
+       layout="@layout/apptitle"
+       >
+   </include>
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:id="@+id/address"
+       android:text=""
+       android:textSize="35px"
+       android:textColor="@color/white"
+       android:layout_centerVertical="true"
+       android:layout_marginLeft="20px"
+       />
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:background="@drawable/yangche"
+       android:layout_centerHorizontal="true"
+       android:layout_centerVertical="true"
+       />
+   <TextView
+       android:layout_width="35px"
+       android:layout_height="35px"
+       android:background="@drawable/add"
+       android:layout_alignParentRight="true"
+       android:layout_centerVertical="true"
+       android:layout_marginRight="20px"
+
+       />
+ </com.zhy.autolayout.AutoRelativeLayout>
+ <FrameLayout
+     android:layout_width="match_parent"
+     android:layout_height="0dp"
+      android:layout_weight="1"
+      android:id="@+id/Frame_layout"
+     >
+ </FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+          android:background="@color/huise"
+        />
+<include
+    layout="@layout/buttomtitle"
+    ></include>
+</com.zhy.autolayout.AutoLinearLayout>

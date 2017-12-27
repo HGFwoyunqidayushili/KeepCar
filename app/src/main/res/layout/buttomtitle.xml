@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120px"
+     android:orientation="horizontal"
+    android:background="@color/white"
+    >
+
+    <RadioGroup
+        android:id="@+id/tabGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rbTabHome"
+            style="@style/TabBtn"
+            android:checked="true"
+            android:drawableTop="@drawable/homepage"
+            />
+        <RadioButton
+            android:id="@+id/rb4Sshop"
+            style="@style/TabBtn"
+            android:drawableTop="@drawable/sshop"
+             />
+        <RadioButton
+            android:id="@+id/rbShoppingCar"
+            style="@style/TabBtn"
+            android:drawableTop="@drawable/shoppingcar"
+             />
+        <RadioButton
+            android:id="@+id/rbPersonal"
+            style="@style/TabBtn"
+            android:checked="false"
+            android:drawableTop="@drawable/my"
+             />
+
+
+    </RadioGroup>
+
+</com.zhy.autolayout.AutoLinearLayout>
