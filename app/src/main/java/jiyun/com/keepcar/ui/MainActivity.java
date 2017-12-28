@@ -181,5 +181,5 @@ public class MainActivity extends BaseActivity {
             });
             mLocationClient.startLocation();
         }
-
+  //////
 }

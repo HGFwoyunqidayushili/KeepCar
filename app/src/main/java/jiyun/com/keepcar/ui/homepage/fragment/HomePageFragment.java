@@ -77,7 +77,7 @@ public class HomePageFragment extends BaseFragment implements InfoContract.Views
         Log.e("TAG",list.get(0));
         flyBanner.setImagesUrl(listimage);
         flyBanner.startAutoPlay();
-
+/////
     }
 
     @Override
