@@ -8,8 +8,9 @@ import jiyun.com.keepcar.http.factory.HttpCallBack;
  * Created by 阿三 on 2017/12/27.
  */
 public interface InfoContract {
+
     interface Model {
-        void requestNewsData(Context context, String url, HttpCallBack httpCallBack);
+        void requestNewsData(Context context, String page,String url , HttpCallBack httpCallBack);
     }
 
     interface Views<T>  extends HttpCallBack<T> {
@@ -17,6 +18,6 @@ public interface InfoContract {
     }
 
     interface Presenter {
-        void getNewsData(String page);
+        void getNewsData(String page,String url);
     }
 }

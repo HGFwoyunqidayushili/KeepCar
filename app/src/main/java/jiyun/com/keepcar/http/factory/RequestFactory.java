@@ -9,5 +9,6 @@ import java.lang.reflect.Type;
  */
 public abstract class RequestFactory<T> {
     public abstract void get(Context context, String page, Type type, HttpCallBack<T> httpCallBack);
-    public abstract void post(Context context, String page, Type type , HttpCallBack<T> httpCallBack);
+    public abstract void post(Context context, String page,String url, Type type , HttpCallBack<T> httpCallBack);
+
 }

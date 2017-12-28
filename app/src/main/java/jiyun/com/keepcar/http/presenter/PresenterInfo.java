@@ -19,7 +19,8 @@ public class PresenterInfo implements InfoContract.Presenter {
 
     }
     @Override
-    public void getNewsData(String page) {
-         model.requestNewsData(context,page,views);
+    public void getNewsData(String page,String url) {
+         model.requestNewsData(context,page,url,views);
     }
+
 }

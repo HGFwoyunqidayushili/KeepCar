@@ -15,6 +15,7 @@ public abstract class BaseActivity extends AutoLayoutActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutID());
+        App.activity=this;
         initView();
         initData();
     }
@@ -79,4 +80,5 @@ public abstract class BaseActivity extends AutoLayoutActivity{
     public void setRigthImage(MyApptitle App_title,Drawable draw){
         App_title.setRightImg(draw);
     }
+
 }

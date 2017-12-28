@@ -1,9 +1,9 @@
 package jiyun.com.keepcar.http.model;
 
 import android.content.Context;
-import java.lang.reflect.Type;
 
 import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 
 import jiyun.com.keepcar.http.contract.InfoContract;
 import jiyun.com.keepcar.http.factory.HttpCallBack;
@@ -16,9 +16,10 @@ import jiyun.com.keepcar.http.factory.requestfactory.RequestProductImpl;
  * Created by 阿三 on 2017/12/27.
  */
 public class NetModel implements InfoContract.Model {
+
     @Override
-    public void requestNewsData(Context context, String url, HttpCallBack httpCallBack) {
-            RequestProduct  requestProduct=new RequestProductImpl();
+    public void requestNewsData(Context context, String page,String url, HttpCallBack httpCallBack) {
+            RequestProduct requestProduct=new RequestProductImpl();
             RequestFactory factory=requestProduct.create(OkhttpProduct.class);
             Type[] types=httpCallBack.getClass().getGenericInterfaces();
             Type[] actualTypeArguments = null;
@@ -28,6 +29,7 @@ public class NetModel implements InfoContract.Model {
             }
         }
         Type type = actualTypeArguments[0];
-        factory.get(context,url, type, httpCallBack);
+        factory.post(context,page,url, type, httpCallBack);
     }
+
 }

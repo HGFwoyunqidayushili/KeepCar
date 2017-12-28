@@ -7,4 +7,5 @@ import jiyun.com.keepcar.http.factory.RequestFactory;
  */
 public abstract class RequestProduct {
     public abstract <T extends RequestFactory> RequestFactory create(Class<T> clz);
+
 }
