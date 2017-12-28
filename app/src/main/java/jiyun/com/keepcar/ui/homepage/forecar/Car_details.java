@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import jiyun.com.keepcar.R;
 
 public class Car_details extends AppCompatActivity {
-
+//
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

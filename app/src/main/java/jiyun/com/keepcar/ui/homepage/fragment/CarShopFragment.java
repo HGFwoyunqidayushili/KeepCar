@@ -222,6 +222,7 @@ public class CarShopFragment extends Fragment {
                 } else {
                     Distance.setTextColor(Color.BLACK);
                 }
+                //
             }
         });
         Evaluate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
