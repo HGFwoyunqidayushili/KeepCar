@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     tools:context="com.a4scar.myapplication.view.ui.fourescar.Car_details"
     android:weightSum="1">
-
+//
     <ImageView
         android:src="@drawable/open"
         android:layout_width="wrap_content"
