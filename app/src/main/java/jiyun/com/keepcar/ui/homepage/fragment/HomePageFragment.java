@@ -84,5 +84,5 @@ public class HomePageFragment extends BaseFragment implements InfoContract.Views
     public void failure(Throwable e) {
 
     }
-
+///
 }
