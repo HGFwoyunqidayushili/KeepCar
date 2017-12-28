@@ -56,6 +56,8 @@ public class CarShopFragment extends Fragment {
         initView(inflate);
         return inflate;
     }
+//
+//
 
     private void initView(View inflate) {
         brand = (CheckBox) inflate.findViewById(R.id.brand);
