@@ -8,7 +8,9 @@
     tools:context="jiyun.com.keepcar.MainActivity">
  <com.zhy.autolayout.AutoRelativeLayout
      android:layout_width="match_parent"
-     android:layout_height="100px">
+     android:layout_height="100px"
+
+     >
    <include
        layout="@layout/apptitle"
        >
@@ -26,19 +28,46 @@
    <TextView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:background="@drawable/yangche"
-       android:layout_centerHorizontal="true"
-       android:layout_centerVertical="true"
+       android:layout_centerInParent="true"
+        android:background="@drawable/yangche"
+        android:textColor="@color/white"
+        android:id="@+id/yangche"
+
+             android:textSize="30px"
        />
-   <TextView
-       android:layout_width="35px"
-       android:layout_height="35px"
+   <ImageView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
        android:background="@drawable/add"
        android:layout_alignParentRight="true"
        android:layout_centerVertical="true"
        android:layout_marginRight="20px"
+       android:id="@+id/add"
 
        />
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+           android:id="@+id/Theeditor"
+         android:layout_alignParentRight="true"
+         android:layout_centerVertical="true"
+         android:layout_marginRight="20px"
+         android:visibility="gone"
+         android:textSize="30px"
+         android:textColor="@color/white"
+         android:text="编辑"
+         />
+     <ImageView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/menu"
+         android:layout_alignParentRight="true"
+         android:layout_centerVertical="true"
+         android:layout_marginRight="20px"
+          android:background="@mipmap/you"
+         android:visibility="gone"
+
+         />
  </com.zhy.autolayout.AutoRelativeLayout>
  <FrameLayout
      android:layout_width="match_parent"
