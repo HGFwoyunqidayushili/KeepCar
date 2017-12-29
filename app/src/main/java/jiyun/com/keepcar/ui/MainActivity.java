@@ -264,7 +264,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 //                popupWindow.setFocusable(true);
 //                popupWindow.showAtLocation(inflate, Gravity.CENTER,0,0);
 //                final PopupWindow pop = new PopupWindow(inflate, ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT, false);
-
+//////
 // 需要设置一下此参数，点击外边可消失
                 popupWindow.setBackgroundDrawable(new BitmapDrawable());
 //设置点击窗口外边窗口消失
