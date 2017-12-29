@@ -24,6 +24,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:design:26.0.0-alpha1'
     compile 'com.squareup.okhttp3:okhttp:3.9.0'
+    compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
+
     compile 'com.android.support:appcompat-v7:25.0.0-alpha1'
     compile 'com.zhy:autolayout:1.4.3'
     compile 'com.zaaach:citypicker:1.1'

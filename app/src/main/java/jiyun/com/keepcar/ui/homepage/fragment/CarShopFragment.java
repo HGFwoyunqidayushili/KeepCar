@@ -20,7 +20,11 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
 
+import java.util.ArrayList;
+
 import jiyun.com.keepcar.R;
+import jiyun.com.keepcar.bean.TestBean;
+import jiyun.com.keepcar.ui.adapter.ForeCarAdapter;
 import jiyun.com.keepcar.ui.homepage.forecar.Car_details;
 
 /**
@@ -54,7 +58,19 @@ public class CarShopFragment extends Fragment {
         // Inflate the layout for this fragment
         inflate = inflater.inflate(R.layout.fragment_car_shop, container, false);
         initView(inflate);
+        initPopupwindows();
+        initLinnsert();
+        initData();
         return inflate;
+    }
+
+    private void initData() {
+        ArrayList<TestBean> testBeen = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            testBeen.add(new TestBean("https://img01.sogoucdn.com/net/a/04/link?url=http%3A%2F%2Fimg02.sogoucdn.com%2Fapp%2Fa%2F100520093%2Fb02984f46fae9d60-83addf1637031898-c0f2a058a6f60e7ff0c4a56701ab619a.jpg&appid=122","豪车"+i,"400"+i));
+        }
+        ForeCarAdapter foreCarAdapter = new ForeCarAdapter(testBeen, getActivity());
+        foreListView.setAdapter(foreCarAdapter);
     }
 //
 //
