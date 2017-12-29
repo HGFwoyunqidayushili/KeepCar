@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
@@ -25,13 +25,8 @@ dependencies {
 
     compile 'com.android.support:design:26.0.0-alpha1'
     compile 'com.squareup.okhttp3:okhttp:3.9.0'
-
-    
-
-    compile 'com.android.support:appcompat-v7:25.0.0-alpha1'
-
+    compile 'com.android.support:percent:25.1.0'
     compile 'com.android.support:appcompat-v7:25.3.1'
-
     compile 'com.zhy:autolayout:1.4.3'
     compile 'com.zaaach:citypicker:1.1'
     compile 'com.google.code.gson:gson:2.2.4'
