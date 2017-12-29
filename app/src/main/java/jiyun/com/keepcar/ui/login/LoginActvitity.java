@@ -75,6 +75,7 @@ public class LoginActvitity extends BaseActivity implements View.OnClickListener
         //计时完毕的方法
         @Override
         public void onFinish() {
+
             //重新给Button设置文字
             getCode.setText("获取验证码");
             //设置可点击
