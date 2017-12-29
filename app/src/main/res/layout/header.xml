@@ -4,88 +4,138 @@
     android:layout_height="match_parent"
       android:orientation="vertical"
     >
-    <com.recker.flybanner.FlyBanner
+    <com.youth.banner.Banner
         android:layout_width="match_parent"
         android:layout_height="300px"
          android:id="@+id/fly_banner"
         >
-    </com.recker.flybanner.FlyBanner>
+    </com.youth.banner.Banner>
     <RadioGroup
+        android:id="@+id/radio_CarService"
         android:layout_width="match_parent"
         android:layout_height="145px"
           android:orientation="horizontal"
+          android:background="@color/white"
         >
         <RadioButton
+            android:id="@+id/radio_baoyang"
             style="@style/TabBtn"
             android:drawableTop="@mipmap/dianbaoyang"
             android:text="4S店保养"
-            android:textSize="30px"
+
             />
         <RadioButton
-
+            android:id="@+id/radio_weixiu"
             style="@style/TabBtn"
             android:drawableTop="@mipmap/dianweixiu"
             android:text="4S店维修"
-            android:textSize="30px"
+
             />
         <RadioButton
-
+           android:id="@+id/radio_show"
             style="@style/TabBtn"
             android:drawableTop="@mipmap/dianzhanting"
             android:text="4S店展厅"
-            android:textSize="30px"
+
             />
         <RadioButton
-
+             android:id="@+id/radio_xubao"
             style="@style/TabBtn"
             android:drawableTop="@mipmap/dianxubao"
             android:text="4S店续保"
-            android:textSize="30px"
+
             />
         <RadioButton
+            android:id="@+id/radio_jingpin"
             style="@style/TabBtn"
             android:drawableTop="@mipmap/dianjingpin"
             android:text="4S店精品"
-            android:textSize="30px"
+
             />
     </RadioGroup>
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="145px"
         android:orientation="horizontal"
+        android:background="@color/white"
         >
         <RadioButton
             style="@style/TabBtn"
             android:drawableTop="@mipmap/xiche"
             android:text="洗车"
-            android:textSize="30px"
+
             />
         <RadioButton
 
             style="@style/TabBtn"
             android:drawableTop="@mipmap/jingcaihuodong"
             android:text="精彩活动"
-            android:textSize="30px"
+
             />
         <RadioButton
 
             style="@style/TabBtn"
             android:drawableTop="@mipmap/jifenshangcheng"
             android:text="积分商场"
-            android:textSize="30px"
+
             />
         <RadioButton
 
             style="@style/TabBtn"
             android:drawableTop="@mipmap/weizhangchaxun"
             android:text="违章查询"
-            android:textSize="30px"
+
             />
         <RadioButton
             style="@style/TabBtn"
             android:drawableTop="@mipmap/daolujiuyuan"
             android:text="道路援救"
+
+            />
+    </RadioGroup>
+    <ViewFlipper
+         android:id="@+id/viewflipager"
+        android:layout_marginTop="20px"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoStart="true"
+        android:flipInterval="2000"
+        android:inAnimation="@anim/anim_marquee_in"
+        android:outAnimation="@anim/anim_marquee_out"
+        >
+    </ViewFlipper>
+    <RadioGroup
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="165px"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:id="@+id/top_tuangou"
+            style="@style/TabBtn"
+            android:drawableTop="@mipmap/abulk"
+            android:textSize="30px"
+            />
+
+        <RadioButton
+            android:id="@+id/top_maizeng"
+            style="@style/TabBtn"
+            android:drawableTop="@mipmap/buyaift"
+            android:textSize="30px"
+            />
+        <RadioButton
+            android:id="@+id/top_miaosha"
+            style="@style/TabBtn"
+            android:drawableTop="@mipmap/secondkill"
+            android:textSize="30px"
+            />
+        <RadioButton
+            android:id="@+id/top_qianggou"
+            style="@style/TabBtn"
+            android:drawableTop="@mipmap/tosnapup"
             android:textSize="30px"
             />
     </RadioGroup>
+
 </com.zhy.autolayout.AutoLinearLayout>
