@@ -42,6 +42,10 @@
             android:name="design_height"
             android:value="1280"></meta-data>
 
+<activity android:name=".ui.homepage.forecar.Car_details"></activity>
+
+
+
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -59,7 +63,14 @@
             android:name="com.amap.api.v2.apikey"
             android:value="35278530d09e83344679fd865feeea6d" />
 
+
+        <activity android:name=".ui.homepage.forecar.Order_CarActivity">
+
+
+        </activity>
+
         <activity android:name=".ui.fourCarshow.activity.FourcarShowActivity"></activity>
+
     </application>
 
 </manifest>
