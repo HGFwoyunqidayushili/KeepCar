@@ -7,6 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 import jiyun.com.keepcar.R;
@@ -50,7 +52,8 @@ public class ForeCarAdapter extends BaseAdapter {
             viewHoder = (ViewHolder) convertView.getTag();
         }
         viewHoder.carName.setText(arrayList.get(position).getName());
-
+        viewHoder.carContent.setText(arrayList.get(position).getPrice());
+        Glide.with(context).load(arrayList.get(position).getImage()).into(viewHoder.listImage);
         return convertView;
     }
 
