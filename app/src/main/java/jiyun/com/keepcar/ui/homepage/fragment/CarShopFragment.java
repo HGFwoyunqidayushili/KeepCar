@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import jiyun.com.keepcar.R;
 
 /**
+ *
  * A simple {@link Fragment} subclass.
  */
 public class CarShopFragment extends Fragment {

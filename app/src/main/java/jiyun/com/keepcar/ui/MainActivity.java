@@ -1,10 +1,14 @@
 package jiyun.com.keepcar.ui;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -15,35 +19,49 @@ import com.amap.api.location.AMapLocationListener;
 import com.zaaach.citypicker.CityPickerActivity;
 import com.zaaach.citypicker.utils.StringUtils;
 
-import java.util.List;
-
 import jiyun.com.keepcar.R;
 import jiyun.com.keepcar.ui.homepage.fragment.CarShopFragment;
 import jiyun.com.keepcar.ui.homepage.fragment.HomePageFragment;
 import jiyun.com.keepcar.ui.homepage.fragment.PersonalFragment;
 import jiyun.com.keepcar.ui.homepage.fragment.ShoppingcartFragment;
+import jiyun.com.keepcar.ui.login.LoginActvitity;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     private HomePageFragment homePageFragment;
     private CarShopFragment carShopFragment;
     private PersonalFragment personalFragment;
     private ShoppingcartFragment shoppingcartFragment;
-    private List<Fragment> FragmentList;
     private RadioGroup radioGroup;
     private FragmentManager manager;
     private TextView address;
     private AMapLocationClient mLocationClient;
-
+    private  TextView keepcar;
+    public static ImageView add;
+    private TextView theeditor;
+    private boolean flag;
+    private ImageView menu;
     @Override
     protected void initView() {
         initLocation();
+        keepcar= (TextView) findViewById(R.id.yangche);
+        add= (ImageView) findViewById(R.id.add);
+        add.setOnClickListener(this);
+        menu= (ImageView) findViewById(R.id.menu);
+        menu.setOnClickListener(this);
         manager=getSupportFragmentManager();
         address= (TextView) findViewById(R.id.address);
         radioGroup= (RadioGroup) findViewById(R.id.tabGroup);
+        theeditor= (TextView) findViewById(R.id.Theeditor);
+//        homePageFragment=new HomePageFragment();
+        if(homePageFragment==null){
+            homePageFragment=new HomePageFragment();
+            manager.beginTransaction().add(R.id.Frame_layout,homePageFragment).commit();
+        }
+        else {
+            manager.beginTransaction().replace(R.id.Frame_layout,homePageFragment).commit();
+        }
 
-        homePageFragment=new HomePageFragment();
-        manager.beginTransaction().replace(R.id.Frame_layout,homePageFragment).commit();
     }
 
     @Override
@@ -57,16 +75,44 @@ public class MainActivity extends BaseActivity {
                public void onCheckedChanged(RadioGroup radioGroup, int i) {
                    switch (i){
                        case R.id.rbTabHome:
+
+                           keepcar.setText("");
+                           add.setBackground(getResources().getDrawable(R.drawable.add));
+                           keepcar.setBackground(getResources().getDrawable(R.drawable.yangche));
+                           theeditor.setVisibility(View.GONE);
+                           add.setVisibility(View.VISIBLE);
+                           menu.setVisibility(View.GONE);
                           setChooseItem(0);
+
                            break;
                        case R.id.rb4Sshop:
+                           theeditor.setVisibility(View.GONE);
+                           keepcar.setText("4S店");
+                           keepcar.setBackgroundColor(Color.parseColor("#343434"));
+                           add.setVisibility(View.INVISIBLE);
+                           menu.setVisibility(View.GONE);
                            setChooseItem(1);
+
                            break;
                        case R.id.rbShoppingCar:
+                           keepcar.setText("购物车");
+                           keepcar.setBackgroundColor(Color.parseColor("#343434"));
+                           add.setVisibility(View.INVISIBLE);
+                           theeditor.setVisibility(View.VISIBLE);
+                           menu.setVisibility(View.GONE);
+
                            setChooseItem(2);
+
                            break;
                        case R.id.rbPersonal:
+
                            setChooseItem(3);
+                           keepcar.setText("个人中心");
+                           theeditor.setVisibility(View.GONE);
+                           menu.setBackground(getResources().getDrawable(R.mipmap.you));
+                           keepcar.setBackgroundColor(Color.parseColor("#343434"));
+                           menu.setVisibility(View.VISIBLE);
+                           add.setVisibility(View.GONE);
                            break;
                    }
                }
@@ -181,5 +227,71 @@ public class MainActivity extends BaseActivity {
             });
             mLocationClient.startLocation();
         }
-  //////
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+
+            case R.id.add:
+                showToast("11111111111");
+                break;
+            case R.id.menu:
+//                showToast("2222222222");|
+                View inflate = LayoutInflater.from(this).inflate(R.layout.pop_login, null);
+                final PopupWindow popupWindow = new PopupWindow(inflate, 250, 250);
+                TextView finsh_login = (TextView) inflate.findViewById(R.id.finsh_login);
+                TextView qiehuan_name = (TextView) inflate.findViewById(R.id.qiehuan_name);
+                finsh_login.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MainActivity.this, LoginActvitity.class);
+                        startActivity(intent);
+                    }
+                });
+                qiehuan_name.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent1 = new Intent(MainActivity.this, LoginActvitity.class);
+                        startActivity(intent1);
+                    }
+                });
+
+//                WindowManager.LayoutParams attributes = getWindow().getAttributes();
+//                attributes.alpha=0.5f;
+//                getWindow().setAttributes(attributes);
+
+//                popupWindow.setFocusable(true);
+//                popupWindow.setFocusable(true);
+//                popupWindow.showAtLocation(inflate, Gravity.CENTER,0,0);
+//                final PopupWindow pop = new PopupWindow(inflate, ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT, false);
+
+// 需要设置一下此参数，点击外边可消失
+                popupWindow.setBackgroundDrawable(new BitmapDrawable());
+//设置点击窗口外边窗口消失
+                popupWindow.setOutsideTouchable(true);
+// 设置此参数获得焦点，否则无法点击
+                popupWindow.setFocusable(true);
+//                menu.setOnClickListener(new View.OnClickListener() {
+
+                   // @Override
+//                    public void onClick(View v) {
+                        if(popupWindow.isShowing()) {
+                            // 隐藏窗口，如果设置了点击窗口外小时即不需要此方式隐藏
+                            popupWindow.dismiss();
+                        } else {
+                            // 显示窗口
+                            popupWindow.showAsDropDown(v);
+                        }
+
+//                    }
+//                });
+
+
+                break;
+            case R.id.Theeditor:
+
+                break;
+        }
+    }
+
 }
