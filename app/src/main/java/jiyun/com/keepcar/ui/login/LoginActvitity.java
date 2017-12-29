@@ -73,6 +73,7 @@ public class LoginActvitity extends BaseActivity implements View.OnClickListener
         }
 
         //计时完毕的方法
+
         @Override
         public void onFinish() {
 
