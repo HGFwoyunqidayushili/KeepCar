@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/App_title"
-        app:centerTvSize="40px"
-        app:rightTvSize="35px"
+        app:centerTvSize="50px"
+        app:rightTvSize="45px"
         app:leftImgMarginleft="5px"
         app:rightTvMarginright="30px"
         >

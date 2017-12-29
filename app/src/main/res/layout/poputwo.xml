@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<!--   -->
+    <RadioGroup
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RadioButton
+
+        android:id="@+id/raOne"
+        android:text="店面不限"
+
+        android:button="@null"
+        android:textSize="29px"
+        android:checked="true"
+        android:layout_width="match_parent"
+        android:layout_height="120px" />
+    <RadioButton
+        android:id="@+id/raTwo"
+        android:text="我的会员单"
+        android:textSize="29px"
+        android:button="@null"
+        android:drawableLeft="@drawable/ischacked"
+        android:layout_width="match_parent"
+        android:layout_height="120px" />
+    <RadioButton
+        android:id="@+id/raThree"
+        android:text="历史下单店"
+        android:textSize="29px"
+        android:button="@null"
+        android:drawableLeft="@drawable/ischacked"
+        android:layout_width="match_parent"
+        android:layout_height="120px"/>
+</RadioGroup>
+
+</LinearLayout>
