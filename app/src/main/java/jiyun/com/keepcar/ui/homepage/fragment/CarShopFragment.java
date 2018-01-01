@@ -282,6 +282,7 @@ public class CarShopFragment extends Fragment {
                 }
             }
         });
+        //
     }
 
     private void disPopThree() {
