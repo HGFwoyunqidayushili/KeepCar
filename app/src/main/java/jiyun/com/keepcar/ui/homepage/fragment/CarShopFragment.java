@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -27,9 +28,12 @@ import jiyun.com.keepcar.bean.TestBean;
 import jiyun.com.keepcar.ui.adapter.ForeCarAdapter;
 import jiyun.com.keepcar.ui.homepage.forecar.Car_details;
 
-/**
- * 4s店
- */
+
+
+
+
+
+
 public class CarShopFragment extends Fragment {
 
 
@@ -128,14 +132,15 @@ public class CarShopFragment extends Fragment {
 
             }
         });
-
-
     }
+
+
+
 
     private void showPopOne() {
         //----------------------------------------------店面PopupWindows----------------------------------------------
         View popupview2 = LayoutInflater.from(getActivity()).inflate(R.layout.poputwo, null);
-        pinpaiPop2 = new PopupWindow(popupview2, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        pinpaiPop2 = new PopupWindow(popupview2, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         pinpaiPop2.setBackgroundDrawable(new BitmapDrawable());
         pinpaiPop2.setBackgroundDrawable(new ColorDrawable());
         pinpaiPop2.showAsDropDown(linlayout, 0, 0, Gravity.BOTTOM);
@@ -164,6 +169,7 @@ public class CarShopFragment extends Fragment {
 //            storefront.setText("店面不限");
                     raone.setTextColor(Color.RED);
                     storefront.setChecked(false);
+                    Toast.makeText(getActivity(), "店面不限", Toast.LENGTH_SHORT).show();
                 } else {
 //            storefront.setText("店面不限");
                     raone.setTextColor(Color.BLACK);
@@ -180,6 +186,7 @@ public class CarShopFragment extends Fragment {
                     raTwo.setTextColor(Color.RED);
                     pinpaiPop2.dismiss();
                     storefront.setChecked(false);
+                    Toast.makeText(getActivity(), "我的会员单", Toast.LENGTH_SHORT).show();
                 } else {
 //            storefront.setText("店面不限");
                     raTwo.setTextColor(Color.BLACK);
@@ -194,6 +201,7 @@ public class CarShopFragment extends Fragment {
                     raThree.setTextColor(Color.RED);
                     pinpaiPop2.dismiss();
                     storefront.setChecked(false);
+                    Toast.makeText(getActivity(), "历史下单店", Toast.LENGTH_SHORT).show();
                 } else {
 //            storefront.setText("店面不限");
                     raThree.setTextColor(Color.BLACK);
@@ -215,21 +223,25 @@ public class CarShopFragment extends Fragment {
         pinpaiPop3.setBackgroundDrawable(new BitmapDrawable());
 
         pinpaiPop3.showAsDropDown(linlayout, 0, 0, Gravity.BOTTOM);
+        if (pinpaiPop3.isShowing()){
+            pinpaiPop2.dismiss();
+            WindowManager.LayoutParams attributes = getActivity().getWindow().getAttributes();
+            attributes.alpha = 0.5f;
+            getActivity().getWindow().setAttributes(attributes);
+        }
+        pinpaiPop3.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                WindowManager.LayoutParams attributes = getActivity().getWindow().getAttributes();
+                attributes.alpha = 1.0f;
+                getActivity().getWindow().setAttributes(attributes);
+            }
+        });
+        pinpaiPop2.setFocusable(true);
         aDefault = (RadioButton) popupview3.findViewById(R.id.Default);
         Distance = (RadioButton) popupview3.findViewById(R.id.Distance);
         Evaluate = (RadioButton) popupview3.findViewById(R.id.Evaluate);
-        aDefault.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b == true) {
-                    pinpaiPop3.dismiss();
-                    sort.setChecked(false);
-                    aDefault.setTextColor(Color.RED);
-                } else {
-                    aDefault.setTextColor(Color.BLACK);
-                }
-            }
-        });
+
         Distance.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -237,10 +249,23 @@ public class CarShopFragment extends Fragment {
                     pinpaiPop3.dismiss();
                     sort.setChecked(false);
                     Distance.setTextColor(Color.RED);
+                    Toast.makeText(getActivity(), "距离最近", Toast.LENGTH_SHORT).show();
                 } else {
                     Distance.setTextColor(Color.BLACK);
                 }
-                //
+            }
+        });
+        aDefault.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b == true) {
+                    pinpaiPop3.dismiss();
+                    sort.setChecked(false);
+                    aDefault.setTextColor(Color.RED);
+                    Toast.makeText(getActivity(), "默认排序", Toast.LENGTH_SHORT).show();
+                } else {
+                    aDefault.setTextColor(Color.BLACK);
+                }
             }
         });
         Evaluate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -250,6 +275,7 @@ public class CarShopFragment extends Fragment {
                     pinpaiPop3.dismiss();
                     sort.setChecked(false);
                     Evaluate.setTextColor(Color.RED);
+                    Toast.makeText(getActivity(), "评价最高", Toast.LENGTH_SHORT).show();
                 } else {
                     Evaluate.setTextColor(Color.BLACK);
                 }
@@ -260,4 +286,5 @@ public class CarShopFragment extends Fragment {
     private void disPopThree() {
         pinpaiPop3.dismiss();
     }
+
 }
