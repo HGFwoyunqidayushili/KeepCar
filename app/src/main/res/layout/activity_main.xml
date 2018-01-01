@@ -11,10 +11,12 @@
      android:layout_height="100px"
 
      >
-   <include
-       layout="@layout/apptitle"
-       >
-   </include>
+  <com.zhy.autolayout.AutoLinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="100px"
+        android:background="@color/heise"
+      ></com.zhy.autolayout.AutoLinearLayout>
+
    <TextView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
@@ -26,8 +28,8 @@
        android:layout_marginLeft="20px"
        />
    <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
+       android:layout_width="150px"
+       android:layout_height="50px"
        android:layout_centerInParent="true"
         android:background="@drawable/yangche"
         android:textColor="@color/white"
@@ -35,10 +37,20 @@
 
              android:textSize="30px"
        />
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+          android:id="@+id/centerTv"
+         android:layout_centerInParent="true"
+         android:visibility="gone"
+         android:textSize="30px"
+         android:textColor="@color/white"
+         android:text=""
+         />
    <ImageView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:background="@drawable/add"
+       android:background="@mipmap/add"
        android:layout_alignParentRight="true"
        android:layout_centerVertical="true"
        android:layout_marginRight="20px"
@@ -57,15 +69,6 @@
          android:textColor="@color/white"
          android:text="编辑"
          />
-     <ImageView
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:id="@+id/menu"
-         android:layout_alignParentRight="true"
-         android:layout_centerVertical="true"
-         android:layout_marginRight="20px"
-          android:background="@mipmap/you"
-         android:visibility="gone"
 
          />
  </com.zhy.autolayout.AutoRelativeLayout>
