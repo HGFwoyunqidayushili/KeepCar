@@ -78,7 +78,7 @@ public class CarShopFragment extends Fragment {
             }
         });
     }
-
+//
     private void initSomeData() {
         times = new ArrayList<>();
         types = new ArrayList<>();
