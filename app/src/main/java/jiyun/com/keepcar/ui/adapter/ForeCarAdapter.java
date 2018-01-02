@@ -52,22 +52,17 @@ public class ForeCarAdapter extends BaseAdapter {
             viewHoder = (ViewHolder) convertView.getTag();
         }
         viewHoder.carName.setText(arrayList.get(position).getName());
-        viewHoder.carContent.setText(arrayList.get(position).getPrice());
-        Glide.with(context).load(arrayList.get(position).getImage()).into(viewHoder.listImage);
+
         return convertView;
     }
 
     public static class ViewHolder {
         public View rootView;
-        public ImageView listImage;
         public TextView carName;
-        public TextView carContent;
 
         public ViewHolder(View rootView) {
             this.rootView = rootView;
-            this.listImage = (ImageView) rootView.findViewById(R.id.listImage);
             this.carName = (TextView) rootView.findViewById(R.id.carName);
-            this.carContent = (TextView) rootView.findViewById(R.id.carContent);
         }
 
     }
