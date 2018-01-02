@@ -20,7 +20,7 @@ import java.util.List;
 import jiyun.com.keepcar.R;
 
 public class Order_CarActivity extends AppCompatActivity implements View.OnClickListener {
-
+//
     private ViewPager vp;
     private TextView button;
     private int[] res = {R.drawable.car1, R.drawable.car2, R.drawable.car3};

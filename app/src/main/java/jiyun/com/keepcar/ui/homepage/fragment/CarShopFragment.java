@@ -47,7 +47,7 @@ public class CarShopFragment extends Fragment {
     List<DropBean> types;
     List<DropBean> names;
     private ListView foreCarListView;
-
+//
 
     public CarShopFragment() {
         // Required empty public constructor

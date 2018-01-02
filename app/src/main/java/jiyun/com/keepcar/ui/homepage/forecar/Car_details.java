@@ -30,7 +30,7 @@ public class Car_details extends AppCompatActivity implements View.OnClickListen
     private LinearLayout topLinlayout;
     private ViewPager foreViewpagers;
     private TabLayout tabLayout;
-
+//
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

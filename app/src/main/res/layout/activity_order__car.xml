@@ -68,7 +68,7 @@
                 android:text="电话"
                 android:textColor="#000" />
         </LinearLayout>
-
+<!---->
         <Button
             android:id="@+id/insertorder"
             android:layout_width="0dp"
