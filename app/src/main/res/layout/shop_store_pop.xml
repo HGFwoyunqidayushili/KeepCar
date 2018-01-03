@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#77000000"
+    android:orientation="vertical"
+
+    >
+
+    <RadioGroup
+        android:id="@+id/rg_shop_store_pop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFF"
+        >
+
+        <RadioButton
+            android:id="@+id/rb_storefront"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:padding="20px"
+            android:text="4S店不限"
+            android:textColor="#606060"
+            android:textSize="25px" />
+
+        <RadioButton
+            android:id="@+id/rb_member"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:padding="20px"
+            android:text="全部会员店"
+            android:textColor="#606060"
+            android:textSize="25px" />
+
+        <RadioButton
+            android:id="@+id/rb_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:padding="20px"
+            android:text="某某某店铺"
+            android:textColor="#606060"
+            android:textSize="25px" />
+    </RadioGroup>
+
+</com.zhy.autolayout.AutoLinearLayout>
