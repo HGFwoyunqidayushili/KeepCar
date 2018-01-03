@@ -3,6 +3,7 @@ package jiyun.com.keepcar.ui.adapter.carRenewal.activity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -21,7 +22,7 @@ import jiyun.com.keepcar.utils.Popupwindow;
 import jiyun.com.keepcar.view.MyApptitle;
 
 public class RenewalAcrivity extends BaseActivity implements View.OnClickListener,InfoContract.Views<Insurancecompany> {
-
+//
    private MyApptitle App_title;
    private RelativeLayout last_Insurance;
    private RelativeLayout this_Insurance;
@@ -32,6 +33,7 @@ public class RenewalAcrivity extends BaseActivity implements View.OnClickListene
     private List<Insurancecompany.DataBean> insurancecompanyList;
     private Popupwindow popupwindow;
     private ListView listView;
+    private Button bt_Quotation;
 
     @Override
     protected void initView() {
@@ -48,6 +50,8 @@ public class RenewalAcrivity extends BaseActivity implements View.OnClickListene
         textView1= (TextView) findViewById(R.id.text1);
         textView2= (TextView) findViewById(R.id.text2);
         insurancecompanyList=new ArrayList<>();
+        bt_Quotation= (Button) findViewById(R.id.bt_quotation);
+        bt_Quotation.setOnClickListener(this);
     }
 ///
     @Override
@@ -66,16 +70,19 @@ public class RenewalAcrivity extends BaseActivity implements View.OnClickListene
         switch (view.getId()){
             case R.id.last_Insurance:
 
-
                 break;
             case R.id.this_Insurance:
-
                 View contentview= LayoutInflater.from(this).inflate(R.layout.insurance,null);
                 listView= (ListView) contentview.findViewById(R.id.lv_lv);
                 popupwindow=new Popupwindow(this,contentview,textView2);
                 popupwindow.show();
                 InsuranceName insuranceName=new InsuranceName(this,insurancecompanyList);
                 listView.setAdapter(insuranceName);
+                break;
+            case R.id.bt_quotation:
+             View contenteview=LayoutInflater.from(this).inflate(R.layout.quotation,null);
+                popupwindow=new Popupwindow(this,contenteview,bt_Quotation);
+                popupwindow.show();
                 break;
         }
     }

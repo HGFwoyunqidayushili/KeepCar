@@ -273,7 +273,9 @@
            android:textSize="38px"
             android:background="@color/red"
            android:textColor="@color/white"
+           android:id="@+id/bt_quotation"
            />
+
    </com.zhy.autolayout.AutoRelativeLayout>
 
 </com.zhy.autolayout.AutoLinearLayout>
