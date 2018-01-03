@@ -56,7 +56,6 @@ public class RenewalAcrivity extends BaseActivity implements View.OnClickListene
     @Override
     protected int getLayoutID() {
         return R.layout.activity_renewal_acrivity;
-
     }
 
 
