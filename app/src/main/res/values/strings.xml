@@ -6,6 +6,7 @@
 
     <drawable name="color1">#f7b009</drawable>
     <drawable name="color2">#1057dc</drawable>
+    <drawable name="jifens">#ef8318</drawable>
 
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>

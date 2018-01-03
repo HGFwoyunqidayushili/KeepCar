@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#f2f3f4"
+    android:layout_height="match_parent">
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:padding="20px"-->
+        <!--android:background="@color/white"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@mipmap/ic_launcher"/>-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical">-->
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="车型  型号"/>-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="京888888"/>-->
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="建议下次保养 8900km|2018-041-2"/>-->
+
+        <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="2px"-->
+        <!--android:background="#c8cacc"></View>-->
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/white"-->
+        <!--android:layout_marginBottom="20px"-->
+        <!--&gt; -->
+        <!--<TextView-->
+            <!--android:id="@+id/delet_lovecar"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:drawableLeft="@mipmap/bianji"-->
+            <!--android:text="删除"-->
+            <!--android:padding="10px"-->
+            <!--android:textSize="28px" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/bianji_lovecar"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_toLeftOf="@+id/delet_lovecar"-->
+            <!--android:drawableLeft="@mipmap/bianji"-->
+            <!--android:text="编辑"-->
+            <!--android:padding="10px"-->
+            <!--android:textSize="28px" />-->
+    <!--</RelativeLayout>-->
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:text="111"-->
+        <!--android:layout_height="wrap_content" />-->
+<ListView
+    android:layout_width="match_parent"
+    android:layout_height="0px"
+    android:layout_weight="1"
+    android:id="@+id/lv_lovecar"></ListView>
+    <RadioGroup
+        android:id="@+id/radio_love"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal">8
+
+        <RadioButton
+            android:id="@+id/guanlianVIP"
+            android:layout_width="0px"
+            android:layout_height="120px"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@drawable/buttonloginground"
+            android:text="关联4s店会员"
+            android:textSize="35px" />
+
+        <RadioButton
+            android:id="@+id/addLove"
+            android:layout_width="0px"
+            android:layout_height="120px"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@drawable/buttonloginground2"
+            android:text="添加爱车"
+            android:textSize="35px" />
+    </RadioGroup>
+</LinearLayout>

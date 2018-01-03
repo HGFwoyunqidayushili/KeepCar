@@ -27,7 +27,6 @@ import jiyun.com.keepcar.ui.homepage.fragment.ShoppingcartFragment;
 import jiyun.com.keepcar.ui.login.LoginActvitity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
-
     private HomePageFragment homePageFragment;
     private CarShopFragment carShopFragment;
     private PersonalFragment personalFragment;
@@ -61,21 +60,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         else {
             manager.beginTransaction().replace(R.id.Frame_layout,homePageFragment).commit();
         }
-
     }
-
     @Override
     protected void initData() {
          initListener();
     }
-
     private void initListener() {
            radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                @Override
                public void onCheckedChanged(RadioGroup radioGroup, int i) {
                    switch (i){
                        case R.id.rbTabHome:
-
                            keepcar.setText("");
                            add.setBackground(getResources().getDrawable(R.drawable.add));
                            keepcar.setBackground(getResources().getDrawable(R.drawable.yangche));
@@ -83,7 +78,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                            add.setVisibility(View.VISIBLE);
                            menu.setVisibility(View.GONE);
                           setChooseItem(0);
-
                            break;
                        case R.id.rb4Sshop:
                            theeditor.setVisibility(View.GONE);
@@ -92,7 +86,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                            add.setVisibility(View.INVISIBLE);
                            menu.setVisibility(View.GONE);
                            setChooseItem(1);
-
                            break;
                        case R.id.rbShoppingCar:
                            keepcar.setText("购物车");
@@ -100,12 +93,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                            add.setVisibility(View.INVISIBLE);
                            theeditor.setVisibility(View.VISIBLE);
                            menu.setVisibility(View.GONE);
-
                            setChooseItem(2);
-
                            break;
                        case R.id.rbPersonal:
-
                            setChooseItem(3);
                            keepcar.setText("个人中心");
                            theeditor.setVisibility(View.GONE);
@@ -125,7 +115,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             }
         });
     }
-
     private void setChooseItem(int index) {
         FragmentTransaction transaction = manager.beginTransaction();
         hideFragment(transaction);
@@ -168,7 +157,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                break;
        }
     }
-
     private void hideFragment(FragmentTransaction transaction) {
         if(homePageFragment!=null){
             transaction.hide(homePageFragment);
@@ -184,12 +172,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         }
         transaction.commit();
     }
-
     @Override
     protected int getLayoutID() {
       return R.layout.activity_main;
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -199,8 +185,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 address.setText(city);
             }
         }
-    }
 
+    }
         private void initLocation() {
             mLocationClient = new AMapLocationClient(this);
             AMapLocationClientOption option = new AMapLocationClientOption();
@@ -227,18 +213,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             });
             mLocationClient.startLocation();
         }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-
             case R.id.add:
                 showToast("11111111111");
                 break;
             case R.id.menu:
 //                showToast("2222222222");|
                 View inflate = LayoutInflater.from(this).inflate(R.layout.pop_login, null);
-                final PopupWindow popupWindow = new PopupWindow(inflate, 250, 250);
+                final PopupWindow popupWindow = new PopupWindow(inflate, 250, 200);
                 TextView finsh_login = (TextView) inflate.findViewById(R.id.finsh_login);
                 TextView qiehuan_name = (TextView) inflate.findViewById(R.id.qiehuan_name);
                 finsh_login.setOnClickListener(new View.OnClickListener() {
@@ -255,11 +239,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                         startActivity(intent1);
                     }
                 });
-
 //                WindowManager.LayoutParams attributes = getWindow().getAttributes();
 //                attributes.alpha=0.5f;
 //                getWindow().setAttributes(attributes);
-
 //                popupWindow.setFocusable(true);
 //                popupWindow.setFocusable(true);
 //                popupWindow.showAtLocation(inflate, Gravity.CENTER,0,0);
@@ -272,7 +254,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 // 设置此参数获得焦点，否则无法点击
                 popupWindow.setFocusable(true);
 //                menu.setOnClickListener(new View.OnClickListener() {
-
                    // @Override
 //                    public void onClick(View v) {
                         if(popupWindow.isShowing()) {
@@ -282,16 +263,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                             // 显示窗口
                             popupWindow.showAsDropDown(v);
                         }
-
 //                    }
 //                });
-
-
                 break;
             case R.id.Theeditor:
 
                 break;
         }
+
     }
+
 
 }

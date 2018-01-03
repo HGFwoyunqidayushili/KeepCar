@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_margin="30px"
+            android:layout_height="wrap_content"
+            android:textSize="26px"
+            android:text="项目一项目一"/>
+        <TextView
+            android:id="@+id/project1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30px"
+            android:textSize="26px"
+            android:layout_centerHorizontal="true"
+            android:text="1"/>
+        <TextView
+            android:id="@+id/project1_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="30px"
+            android:text="2017-12-08止"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30px"
+            android:text="项目2项目2"
+            android:textSize="26px" />
+
+        <TextView
+            android:id="@+id/project2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="30px"
+            android:text="100"
+            android:textSize="26px" />
+
+        <TextView
+            android:id="@+id/project2_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="30px"
+            android:text="2017-12-08止" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_margin="30px"
+            android:layout_height="wrap_content"
+            android:textSize="26px"
+            android:text="项目3项目3"/>
+        <TextView
+            android:id="@+id/project3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30px"
+            android:textSize="26px"
+            android:layout_centerHorizontal="true"
+            android:text="20"/>
+        <TextView
+            android:id="@+id/project3_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="30px"
+            android:text="2017-12-08止"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="小计"
+           android:layout_margin="30px"
+           android:textColor="#ff0000"
+           android:textSize="26px"/>
+        <TextView
+            android:id="@+id/project_sum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ff0000"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="30px"
+            android:textSize="26px"
+            android:text="121"/>
+    </RelativeLayout>
+</LinearLayout>
