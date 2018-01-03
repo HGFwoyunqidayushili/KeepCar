@@ -7,6 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 import jiyun.com.keepcar.R;
@@ -56,15 +58,11 @@ public class ForeCarAdapter extends BaseAdapter {
 
     public static class ViewHolder {
         public View rootView;
-        public ImageView listImage;
         public TextView carName;
-        public TextView carContent;
 
         public ViewHolder(View rootView) {
             this.rootView = rootView;
-            this.listImage = (ImageView) rootView.findViewById(R.id.listImage);
             this.carName = (TextView) rootView.findViewById(R.id.carName);
-            this.carContent = (TextView) rootView.findViewById(R.id.carContent);
         }
 
     }

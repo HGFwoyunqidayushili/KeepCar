@@ -1,11 +1,22 @@
 package jiyun.com.keepcar.ui;
 
 import android.content.Intent;
+
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+
+
+import android.view.LayoutInflater;
+
+
+import android.widget.PopupWindow;
+
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -21,6 +32,7 @@ import jiyun.com.keepcar.ui.homepage.fragment.CarShopFragment;
 import jiyun.com.keepcar.ui.homepage.fragment.HomePageFragment;
 import jiyun.com.keepcar.ui.homepage.fragment.PersonalFragment;
 import jiyun.com.keepcar.ui.homepage.fragment.ShoppingcartFragment;
+import jiyun.com.keepcar.ui.login.LoginActvitity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
 
@@ -35,6 +47,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private  TextView keepcar;
     public static ImageView add;
     private TextView theeditor;
+
+  
+       
+       
+
     private String flag="a";
     private ImageView menu;
     private TextView centerTv;
@@ -51,6 +68,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
         //menu= (ImageView) findViewById(R.id.menu);
 //        menu.setOnClickListener(this);
+
         manager=getSupportFragmentManager();
         address= (TextView) findViewById(R.id.address);
         radioGroup= (RadioGroup) findViewById(R.id.tabGroup);
@@ -63,7 +81,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         else {
             manager.beginTransaction().replace(R.id.Frame_layout,homePageFragment).commit();
         }
+
+
         recyclerView= (RecyclerView) findViewById(R.id.recycler_view);
+
 
     }
 
@@ -78,6 +99,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                public void onCheckedChanged(RadioGroup radioGroup, int i) {
                    switch (i){
                        case R.id.rbTabHome:
+
                            add.setBackgroundResource(R.mipmap.add);
                            add.setVisibility(View.VISIBLE);
                            centerTv.setVisibility(View.GONE);
@@ -86,26 +108,34 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                            add.setTag(flag);
 
 
+
                           setChooseItem(0);
 
                            break;
                        case R.id.rb4Sshop:
+
                          add.setVisibility(View.GONE);
                           keepcar.setVisibility(View.GONE);
                            centerTv.setVisibility(View.VISIBLE);
                            centerTv.setText("4S店");
+
                            setChooseItem(1);
 
                            break;
                        case R.id.rbShoppingCar:
+
+
+
                            keepcar.setVisibility(View.GONE);
                            add.setVisibility(View.GONE);
                            centerTv.setVisibility(View.VISIBLE);
                            centerTv.setText("购物车");
+
                            setChooseItem(2);
 
                            break;
                        case R.id.rbPersonal:
+
                            keepcar.setVisibility(View.GONE);
                            add.setBackgroundResource(R.drawable.you);
                            add.setVisibility(View.VISIBLE);
@@ -116,6 +146,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                            setChooseItem(3);
                            flag="b";
                            add.setTag(flag);
+
                            break;
                    }
                }
@@ -236,6 +267,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         switch (v.getId()){
 
             case R.id.add:
+
+
+
           if(add.getTag().equals("a")){
               showToast("1111111111111111");
           }
@@ -301,6 +335,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 //                break;
        }
     }
+
 
 
 }

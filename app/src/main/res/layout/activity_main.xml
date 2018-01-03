@@ -11,6 +11,12 @@
      android:layout_height="100px"
 
      >
+ liurongbin4ss
+   <include
+       layout="@layout/apptitle"
+       >
+   </include>
+
   <com.zhy.autolayout.AutoLinearLayout
       android:layout_width="match_parent"
       android:layout_height="100px"
@@ -50,7 +56,21 @@
    <ImageView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
+
+       android:layout_centerInParent="true"
+        android:background="@drawable/yangche"
+        android:textColor="@color/white"
+        android:id="@+id/yangche"
+
+             android:textSize="30px"
+       />
+   <ImageView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:background="@drawable/add"
+
        android:background="@mipmap/add"
+
        android:layout_alignParentRight="true"
        android:layout_centerVertical="true"
        android:layout_marginRight="20px"
@@ -70,7 +90,7 @@
          android:text="编辑"
          />
 
-         />
+  
  </com.zhy.autolayout.AutoRelativeLayout>
  <FrameLayout
      android:layout_width="match_parent"

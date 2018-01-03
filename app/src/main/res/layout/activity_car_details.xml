@@ -10,68 +10,42 @@
     android:weightSum="1">
 
     <ImageView
-        android:src="@drawable/open"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/fore_Logo"
-        android:layout_alignBottom="@+id/fore_Image"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="39dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginBottom="18dp" />
-
-    <ImageView
         android:id="@+id/fore_Image"
         android:layout_width="match_parent"
-        android:layout_height="225px"
-        android:src="@drawable/che"
+        android:layout_height="295px"
+        android:src="@drawable/tiexia"
         android:scaleType="fitXY"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:id="@+id/fore_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="某某某汽车店"
-        android:background="#000"
-        android:textColor="#fff"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp"
-        android:layout_above="@+id/fore_Logo"
-        android:layout_toRightOf="@+id/fore_Logo"
-        android:layout_toEndOf="@+id/fore_Logo" />
-
-    <TextView
         android:id="@+id/fore_address"
         android:layout_width="wrap_content"
         android:textColor="#fff"
-        android:background="#000"
         android:textSize="10dp"
         android:layout_height="wrap_content"
         android:text="北京市朝阳区"
         android:layout_alignBottom="@+id/fore_Image"
         android:layout_alignLeft="@+id/fore_name"
         android:layout_alignStart="@+id/fore_name" />
-    <android.support.design.widget.TabLayout
-        android:layout_width="match_parent"
-        android:layout_below="@+id/fore_Image"
-        android:layout_height="wrap_content"
-        android:id="@+id/tabLayout"></android.support.design.widget.TabLayout>
-<LinearLayout
+
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_below="@+id/tabLayout"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+
     <android.support.v4.view.ViewPager
+        android:id="@+id/foreViewpagers"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"></android.support.v4.view.ViewPager>
-<LinearLayout
+<!---->
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+        android:id="@+id/topLinlayout"
     android:layout_below="@+id/foreViewPager"
     android:orientation="horizontal">
 <ImageView
@@ -82,6 +56,7 @@
     android:src="@drawable/yue"/>
     <ImageView
         android:layout_width="0dp"
+        android:id="@+id/faxian"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:src="@drawable/faxianba"/>
@@ -107,6 +82,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="发现"
+
         android:gravity="center"
         android:layout_weight="1"/>
     <TextView
@@ -117,4 +93,83 @@
         android:layout_weight="1"/>
     </LinearLayout>
 </LinearLayout>
+
+    <TextView
+        android:id="@+id/fore_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="某某某汽车店"
+        android:textColor="#fff"
+        android:layout_alignTop="@+id/fore_Logo"
+        android:layout_toRightOf="@+id/fore_Logo"
+        android:layout_toEndOf="@+id/fore_Logo" />
+
+    <ImageView
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fore_Logo"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
+        android:layout_above="@+id/tabLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:background="#212322"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/fore_address"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="29dp"
+        android:layout_marginEnd="29dp"
+        android:id="@+id/linearLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="综评4.9"
+            android:textColor="#ff00"
+            android:id="@+id/textView2" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30px"
+            android:src="@drawable/shangshneg"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="13dp"
+        android:layout_marginEnd="13dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30px"
+            android:src="@drawable/weizhi"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="201020km"
+            android:textColor="#000"
+           />
+
+    </LinearLayout>
+
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tabLayout"
+        android:layout_below="@+id/fore_Image"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"></android.support.design.widget.TabLayout>
 </RelativeLayout>

@@ -7,9 +7,11 @@
     <drawable name="color1">#f7b009</drawable>
     <drawable name="color2">#1057dc</drawable>
 
+
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
     <string name="xubao">"温馨提示:"</string>
     <string name="xubao1">"如果与上期是同一家保险公司且同一家4S续保,无需本人到店,直接"</string>
     <string name="xubao2">"对索取报价单完成支付即可,单子保单将自动发送指定邮箱"</string>
+
 </resources>
