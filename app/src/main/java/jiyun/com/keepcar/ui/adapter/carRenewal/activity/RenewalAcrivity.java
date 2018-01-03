@@ -64,7 +64,7 @@ public class RenewalAcrivity extends BaseActivity implements View.OnClickListene
         switch (view.getId()){
             case R.id.last_Insurance:
 
-//
+////
                 break;
             case R.id.this_Insurance:
                 presenterInfo.getNewsData(Constant.URL_STRING+BASE_URLSTRING,"");
