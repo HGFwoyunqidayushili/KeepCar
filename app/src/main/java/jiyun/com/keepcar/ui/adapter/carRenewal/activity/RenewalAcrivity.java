@@ -1,5 +1,6 @@
 package jiyun.com.keepcar.ui.adapter.carRenewal.activity;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
@@ -35,6 +36,7 @@ public class RenewalAcrivity extends BaseActivity implements View.OnClickListene
     @Override
     protected void initView() {
         presenterInfo=new PresenterInfo(this,this);
+        presenterInfo.getNewsData(Constant.URL_STRING+BASE_URLSTRING,"");
        App_title= (MyApptitle) findViewById(R.id.App_title);
         App_title.setCenterTv("4S店续保","#FFFFFF");
         App_title.setLeftImg(getResources().getDrawable(R.mipmap.back));
@@ -64,16 +66,16 @@ public class RenewalAcrivity extends BaseActivity implements View.OnClickListene
         switch (view.getId()){
             case R.id.last_Insurance:
 
-////
+
                 break;
             case R.id.this_Insurance:
-                presenterInfo.getNewsData(Constant.URL_STRING+BASE_URLSTRING,"");
+
                 View contentview= LayoutInflater.from(this).inflate(R.layout.insurance,null);
-                listView= (ListView) view.findViewById(R.id.lv_lv);
+                listView= (ListView) contentview.findViewById(R.id.lv_lv);
                 popupwindow=new Popupwindow(this,contentview,textView2);
                 popupwindow.show();
                 InsuranceName insuranceName=new InsuranceName(this,insurancecompanyList);
-                //listView.setAdapter(insuranceName);
+                listView.setAdapter(insuranceName);
                 break;
         }
     }
@@ -81,7 +83,9 @@ public class RenewalAcrivity extends BaseActivity implements View.OnClickListene
 
     @Override
     public void success(Insurancecompany insurancecompany) {
- ///////
+        List<Insurancecompany.DataBean> data = insurancecompany.getData();
+        insurancecompanyList.addAll(data);
+        Log.e("TAG",insurancecompanyList.get(0).getName());
     }
 
     @Override
@@ -91,8 +95,7 @@ public class RenewalAcrivity extends BaseActivity implements View.OnClickListene
 
     @Override
     public void successTwo(Insurancecompany insurancecompany) {
-        List<Insurancecompany.DataBean> data = insurancecompany.getData();
-        insurancecompanyList.addAll(data);
+
     }
 
 
