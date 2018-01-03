@@ -81,7 +81,7 @@ public class RenewalAcrivity extends BaseActivity implements View.OnClickListene
 
     @Override
     public void success(Insurancecompany insurancecompany) {
-
+ ///
     }
 
     @Override
