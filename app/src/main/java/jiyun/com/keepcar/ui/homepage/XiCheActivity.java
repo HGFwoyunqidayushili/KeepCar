@@ -1,5 +1,6 @@
 package jiyun.com.keepcar.ui.homepage;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 
 import jiyun.com.keepcar.R;
 import jiyun.com.keepcar.bean.TestBean;
+import jiyun.com.keepcar.ui.adapter.TestAdapter;
 
 public class XiCheActivity extends AppCompatActivity {
 
@@ -28,6 +31,7 @@ public class XiCheActivity extends AppCompatActivity {
     private LinearLayout layout;
     private PopupWindow popupWindow;
     private ListView xicheListView;
+    private ArrayList<TestBean> testBeen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +39,24 @@ public class XiCheActivity extends AppCompatActivity {
         setContentView(R.layout.activity_xi_che);
         initView();
         initData();
+        initAdapter();
+    }
+
+    private void initAdapter() {
+        TestAdapter testAdapter = new TestAdapter(testBeen, XiCheActivity.this);
+        xicheListView.setAdapter(testAdapter);
+        xicheListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity(new Intent(XiCheActivity.this,XiCheXiangQiingActivity.class));
+            }
+        });
     }
 
     private void initData() {
-        for (int i = 0; i < 15; i++) {
+        testBeen = new ArrayList<>();
+        for (int i = 1; i < 15; i++) {
+            testBeen.add(new TestBean("昌平区第"+i+"条大街"));
         }
     }
 

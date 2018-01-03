@@ -37,12 +37,12 @@
         <!-- 注明设计稿的尺寸 -->
         <meta-data
             android:name="design_width"
-            android:value="768"></meta-data>
+            android:value="768" />
         <meta-data
             android:name="design_height"
             android:value="1280" />
 
-        <activity android:name=".ui.homepage.forecar.Car_details"></activity>
+        <activity android:name=".ui.homepage.forecar.Car_details" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -61,9 +61,10 @@
             android:value="35278530d09e83344679fd865feeea6d" />
 
         <activity android:name=".ui.login.LoginActvitity" />
-        <activity android:name=".ui.homepage.forecar.Order_CarActivity"></activity>
+        <activity android:name=".ui.homepage.forecar.Order_CarActivity" />
         <activity android:name=".ui.fourCarshow.activity.FourcarShowActivity" />
-        <activity android:name=".ui.homepage.XiCheActivity"></activity>
+        <activity android:name=".ui.homepage.XiCheActivity" />
+        <activity android:name=".ui.homepage.XiCheXiangQiingActivity"></activity>
     </application>
 
 </manifest>
