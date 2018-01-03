@@ -15,7 +15,7 @@ public class MyBrandBean {
         this.index = index;
         this.name = name;
     }
-////
+//////
     public String getIndex() {
         return index;
     }
