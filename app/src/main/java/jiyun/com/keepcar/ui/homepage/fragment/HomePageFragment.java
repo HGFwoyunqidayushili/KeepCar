@@ -38,6 +38,7 @@ import jiyun.com.keepcar.ui.App;
 import jiyun.com.keepcar.ui.BaseFragment;
 import jiyun.com.keepcar.ui.Constant;
 import jiyun.com.keepcar.ui.MainActivity;
+import jiyun.com.keepcar.ui.adapter.carRenewal.activity.RenewalAcrivity;
 import jiyun.com.keepcar.ui.fourCarshow.activity.FourcarShowActivity;
 import jiyun.com.keepcar.utils.Cjson;
 import okhttp3.Call;
@@ -59,7 +60,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     private int count;
     private String BASE_URLSTRING="/main/queryHotProduct.do";
 
-    private String cityId=MainActivity.address.getText().toString();
+ //   private String cityId=MainActivity.address.getText().toString();
     private MainActivity activity;
 
     private CheckBox radio_baoyang;
@@ -105,6 +106,8 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         radio_jingpin.setOnClickListener(this);
         radio_weixiu= (CheckBox) view.findViewById(R.id.radio_weixiu);
         radio_weixiu.setOnClickListener(this);
+        radio_xubao= (CheckBox) view.findViewById(R.id.radio_xubao);
+        radio_xubao.setOnClickListener(this);
         testList.add( "爸妈爱的“白”娃娃，真是孕期吃出来的吗？");
         testList.add("如果徒步真的需要理由，十四个够不够？");
         testList.add( "享受清爽啤酒的同时，这些常识你真的了解吗？");
@@ -130,7 +133,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         PresenterInfo presenterInfo=new PresenterInfo(this,getActivity());
         presenterInfo.getNewsData(Constant.URLIMAGE_STRING,"");
         Map<String,Object> map=new HashMap<>();
-         map.put("cityId",cityId);
+         map.put("cityId","");
           String json=Cjson.toJSONMap(map);
          OkhttpUtils.getInstance().getPost(Constant.URL_STRING + BASE_URLSTRING, json, new Callback() {
              public String string;
@@ -150,7 +153,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                  App.activity.runOnUiThread(new Runnable() {
                      @Override
                      public void run() {
-                  Log.e("TAG",Constant.HOMEPAGE_IMAURL+carActivityList.get(1).getPoster());
+
                      }
                  });
 
@@ -209,6 +212,8 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                  startActivity(intent);
                  break;
              case R.id.radio_xubao:
+                 intent=new Intent(getActivity(), RenewalAcrivity.class);
+                 startActivity(intent);
                  break;
              case R.id.radio_jingpin:
                  break;

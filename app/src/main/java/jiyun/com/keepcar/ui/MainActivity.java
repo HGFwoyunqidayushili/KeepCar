@@ -108,6 +108,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                        case R.id.rbPersonal:
                            keepcar.setVisibility(View.GONE);
                            add.setBackgroundResource(R.drawable.you);
+                           add.setVisibility(View.VISIBLE);
                            centerTv.setVisibility(View.VISIBLE);
                            centerTv.setText("个人中心");
 
