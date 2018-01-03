@@ -4,6 +4,7 @@ import android.content.Context;
 
 import jiyun.com.keepcar.http.contract.InfoContract;
 import jiyun.com.keepcar.http.model.NetModel;
+import okhttp3.RequestBody;
 
 /**
  * Created by 阿三 on 2017/12/27.
@@ -19,7 +20,7 @@ public class PresenterInfo implements InfoContract.Presenter {
 
     }
     @Override
-    public void getNewsData(String page,String url) {
+    public void getNewsData(String page, String url) {
          model.requestNewsData(context,page,url,views);
     }
 

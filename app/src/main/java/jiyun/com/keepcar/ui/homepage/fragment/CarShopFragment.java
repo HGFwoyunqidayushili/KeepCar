@@ -3,7 +3,9 @@ package jiyun.com.keepcar.ui.homepage.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,19 +15,26 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import jiyun.com.keepcar.R;
+import jiyun.com.keepcar.bean.ForeCarBean;
 import jiyun.com.keepcar.bean.TestBean;
+import jiyun.com.keepcar.http.contract.InfoContract;
+import jiyun.com.keepcar.http.presenter.PresenterInfo;
 import jiyun.com.keepcar.ui.adapter.ForeCarAdapter;
 import jiyun.com.keepcar.ui.homepage.Utilscar.DropBean;
 import jiyun.com.keepcar.ui.homepage.Utilscar.DropdownButton;
 import jiyun.com.keepcar.ui.homepage.forecar.Car_details;
+import jiyun.com.keepcar.utils.ZJson;
 
 
-public class CarShopFragment extends Fragment {
+public class CarShopFragment extends Fragment implements InfoContract.Views<ForeCarBean> {
 
 
     private CheckBox brand;
@@ -47,6 +56,7 @@ public class CarShopFragment extends Fragment {
     List<DropBean> types;
     List<DropBean> names;
     private ListView foreCarListView;
+    private final String URL = "http://39.106.173.47:8080/app/4sShop/shopList.do";
 //
 
     public CarShopFragment() {
@@ -60,25 +70,17 @@ public class CarShopFragment extends Fragment {
         // Inflate the layout for this fragment
         View inflate = inflater.inflate(R.layout.fragment_car_shop, container, false);
         initView(inflate);
-        initData();
+        Map<String, Object> map = new HashMap<>();
+        map.put("brandId","品牌不限");
+        map.put("shopCode","4S店不限");
+        map.put("sortType","默认排序");
+
+        String s = ZJson.toJSONMap(map);
+        PresenterInfo presenterInfo = new PresenterInfo(this, getActivity());
+        presenterInfo.getNewsData(URL,s);
         return inflate;
     }
 
-    private void initData() {
-        ArrayList<TestBean> testBeen = new ArrayList<>();
-        for (int i = 1; i < 20; i++) {
-            testBeen.add(new TestBean("昌平区第"+i+"大街"));
-        }
-        ForeCarAdapter foreCarAdapter = new ForeCarAdapter(testBeen, getActivity());
-        foreCarListView.setAdapter(foreCarAdapter);
-        foreCarListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(getActivity(), Car_details.class));
-            }
-        });
-    }
-//
 
     private void initSomeData() {
         times = new ArrayList<>();
@@ -110,5 +112,26 @@ public class CarShopFragment extends Fragment {
         dropdownButton2.setData(types);
         dropdownButton3.setData(names);
         foreCarListView = (ListView) inflate.findViewById(R.id.foreCarListView);
+    }
+
+    @Override
+    public void success(ForeCarBean foreCarBean) {
+        final List<ForeCarBean.DataBean> data = foreCarBean.getData();
+        ForeCarAdapter foreCarAdapter = new ForeCarAdapter(data, getActivity());
+        foreCarListView.setAdapter(foreCarAdapter);
+     foreCarListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+         @Override
+         public void onItemClick(AdapterView<?> adapterView, View view, int postion, long l) {
+             Intent intent = new Intent(getActivity(), Car_details.class);
+             intent.putExtra("name",data.get(postion).getProvinceName()+data.get(postion).getCityName());
+             intent.putExtra("carname",data.get(postion).getShopName());
+             startActivity(intent);
+         }
+     });
+    }
+
+    @Override
+    public void failure(Throwable e) {
+
     }
 }

@@ -16,9 +16,9 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import java.util.ArrayList;
-
 
 import jiyun.com.keepcar.R;
 import jiyun.com.keepcar.ui.adapter.InsertFragment;
@@ -30,13 +30,17 @@ public class Car_details extends AppCompatActivity implements View.OnClickListen
     private LinearLayout topLinlayout;
     private ViewPager foreViewpagers;
     private TabLayout tabLayout;
-//
+    private TextView fore_address;
+    private TextView fore_name;
+
+    //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_details);
         initView();
         initInsertFragment();
+        getIntents();
     }
 
     private void initInsertFragment() {
@@ -50,9 +54,9 @@ public class Car_details extends AppCompatActivity implements View.OnClickListen
         for (int i = 0; i < 5; i++) {
             if (i == 0) {
                 tabLayout.addTab(tabLayout.newTab().setText(strings.get(i)));
-             fragments.add(new Shopping_Fragment());
+                fragments.add(new Shopping_Fragment());
                 tabLayout.setupWithViewPager(foreViewpagers);
-            }else if (i>0){
+            } else if (i > 0) {
                 tabLayout.addTab(tabLayout.newTab().setText(strings.get(i)));
                 fragments.add(new Shopping_Fragment());
                 tabLayout.setupWithViewPager(foreViewpagers);
@@ -78,6 +82,10 @@ public class Car_details extends AppCompatActivity implements View.OnClickListen
         foreViewpagers.setOnClickListener(this);
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setOnClickListener(this);
+        fore_address = (TextView) findViewById(R.id.fore_address);
+        fore_address.setOnClickListener(this);
+        fore_name = (TextView) findViewById(R.id.fore_name);
+        fore_name.setOnClickListener(this);
     }
 
     @Override
@@ -109,5 +117,13 @@ public class Car_details extends AppCompatActivity implements View.OnClickListen
                 });
                 break;
         }
+    }
+
+    public void getIntents() {
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("name");
+        String carname = intent.getStringExtra("carname");
+         fore_name.setText(carname);
+        fore_address.setText(name);
     }
 }

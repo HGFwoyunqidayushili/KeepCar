@@ -2,16 +2,19 @@ package jiyun.com.keepcar.ui.homepage.fragment;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.bumptech.glide.Glide;
@@ -28,11 +31,12 @@ import jiyun.com.keepcar.http.contract.InfoContract;
 import jiyun.com.keepcar.http.presenter.PresenterInfo;
 import jiyun.com.keepcar.ui.BaseFragment;
 import jiyun.com.keepcar.ui.Constant;
+import jiyun.com.keepcar.ui.homepage.XiCheActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomePageFragment extends BaseFragment implements InfoContract.Views<ImageBean>{
+public class HomePageFragment extends BaseFragment implements InfoContract.Views<ImageBean>,View.OnClickListener{
 
 
     private View view;
@@ -44,6 +48,8 @@ public class HomePageFragment extends BaseFragment implements InfoContract.Views
     private ArrayList<String> testList=new ArrayList<>();
     private int count;
     private String URL_STRING="http://39.106.173.47:8080/app/main/queryBrandImg.do";
+    private CheckBox xiiche;
+
     public HomePageFragment() {
         // Required empty public constructor
     }
@@ -57,6 +63,7 @@ public class HomePageFragment extends BaseFragment implements InfoContract.Views
         view=inflater.inflate(R.layout.fragment_home_page, container, false);
         herder=LayoutInflater.from(getActivity()).inflate(R.layout.header,null);
         initView();
+        initListener();
         initData();
         return view;
     }
@@ -65,8 +72,15 @@ public class HomePageFragment extends BaseFragment implements InfoContract.Views
         lv= (ListView) view.findViewById(R.id.lv);
         banner= (Banner) herder.findViewById(R.id.fly_banner);
         viewFlipper= (ViewFlipper) herder.findViewById(R.id.viewflipager);
-        radio_CarService= (RadioGroup) herder.findViewById(R.id.radio_CarService);
-         lv.addHeaderView(herder);
+        xiiche = herder.findViewById(R.id.xiche);
+        xiiche.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "洗车", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(), XiCheActivity.class));
+            }
+        });
+        lv.addHeaderView(herder);
         lv.setAdapter(null);
         testList.add( "爸妈爱的“白”娃娃，真是孕期吃出来的吗？");
         testList.add("如果徒步真的需要理由，十四个够不够？");
@@ -85,25 +99,9 @@ public class HomePageFragment extends BaseFragment implements InfoContract.Views
     }
 
     private void initListener() {
-         radio_CarService.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-             @Override
-             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                 switch (i){
-                     case R.id.radio_baoyang:
-                         break;
-                     case R.id.radio_weixiu:
-                         break;
-                     case R.id.radio_show:
-                         break;
-                     case R.id.radio_xubao:
-                         break;
-                     case R.id.radio_jingpin:
 
-                         break;
 
-                 }
-             }
-         });
+
     }
 
     @Override
@@ -136,7 +134,29 @@ public class HomePageFragment extends BaseFragment implements InfoContract.Views
 
     }
 
-   class GlideImageLoader extends ImageLoader{
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.radio_baoyang:
+                break;
+            case R.id.radio_weixiu:
+                break;
+            case R.id.radio_show:
+                break;
+            case R.id.radio_xubao:
+
+                break;
+            case R.id.radio_jingpin:
+
+                break;
+            case R.id.xiche:
+
+                break;
+
+        }
+    }
+
+    class GlideImageLoader extends ImageLoader{
 
        @Override
        public void displayImage(Context context, Object path, ImageView imageView) {
