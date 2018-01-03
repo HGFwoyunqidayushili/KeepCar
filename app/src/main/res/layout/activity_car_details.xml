@@ -144,7 +144,7 @@
         android:layout_width="wrap_content"
         android:orientation="horizontal"
         android:layout_height="wrap_content"
-
+android:background="#fff"
         android:layout_above="@+id/linearLayout"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"

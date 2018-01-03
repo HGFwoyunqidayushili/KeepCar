@@ -123,7 +123,7 @@ public class Car_details extends AppCompatActivity implements View.OnClickListen
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
         String carname = intent.getStringExtra("carname");
-         fore_name.setText(carname);
+        fore_name.setText(carname);
         fore_address.setText(name);
     }
 }
