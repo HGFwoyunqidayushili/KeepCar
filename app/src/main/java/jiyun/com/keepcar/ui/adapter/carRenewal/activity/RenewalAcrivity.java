@@ -47,7 +47,7 @@ public class RenewalAcrivity extends BaseActivity implements View.OnClickListene
         textView2= (TextView) findViewById(R.id.text2);
         insurancecompanyList=new ArrayList<>();
     }
-
+///
     @Override
     protected void initData() {
 
