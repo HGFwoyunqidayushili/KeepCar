@@ -3,6 +3,7 @@ package jiyun.com.keepcar.ui;
 import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
@@ -29,7 +30,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private ShoppingcartFragment shoppingcartFragment;
     private RadioGroup radioGroup;
     private FragmentManager manager;
-    private TextView address;
+    public static  TextView address;
     private AMapLocationClient mLocationClient;
     private  TextView keepcar;
     public static ImageView add;
@@ -37,7 +38,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private String flag="a";
     private ImageView menu;
     private TextView centerTv;
-
+    private RecyclerView recyclerView;
 
     @Override
     protected void initView() {
@@ -62,6 +63,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         else {
             manager.beginTransaction().replace(R.id.Frame_layout,homePageFragment).commit();
         }
+        recyclerView= (RecyclerView) findViewById(R.id.recycler_view);
 
     }
 

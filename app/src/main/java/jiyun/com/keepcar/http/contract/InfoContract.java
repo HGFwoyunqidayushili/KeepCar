@@ -11,13 +11,18 @@ public interface InfoContract {
 
     interface Model {
         void requestNewsData(Context context, String page,String url , HttpCallBack httpCallBack);
+        void requestNewsDataTwo(Context context, String page,String url , HttpCallBack httpCallBack);
     }
 
     interface Views<T>  extends HttpCallBack<T> {
 
     }
+    interface ViewTwo<T> extends HttpCallBack<T>{
+
+    }
 
     interface Presenter {
         void getNewsData(String page,String url);
+        void getNewsDataTwo(String page,String url);
     }
 }

@@ -10,89 +10,89 @@
          android:id="@+id/fly_banner"
         >
     </com.youth.banner.Banner>
-    <RadioGroup
+    <LinearLayout
         android:id="@+id/radio_CarService"
         android:layout_width="match_parent"
         android:layout_height="145px"
           android:orientation="horizontal"
           android:background="@color/white"
         >
-        <RadioButton
+        <CheckBox
             android:id="@+id/radio_baoyang"
             style="@style/TabBtn"
             android:drawableTop="@mipmap/dianbaoyang"
             android:text="4S店保养"
 
             />
-        <RadioButton
+        <CheckBox
             android:id="@+id/radio_weixiu"
             style="@style/TabBtn"
             android:drawableTop="@mipmap/dianweixiu"
             android:text="4S店维修"
 
             />
-        <RadioButton
+        <CheckBox
            android:id="@+id/radio_show"
             style="@style/TabBtn"
             android:drawableTop="@mipmap/dianzhanting"
             android:text="4S店展厅"
 
             />
-        <RadioButton
+        <CheckBox
              android:id="@+id/radio_xubao"
             style="@style/TabBtn"
             android:drawableTop="@mipmap/dianxubao"
             android:text="4S店续保"
 
             />
-        <RadioButton
+        <CheckBox
             android:id="@+id/radio_jingpin"
             style="@style/TabBtn"
             android:drawableTop="@mipmap/dianjingpin"
             android:text="4S店精品"
 
             />
-    </RadioGroup>
-    <RadioGroup
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="145px"
         android:orientation="horizontal"
         android:background="@color/white"
         >
-        <RadioButton
+        <CheckBox
             style="@style/TabBtn"
             android:drawableTop="@mipmap/xiche"
             android:text="洗车"
 
             />
-        <RadioButton
+        <CheckBox
 
             style="@style/TabBtn"
             android:drawableTop="@mipmap/jingcaihuodong"
             android:text="精彩活动"
 
             />
-        <RadioButton
+        <CheckBox
 
             style="@style/TabBtn"
             android:drawableTop="@mipmap/jifenshangcheng"
             android:text="积分商场"
 
             />
-        <RadioButton
+        <CheckBox
 
             style="@style/TabBtn"
             android:drawableTop="@mipmap/weizhangchaxun"
             android:text="违章查询"
 
             />
-        <RadioButton
+        <CheckBox
             style="@style/TabBtn"
             android:drawableTop="@mipmap/daolujiuyuan"
             android:text="道路援救"
 
             />
-    </RadioGroup>
+    </LinearLayout>
     <ViewFlipper
          android:id="@+id/viewflipager"
         android:layout_marginTop="20px"
@@ -137,5 +137,27 @@
             android:textSize="30px"
             />
     </RadioGroup>
+  <TextView
+      android:layout_marginTop="10px"
+      android:layout_width="match_parent"
+      android:layout_height="80px"
+       android:text="热门推荐"
+      android:paddingLeft="25px"
+      android:textColor="@color/heise"
+      android:gravity="center_vertical"
+      android:textSize="35px"
+      android:background="@color/white"
+      />
+ <TextView
+     android:layout_width="match_parent"
+     android:layout_height="0.1px"
+      android:background="@color/huise"
+     />
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerview"
+        >
 
+    </android.support.v7.widget.RecyclerView>
 </com.zhy.autolayout.AutoLinearLayout>
