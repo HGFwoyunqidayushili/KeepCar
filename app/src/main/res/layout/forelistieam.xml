@@ -1,26 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 <ImageView
-    android:layout_width="140dp"
-    android:layout_height="140dp"
+    android:layout_width="150dp"
     android:src="@mipmap/ic_launcher"
-    android:id="@+id/listImage"/>
-    <LinearLayout
+    android:layout_height="130dp"
+    android:id="@+id/forecar_Image"/>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/carName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="车名"/>
-        <TextView
-            android:id="@+id/carContent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="150px"
-            android:text="车名"/>
-    </LinearLayout>
-</LinearLayout>
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:text="1.8km北京市朝阳区"
+        android:id="@+id/forecarContent"
+        android:layout_alignBottom="@+id/forecar_Image"
+        android:layout_toRightOf="@+id/forecar_Image"
+        android:layout_toEndOf="@+id/forecar_Image"
+        android:layout_marginBottom="10dp" />
+
+    <ImageView
+        android:id="@+id/fprecarlogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginRight="19dp"
+        android:layout_marginEnd="19dp"
+        android:layout_below="@+id/forecarName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBar2"
+        style="@style/foodRatingBar"
+        android:layout_alignBottom="@+id/fprecarlogo"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/forecarName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="公司名称"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="14dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/forecar_Image"
+        android:layout_toEndOf="@+id/forecar_Image" />
+</RelativeLayout>

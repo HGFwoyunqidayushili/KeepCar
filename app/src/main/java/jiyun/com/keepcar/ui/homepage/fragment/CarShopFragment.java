@@ -2,41 +2,41 @@ package jiyun.com.keepcar.ui.homepage.fragment;
 
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
-import android.view.Gravity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import jiyun.com.keepcar.R;
+import jiyun.com.keepcar.bean.ForeCarBean;
 import jiyun.com.keepcar.bean.TestBean;
+import jiyun.com.keepcar.http.contract.InfoContract;
+import jiyun.com.keepcar.http.presenter.PresenterInfo;
 import jiyun.com.keepcar.ui.adapter.ForeCarAdapter;
+import jiyun.com.keepcar.ui.homepage.Utilscar.DropBean;
+import jiyun.com.keepcar.ui.homepage.Utilscar.DropdownButton;
 import jiyun.com.keepcar.ui.homepage.forecar.Car_details;
+import jiyun.com.keepcar.utils.ZJson;
 
 
+public class CarShopFragment extends Fragment implements InfoContract.Views<ForeCarBean> {
 
 
-
-
-
-public class CarShopFragment extends Fragment {
-
-
-    private View inflate;
     private CheckBox brand;
     private CheckBox storefront;
     private CheckBox sort;
@@ -49,7 +49,16 @@ public class CarShopFragment extends Fragment {
     private RadioButton aDefault;
     private RadioButton Distance;
     private RadioButton Evaluate;
-    private ListView foreListView;
+    DropdownButton dropdownButton1;
+    DropdownButton dropdownButton2;
+    DropdownButton dropdownButton3;
+    List<DropBean> times;
+    List<DropBean> types;
+    List<DropBean> names;
+    private ListView foreCarListView;
+    private final String URL = "http://39.106.173.47:8080/app/4sShop/shopList.do";
+//
+
     public CarShopFragment() {
         // Required empty public constructor
     }
@@ -59,208 +68,70 @@ public class CarShopFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        inflate = inflater.inflate(R.layout.fragment_car_shop, container, false);
+        View inflate = inflater.inflate(R.layout.fragment_car_shop, container, false);
         initView(inflate);
-        initPopupwindows();
-        initLinnsert();
-        initData();
+        Map<String, Object> map = new HashMap<>();
+        map.put("brandId","品牌不限");
+        map.put("shopCode","4S店不限");
+        map.put("sortType","默认排序");
+
+        String s = ZJson.toJSONMap(map);
+        PresenterInfo presenterInfo = new PresenterInfo(this, getActivity());
+        presenterInfo.getNewsData(URL,s);
         return inflate;
     }
 
-    private void initData() {
-        ArrayList<TestBean> testBeen = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            testBeen.add(new TestBean("https://img01.sogoucdn.com/net/a/04/link?url=http%3A%2F%2Fimg02.sogoucdn.com%2Fapp%2Fa%2F100520093%2Fb02984f46fae9d60-83addf1637031898-c0f2a058a6f60e7ff0c4a56701ab619a.jpg&appid=122","豪车"+i,"400"+i));
-        }
-        ForeCarAdapter foreCarAdapter = new ForeCarAdapter(testBeen, getActivity());
-        foreListView.setAdapter(foreCarAdapter);
+
+    private void initSomeData() {
+        times = new ArrayList<>();
+        types = new ArrayList<>();
+        names = new ArrayList<>();
+
+        times.add(new DropBean("汽车品牌"));
+        times.add(new DropBean("奥迪汽车"));
+        times.add(new DropBean("奔驰汽车"));
+        times.add(new DropBean("大众汽车"));
+        times.add(new DropBean("宝马汽车"));
+
+
+        types.add(new DropBean("店面不限"));
+        types.add(new DropBean("全部会员店"));
+        types.add(new DropBean("历史下单店 "));
+
+        names.add(new DropBean("默认排序"));
+        names.add(new DropBean("销量最高"));
+        names.add(new DropBean("积分值最低"));
     }
-//
-//
 
     private void initView(View inflate) {
-        brand = (CheckBox) inflate.findViewById(R.id.brand);
-        storefront = (CheckBox) inflate.findViewById(R.id.storefront);
-        sort = (CheckBox) inflate.findViewById(R.id.sort);
-        linlayout = (LinearLayout) inflate.findViewById(R.id.linlayout);
-        foreListView = (ListView) inflate.findViewById(R.id.foreListView);
-    }
-    private void initLinnsert() {
-
-        foreListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                startActivity(new Intent(getActivity(),Car_details.class));
-            }
-        });
+        dropdownButton1 = (DropdownButton) inflate.findViewById(R.id.time1);
+        dropdownButton2 = (DropdownButton) inflate.findViewById(R.id.time2);
+        dropdownButton3 = (DropdownButton) inflate.findViewById(R.id.time3);
+        initSomeData();
+        dropdownButton1.setData(times);
+        dropdownButton2.setData(types);
+        dropdownButton3.setData(names);
+        foreCarListView = (ListView) inflate.findViewById(R.id.foreCarListView);
     }
 
-    private void initPopupwindows() {
-        //----------------------------------------------品牌PopupWindows----------------------------------------------
-     /*   View popupview = LayoutInflater.from(ForeCarActivity.this).inflate(R.layout.popupone, null);
-        PopupWindow pinpaiPop = new PopupWindow(popupview, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        pinpaiPop.setBackgroundDrawable(new BitmapDrawable());
-        //pinpaiPop.showAtLocation(linlayout,Gravity.BOTTOM,0,0);
-        pinpaiPop.showAsDropDown(linlayout);*/
-
-        //第二个PopupWindows事件
-        storefront.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b == true) {
-                    showPopOne();
-                } else {
-                    disPopOne();
-                }
-
-
-            }
-
-
-        });
-        sort.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b == true) {
-                    showPopThree();
-
-                } else {
-                    disPopThree();
-                }
-
-
-            }
-        });
-
-
+    @Override
+    public void success(ForeCarBean foreCarBean) {
+        final List<ForeCarBean.DataBean> data = foreCarBean.getData();
+        ForeCarAdapter foreCarAdapter = new ForeCarAdapter(data, getActivity());
+        foreCarListView.setAdapter(foreCarAdapter);
+     foreCarListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+         @Override
+         public void onItemClick(AdapterView<?> adapterView, View view, int postion, long l) {
+             Intent intent = new Intent(getActivity(), Car_details.class);
+             intent.putExtra("name",data.get(postion).getProvinceName()+data.get(postion).getCityName());
+             intent.putExtra("carname",data.get(postion).getShopName());
+             startActivity(intent);
+         }
+     });
     }
 
-    private void showPopOne() {
-        //----------------------------------------------店面PopupWindows----------------------------------------------
-        View popupview2 = LayoutInflater.from(getActivity()).inflate(R.layout.poputwo, null);
-        pinpaiPop2 = new PopupWindow(popupview2, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        pinpaiPop2.setBackgroundDrawable(new BitmapDrawable());
-        pinpaiPop2.setBackgroundDrawable(new ColorDrawable());
-        pinpaiPop2.showAsDropDown(linlayout, 0, 0, Gravity.BOTTOM);
-        if (pinpaiPop2.isShowing()) {
-            WindowManager.LayoutParams attributes = getActivity().getWindow().getAttributes();
-            attributes.alpha = 0.5f;
-            getActivity().getWindow().setAttributes(attributes);
-        }
-        pinpaiPop2.setOnDismissListener(new PopupWindow.OnDismissListener() {
-            @Override
-            public void onDismiss() {
-                WindowManager.LayoutParams attributes = getActivity().getWindow().getAttributes();
-                attributes.alpha = 1.0f;
-                getActivity().getWindow().setAttributes(attributes);
-            }
-        });
-        pinpaiPop2.setFocusable(true);
+    @Override
+    public void failure(Throwable e) {
 
-        raone = (RadioButton) popupview2.findViewById(R.id.raOne);
-        raTwo = (RadioButton) popupview2.findViewById(R.id.raTwo);
-        raThree = (RadioButton) popupview2.findViewById(R.id.raThree);
-        raone.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (raone.isChecked()) {
-//            storefront.setText("店面不限");
-                    raone.setTextColor(Color.RED);
-                    storefront.setChecked(false);
-                } else {
-//            storefront.setText("店面不限");
-                    raone.setTextColor(Color.BLACK);
-                }
-            }
-        });
-
-
-        raTwo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (raTwo.isChecked()) {
-//            storefront.setText("店面不限");
-                    raTwo.setTextColor(Color.RED);
-                    pinpaiPop2.dismiss();
-                    storefront.setChecked(false);
-                } else {
-//            storefront.setText("店面不限");
-                    raTwo.setTextColor(Color.BLACK);
-                }
-            }
-        });
-        raThree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (raThree.isChecked()) {
-//            storefront.setText("店面不限");
-                    raThree.setTextColor(Color.RED);
-                    pinpaiPop2.dismiss();
-                    storefront.setChecked(false);
-                } else {
-//            storefront.setText("店面不限");
-                    raThree.setTextColor(Color.BLACK);
-                }
-            }
-        });
-
-
-    }
-
-    private void disPopOne() {
-        pinpaiPop2.dismiss();
-    }
-
-    private void showPopThree() {
-        //----------------------------------------------排序PopupWindows----------------------------------------------
-        final View popupview3 = LayoutInflater.from(getActivity()).inflate(R.layout.poputhree, null);
-        pinpaiPop3 = new PopupWindow(popupview3, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        pinpaiPop3.setBackgroundDrawable(new BitmapDrawable());
-
-        pinpaiPop3.showAsDropDown(linlayout, 0, 0, Gravity.BOTTOM);
-        aDefault = (RadioButton) popupview3.findViewById(R.id.Default);
-        Distance = (RadioButton) popupview3.findViewById(R.id.Distance);
-        Evaluate = (RadioButton) popupview3.findViewById(R.id.Evaluate);
-        aDefault.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b == true) {
-                    pinpaiPop3.dismiss();
-                    sort.setChecked(false);
-                    aDefault.setTextColor(Color.RED);
-                } else {
-                    aDefault.setTextColor(Color.BLACK);
-                }
-            }
-        });
-        Distance.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b == true) {
-                    pinpaiPop3.dismiss();
-                    sort.setChecked(false);
-                    Distance.setTextColor(Color.RED);
-                } else {
-                    Distance.setTextColor(Color.BLACK);
-                }
-                //
-            }
-        });
-        Evaluate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b == true) {
-                    pinpaiPop3.dismiss();
-                    sort.setChecked(false);
-                    Evaluate.setTextColor(Color.RED);
-                } else {
-                    Evaluate.setTextColor(Color.BLACK);
-                }
-            }
-        });
-    }
-
-    private void disPopThree() {
-        pinpaiPop3.dismiss();
     }
 }

@@ -8,22 +8,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import jiyun.com.keepcar.R;
-import jiyun.com.keepcar.bean.TestBean;
+import jiyun.com.keepcar.bean.ForeCarBean;
 
 /**
  * 这个世界上没有天才和大神,只有不努力的笨蛋和菜鸟   ____刘荣斌_____
  */
 public class ForeCarAdapter extends BaseAdapter {
-    private ArrayList<TestBean> arrayList;
+    private List<ForeCarBean.DataBean> arrayList;
     private Context context;
-    private ViewHolder viewHoder;
+    private ViewHolder viewHolder;
 
-    public ForeCarAdapter(ArrayList<TestBean> arrayList, Context context) {
+    public ForeCarAdapter(List<ForeCarBean.DataBean> arrayList, Context context) {
         this.arrayList = arrayList;
         this.context = context;
     }
+
 
     @Override
     public int getCount() {
@@ -44,27 +46,31 @@ public class ForeCarAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = View.inflate(context, R.layout.forelistieam, null);
-            viewHoder = new ViewHolder(convertView);
-            convertView.setTag(viewHoder);
+            viewHolder =new ViewHolder(convertView);
+            convertView.setTag(viewHolder);
         }else {
-            viewHoder = (ViewHolder) convertView.getTag();
+            viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHoder.carName.setText(arrayList.get(position).getName());
+        viewHolder.forecarName.setText(arrayList.get(position).getShopName());
+        viewHolder.forecarContent.setText(arrayList.get(position).getProvinceName()+arrayList.get(position).getCityName());
 
         return convertView;
     }
 
+
     public static class ViewHolder {
         public View rootView;
-        public ImageView listImage;
-        public TextView carName;
-        public TextView carContent;
+        public ImageView forecar_Image;
+        public TextView forecarName;
+        public TextView forecarContent;
+        public ImageView fprecarlogo;
 
         public ViewHolder(View rootView) {
             this.rootView = rootView;
-            this.listImage = (ImageView) rootView.findViewById(R.id.listImage);
-            this.carName = (TextView) rootView.findViewById(R.id.carName);
-            this.carContent = (TextView) rootView.findViewById(R.id.carContent);
+            this.forecar_Image = (ImageView) rootView.findViewById(R.id.forecar_Image);
+            this.forecarName = (TextView) rootView.findViewById(R.id.forecarName);
+            this.forecarContent = (TextView) rootView.findViewById(R.id.forecarContent);
+            this.fprecarlogo = (ImageView) rootView.findViewById(R.id.fprecarlogo);
         }
 
     }

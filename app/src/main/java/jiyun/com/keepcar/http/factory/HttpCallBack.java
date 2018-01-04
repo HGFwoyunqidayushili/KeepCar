@@ -8,4 +8,6 @@ public interface HttpCallBack<T> {
 
     void failure(Throwable e);
 
+    void successTwo(T t);
+
 }
