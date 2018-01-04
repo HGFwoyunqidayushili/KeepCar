@@ -5,36 +5,62 @@
      android:orientation="vertical"
     tools:context="jiyun.com.keepcar.ui.fourCarshow.fragment.NewCarshowFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <RadioGroup
-        android:id="@+id/tabGroup"
+
+    <LinearLayout
+        android:id="@+id/ll_stay_visit_selsect"
         android:layout_width="match_parent"
-        android:layout_height="100px"
-        android:layout_alignParentBottom="true"
+        android:layout_height="80px"
+        android:background="@color/white"
         android:gravity="center_vertical"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/ll_brand"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+            <CheckBox
+                android:id="@+id/cb_brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:button="@null"
+                android:drawablePadding="20px"
+                android:drawableRight="@drawable/swich"
+                android:gravity="center"
+                android:text="品牌"
 
-        <RadioButton
-            android:id="@+id/rbTabHome"
-            style="@style/TabBtn"
-            android:checked="true"
-              android:text="品牌"
-            android:textSize="40px"
-            android:paddingRight="80px"
-            android:drawablePadding="-80px"
-            android:drawableRight="@mipmap/off"
-            />
-        <RadioButton
-            android:id="@+id/rb4Sshop"
-            style="@style/TabBtn"
-            android:textSize="40px"
-            android:text="排序"
-             android:drawableRight="@mipmap/off"
-               android:paddingRight="80px"
-            android:drawablePadding="-80px"
-            />
+                android:textSize="35px"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_sortA"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+            <CheckBox
+                android:id="@+id/cb_sortA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:button="@null"
+                android:drawablePadding="20px"
+                android:drawableRight="@drawable/swich"
+                android:gravity="center"
+                android:text="排序"
+                android:textColor="@drawable/selector_text_stock"
+                android:textSize="35px"/>
+        </LinearLayout>
 
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F7F7F7" />
 
-    </RadioGroup>
-
+    <ListView
+        android:id="@+id/lv_shop"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 </com.zhy.autolayout.AutoLinearLayout>

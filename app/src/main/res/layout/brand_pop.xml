@@ -1,0 +1,27 @@
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFF"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="1440px" />
+
+        <com.gjiazhe.wavesidebar.WaveSideBar
+            android:id="@+id/side_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16px"
+            android:paddingRight="16px"
+            app:sidebar_text_color="#8D6E63" />
+    </RelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -3,12 +3,14 @@ package jiyun.com.keepcar.http;
 import android.os.Environment;
 
 import java.io.File;
-import java.util.Map;
 
 import okhttp3.Cache;
 import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 
 /**
  * Created by 阿三 on 2017/12/26.
@@ -36,16 +38,15 @@ public class OkhttpUtils {
         }
         return okHttpUtils;
     }
-      public void getPost(String url, Map<String,Object> map){
-          StringBuffer sb=new StringBuffer();
+      public void getPost(String url, String Baseurl,Callback callback){
 
-          for(String str:map.keySet()){
-            //  sb.append()
-          }
-          //RequestBody body=RequestBody.create(MediaType.parse("application/json;charset=utf-8"))
+          RequestBody requestBody=RequestBody.create(MediaType.parse("application/json;charset=utf-8"),Baseurl);
+          Request request=new Request.Builder().url(url).post(requestBody).build();
+           okHttpClien.newCall(request).enqueue(callback);
       }
     public Call newsCall(Request request){
         return okHttpClien.newCall(request);
+
     }
 
 }
