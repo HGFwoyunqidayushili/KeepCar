@@ -21,6 +21,9 @@
     <!-- 用于写入缓存数据到扩展存储卡 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+ 
+
+
 
     android:value="35278530d09e83344679fd865feeea6d" />
     <!-- 用于申请调用A-GPS模块 -->
@@ -42,6 +45,10 @@
         <meta-data
             android:name="design_width"
 
+         
+
+
+
            
 
   <activity android:name=".ui.homepage.forecar.Car_details">
@@ -56,6 +63,7 @@
             android:value="1334" />
 
         <activity android:name=".ui.homepage.forecar.Car_details"></activity>
+
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -71,6 +79,14 @@
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
+
+           
+
+      
+       
+        <activity android:name=".ui.homepage.XiCheActivity" />
+        <activity android:name=".ui.homepage.XiCheXiangQiingActivity"></activity>
+
            android:value="35278530d09e83344679fd865feeea6d" />
            
         <activity android:name=".ui.login.LoginActvitity"></activity>
@@ -81,6 +97,7 @@
         <activity android:name=".ui.homepage.forecar.Order_CarActivity"></activity>
         <activity android:name=".ui.fourCarshow.activity.FourcarShowActivity" />
         <activity android:name=".ui.adapter.carRenewal.activity.RenewalAcrivity"></activity>
+
     </application>
 
 </manifest>

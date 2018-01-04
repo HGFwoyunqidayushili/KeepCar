@@ -63,7 +63,7 @@
             style="@style/TabBtn"
             android:drawableTop="@mipmap/xiche"
             android:text="洗车"
-
+             android:id="@+id/xiche"
             />
         <CheckBox
 

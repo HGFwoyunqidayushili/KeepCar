@@ -14,6 +14,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.bumptech.glide.Glide;
@@ -37,6 +38,9 @@ import jiyun.com.keepcar.http.presenter.PresenterInfo;
 import jiyun.com.keepcar.ui.App;
 import jiyun.com.keepcar.ui.BaseFragment;
 import jiyun.com.keepcar.ui.Constant;
+
+import jiyun.com.keepcar.ui.homepage.XiCheActivity;
+
 import jiyun.com.keepcar.ui.MainActivity;
 import jiyun.com.keepcar.ui.adapter.carRenewal.activity.RenewalAcrivity;
 import jiyun.com.keepcar.ui.fourCarshow.activity.FourcarShowActivity;
@@ -45,10 +49,15 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
+
 /**
  * A simple {@link Fragment} subclass.
  */
+
+
+
 public class HomePageFragment extends BaseFragment implements View.OnClickListener,InfoContract.Views<ImageBean> {
+
 
 
     private View view;
@@ -58,6 +67,11 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     private ViewFlipper viewFlipper;
     private ArrayList<String> testList=new ArrayList<>();
     private int count;
+
+  
+    private CheckBox xiiche;
+
+
     private String BASE_URLSTRING="/main/queryHotProduct.do";
 
  //   private String cityId=MainActivity.address.getText().toString();
@@ -70,6 +84,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     private CheckBox radio_jingpin;
     private RecyclerView recyclerView;
     private List<CarActivity.DataBean> carActivityList;
+
     public HomePageFragment() {
         // Required empty public constructor
     }
@@ -83,6 +98,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         view=inflater.inflate(R.layout.fragment_home_page, container, false);
         herder=LayoutInflater.from(getActivity()).inflate(R.layout.header,null);
         initView();
+        initListener();
         initData();
         return view;
     }
@@ -92,8 +108,20 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         lv= (ListView) view.findViewById(R.id.lv);
         banner= (Banner) herder.findViewById(R.id.fly_banner);
         viewFlipper= (ViewFlipper) herder.findViewById(R.id.viewflipager);
+
+        xiiche = herder.findViewById(R.id.xiche);
+        xiiche.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "洗车", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(), XiCheActivity.class));
+            }
+        });
+        lv.addHeaderView(herder);
+
         recyclerView= (RecyclerView) view.findViewById(R.id.recyclerview);
          lv.addHeaderView(herder);
+
         lv.setAdapter(null);
 
         radio_baoyang= (CheckBox) view.findViewById(R.id.radio_baoyang);
@@ -125,6 +153,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     }
 
     private void initListener() {
+
 
     }
 
@@ -192,6 +221,9 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     }
 
     @Override
+
+    
+
     public void successTwo(ImageBean imageBean) {
 
     }
@@ -218,6 +250,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
              case R.id.radio_jingpin:
                  break;
          }
+
     }
 
     class GlideImageLoader extends ImageLoader{

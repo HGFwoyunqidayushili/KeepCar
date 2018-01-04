@@ -33,5 +33,13 @@
         <item name="android:windowEnterAnimation">@anim/dropdown_in</item>
         <item name="android:windowExitAnimation">@anim/dropdown_out</item>
     </style>
-    //
+
+    <style name="foodRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/ratingstars</item>
+        <item name="android:minHeight">30dip</item>
+        <item name="android:maxHeight">30dip</item>
+    </style>
+
+
+
 </resources>
