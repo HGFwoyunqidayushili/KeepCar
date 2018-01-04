@@ -35,7 +35,6 @@ import jiyun.com.keepcar.ui.homepage.fragment.ShoppingcartFragment;
 import jiyun.com.keepcar.ui.login.LoginActvitity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
-
     private HomePageFragment homePageFragment;
     private CarShopFragment carShopFragment;
     private PersonalFragment personalFragment;
@@ -83,16 +82,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         }
 
 
+
+
         recyclerView= (RecyclerView) findViewById(R.id.recycler_view);
 
 
-    }
 
+    }
     @Override
     protected void initData() {
          initListener();
     }
-
     private void initListener() {
            radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                @Override
@@ -100,7 +100,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                    switch (i){
                        case R.id.rbTabHome:
 
+    
+
                            add.setBackgroundResource(R.mipmap.add);
+
                            add.setVisibility(View.VISIBLE);
                            centerTv.setVisibility(View.GONE);
                            keepcar.setVisibility(View.VISIBLE);
@@ -110,7 +113,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
 
                           setChooseItem(0);
-
                            break;
                        case R.id.rb4Sshop:
 
@@ -120,9 +122,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                            centerTv.setText("4S店");
 
                            setChooseItem(1);
-
                            break;
                        case R.id.rbShoppingCar:
+
+                         
+
 
 
 
@@ -131,16 +135,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                            centerTv.setVisibility(View.VISIBLE);
                            centerTv.setText("购物车");
 
-                           setChooseItem(2);
 
+                           setChooseItem(2);
                            break;
                        case R.id.rbPersonal:
+
+
 
                            keepcar.setVisibility(View.GONE);
                            add.setBackgroundResource(R.drawable.you);
                            add.setVisibility(View.VISIBLE);
                            centerTv.setVisibility(View.VISIBLE);
                            centerTv.setText("个人中心");
+
 
 
                            setChooseItem(3);
@@ -159,7 +166,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             }
         });
     }
-
     private void setChooseItem(int index) {
         FragmentTransaction transaction = manager.beginTransaction();
         hideFragment(transaction);
@@ -202,7 +208,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                break;
        }
     }
-
     private void hideFragment(FragmentTransaction transaction) {
         if(homePageFragment!=null){
             transaction.hide(homePageFragment);
@@ -218,12 +223,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         }
         transaction.commit();
     }
-
     @Override
     protected int getLayoutID() {
       return R.layout.activity_main;
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -233,8 +236,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 address.setText(city);
             }
         }
-    }
 
+    }
         private void initLocation() {
             mLocationClient = new AMapLocationClient(this);
             AMapLocationClientOption option = new AMapLocationClientOption();
@@ -261,12 +264,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             });
             mLocationClient.startLocation();
         }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-
             case R.id.add:
+
+                
+                   
+
+
 
 
 
@@ -335,6 +341,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 //                break;
        }
     }
+
 
 
 

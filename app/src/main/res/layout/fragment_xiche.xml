@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_margin="30px"
+            android:layout_height="wrap_content"
+            android:textSize="26px"
+            android:text="五座轿车(标准洗车)"/>
+        <TextView
+            android:id="@+id/wubiaoxi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30px"
+            android:textSize="26px"
+            android:layout_centerHorizontal="true"
+            android:text="2"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_margin="30px"
+            android:layout_height="wrap_content"
+            android:textSize="26px"
+            android:text="七座轿车(标准洗车)"/>
+        <TextView
+            android:id="@+id/qibiaoxi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30px"
+            android:textSize="26px"
+            android:layout_centerHorizontal="true"
+            android:text="200"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30px"
+            android:text="SUV(标准洗车)"
+            android:textSize="26px" />
+
+        <TextView
+            android:id="@+id/suvxi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="30px"
+            android:text="20"
+            android:textSize="26px" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_margin="30px"
+            android:layout_height="wrap_content"
+            android:textSize="26px"
+            android:textColor="#ff0000"
+            android:text="小计"/>
+        <TextView
+            android:id="@+id/xiche_sum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30px"
+            android:textSize="26px"
+            android:textColor="#ff0000"
+            android:layout_centerHorizontal="true"
+            android:text="222"/>
+    </RelativeLayout>
+</LinearLayout>
