@@ -64,7 +64,9 @@
         <activity android:name=".ui.homepage.forecar.Order_CarActivity" />
         <activity android:name=".ui.fourCarshow.activity.FourcarShowActivity" />
         <activity android:name=".ui.homepage.XiCheActivity" />
-        <activity android:name=".ui.homepage.XiCheXiangQiingActivity"></activity>
+        <activity android:name=".ui.homepage.XiCheXiangQiingActivity" />
+        <activity android:name=".ui.homepage.JieZhangXiCheActivity" />
+        <activity android:name=".ui.homepage.Success_Activity"></activity>
     </application>
 
 </manifest>

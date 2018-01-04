@@ -96,11 +96,11 @@ public class XiCheActivity extends AppCompatActivity {
                         }
                     });
                     paixu.setChecked(false);
-                    final RadioButton dianmianbuxian = popupview.findViewById(R.id.dianmian_Nolimit);
-                    final RadioButton allxiche = popupview.findViewById(R.id.allxiche);
-                    final RadioButton allvip = popupview.findViewById(R.id.allvip);
-                    final RadioButton order4s = popupview.findViewById(R.id.order4s);
-                    final RadioButton historyxidan = popupview.findViewById(R.id.historyxidan);
+                    final RadioButton dianmianbuxian = (RadioButton) popupview.findViewById(R.id.dianmian_Nolimit);
+                    final RadioButton allxiche = (RadioButton) popupview.findViewById(R.id.allxiche);
+                    final RadioButton allvip = (RadioButton) popupview.findViewById(R.id.allvip);
+                    final RadioButton order4s = (RadioButton) popupview.findViewById(R.id.order4s);
+                    final RadioButton historyxidan = (RadioButton) popupview.findViewById(R.id.historyxidan);
                     dianmianbuxian.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                         @Override
                         public void onCheckedChanged(CompoundButton compoundButton, boolean b) {

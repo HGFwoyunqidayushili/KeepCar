@@ -1,5 +1,6 @@
 package jiyun.com.keepcar.ui.homepage;
 
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
@@ -36,6 +38,12 @@ public class XiCheXiangQiingActivity extends AppCompatActivity {
     private void initAdapter() {
         TestXiCheAdapter testXiCheAdapter = new TestXiCheAdapter(xiChes, XiCheXiangQiingActivity.this);
         xichexaingqingListView.setAdapter(testXiCheAdapter);
+        xichexaingqingListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity(new Intent(XiCheXiangQiingActivity.this,JieZhangXiCheActivity.class));
+            }
+        });
     }
 
     private void initData() {
