@@ -58,6 +58,7 @@ public class UserManager {
 
 
     //获取id
+
     public  String getUserId(){
         String id=sharedPreferences.getString("userId",null);
         return id;
