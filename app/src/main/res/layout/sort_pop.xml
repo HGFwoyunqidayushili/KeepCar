@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#77000000">
+
+    <RadioGroup
+        android:id="@+id/rg_sort_pop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFF"
+        >
+
+        <RadioButton
+
+            android:id="@+id/rb_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:padding="20px"
+            android:text="默认排序"
+            android:textColor="#606060"
+            android:textSize="25px"
+            android:background="@color/white"
+            />
+
+        <RadioButton
+
+            android:id="@+id/rb_recently"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:padding="20px"
+            android:text="试驾最多"
+            android:textColor="#606060"
+            android:textSize="25px"
+            android:background="@color/white"
+            />
+
+    </RadioGroup>
+
+
+</LinearLayout>

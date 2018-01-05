@@ -6,14 +6,13 @@
     android:background="#343434"
     android:gravity="center_vertical">
     <jiyun.com.keepcar.view.MyApptitle
-        app:leftImgWight="30px"
-        app:leftImgHeight="30px"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/App_title"
-        app:centerTvSize="50px"
+        app:centerTvSize="30px"
         app:rightTvSize="45px"
-        app:leftImgMarginleft="5px"
+        app:leftImgMarginleft="10px"
         app:rightTvMarginright="30px"
         >
 

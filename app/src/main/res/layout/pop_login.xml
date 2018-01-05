@@ -3,21 +3,20 @@
     android:layout_width="match_parent"
     android:background="#ffff"
     android:orientation="vertical"
-    android:layout_height="match_parent">
-
+    android:layout_height="wrap_content">
     <TextView
         android:id="@+id/qiehuan_name"
         android:layout_width="wrap_content"
         android:text="切换账号"
         android:textSize="30px"
-        android:layout_margin="20px"
+        android:layout_margin="10px"
         android:layout_height="wrap_content"
         />
     <TextView
         android:id="@+id/finsh_login"
         android:layout_width="wrap_content"
         android:textSize="30px"
-        android:layout_margin="20px"
+        android:layout_margin="10px"
         android:layout_height="wrap_content"
         android:text="退出登录"/>
 </com.zhy.autolayout.AutoLinearLayout>

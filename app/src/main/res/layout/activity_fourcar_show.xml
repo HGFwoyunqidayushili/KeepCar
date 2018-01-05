@@ -15,27 +15,30 @@
         
       >
     <TextView
+        android:id="@+id/newCar_show"
         android:layout_width="0dp"
-        android:layout_height="80px"
+        android:layout_height="100px"
          android:layout_weight="1"
          android:text="新车展厅"
-          android:textSize="34px"
+          android:textSize="35px"
         android:layout_gravity="center_horizontal"
         android:gravity="center"
-        android:textColor="@color/colorunRadiobutton"
+        android:textColor="@color/red"
         android:background="@color/white"
         />
        <TextView
+
            android:layout_width="0.1dp"
            android:layout_height="80px"
             android:background="@color/huise"
            />
         <TextView
+            android:id="@+id/usedCar_show"
             android:layout_width="0dp"
-            android:layout_height="80px"
+            android:layout_height="100px"
             android:layout_weight="1"
             android:text="二手车展厅"
-            android:textSize="34px"
+            android:textSize="35px"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:textColor="@color/colorunRadiobutton"
@@ -43,9 +46,11 @@
             />
 
   </com.zhy.autolayout.AutoLinearLayout>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
          android:layout_weight="1"
+        android:id="@+id/Frame_layout"
         ></FrameLayout>
 </com.zhy.autolayout.AutoLinearLayout>

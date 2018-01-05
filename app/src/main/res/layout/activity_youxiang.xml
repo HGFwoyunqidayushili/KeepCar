@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30px"
+        android:id="@+id/ed_nicehng"
+        android:hint="请输入"/>
+    <TextView
+        android:id="@+id/ok_ed"
+        android:text="确定"
+        android:textSize="30px"
+        android:background="#ff0000"
+        android:layout_width="100px"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="60px" />
+
+</LinearLayout>

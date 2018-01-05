@@ -1,14 +1,22 @@
 package jiyun.com.keepcar.ui;
 
 import android.content.Intent;
+
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
+
+
+import android.view.LayoutInflater;
+
+
+import android.widget.PopupWindow;
+
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.LayoutInflater;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.PopupWindow;
+
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -27,28 +35,39 @@ import jiyun.com.keepcar.ui.homepage.fragment.ShoppingcartFragment;
 import jiyun.com.keepcar.ui.login.LoginActvitity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
-
     private HomePageFragment homePageFragment;
     private CarShopFragment carShopFragment;
     private PersonalFragment personalFragment;
     private ShoppingcartFragment shoppingcartFragment;
     private RadioGroup radioGroup;
     private FragmentManager manager;
-    private TextView address;
+    public static  TextView address;
     private AMapLocationClient mLocationClient;
     private  TextView keepcar;
     public static ImageView add;
     private TextView theeditor;
-    private boolean flag;
+
+  
+       
+       
+
+    private String flag="a";
     private ImageView menu;
+    private TextView centerTv;
+    private RecyclerView recyclerView;
+
     @Override
     protected void initView() {
         initLocation();
+        centerTv= (TextView) findViewById(R.id.centerTv);
         keepcar= (TextView) findViewById(R.id.yangche);
         add= (ImageView) findViewById(R.id.add);
         add.setOnClickListener(this);
-        menu= (ImageView) findViewById(R.id.menu);
-        menu.setOnClickListener(this);
+        add.setTag(flag);
+
+        //menu= (ImageView) findViewById(R.id.menu);
+//        menu.setOnClickListener(this);
+
         manager=getSupportFragmentManager();
         address= (TextView) findViewById(R.id.address);
         radioGroup= (RadioGroup) findViewById(R.id.tabGroup);
@@ -62,13 +81,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             manager.beginTransaction().replace(R.id.Frame_layout,homePageFragment).commit();
         }
 
-    }
 
+
+
+        recyclerView= (RecyclerView) findViewById(R.id.recycler_view);
+
+
+
+    }
     @Override
     protected void initData() {
          initListener();
     }
-
     private void initListener() {
            radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                @Override
@@ -76,43 +100,60 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                    switch (i){
                        case R.id.rbTabHome:
 
-                           keepcar.setText("");
-                           add.setBackground(getResources().getDrawable(R.drawable.add));
-                           keepcar.setBackground(getResources().getDrawable(R.drawable.yangche));
-                           theeditor.setVisibility(View.GONE);
-                           add.setVisibility(View.VISIBLE);
-                           menu.setVisibility(View.GONE);
-                          setChooseItem(0);
+    
 
+                           add.setBackgroundResource(R.mipmap.add);
+
+                           add.setVisibility(View.VISIBLE);
+                           centerTv.setVisibility(View.GONE);
+                           keepcar.setVisibility(View.VISIBLE);
+                           flag="a";
+                           add.setTag(flag);
+
+
+
+                          setChooseItem(0);
                            break;
                        case R.id.rb4Sshop:
-                           theeditor.setVisibility(View.GONE);
-                           keepcar.setText("4S店");
-                           keepcar.setBackgroundColor(Color.parseColor("#343434"));
-                           add.setVisibility(View.INVISIBLE);
-                           menu.setVisibility(View.GONE);
-                           setChooseItem(1);
 
+                         add.setVisibility(View.GONE);
+                          keepcar.setVisibility(View.GONE);
+                           centerTv.setVisibility(View.VISIBLE);
+                           centerTv.setText("4S店");
+
+                           setChooseItem(1);
                            break;
                        case R.id.rbShoppingCar:
-                           keepcar.setText("购物车");
-                           keepcar.setBackgroundColor(Color.parseColor("#343434"));
-                           add.setVisibility(View.INVISIBLE);
-                           theeditor.setVisibility(View.VISIBLE);
-                           menu.setVisibility(View.GONE);
+
+                         
+
+
+
+
+                           keepcar.setVisibility(View.GONE);
+                           add.setVisibility(View.GONE);
+                           centerTv.setVisibility(View.VISIBLE);
+                           centerTv.setText("购物车");
+
 
                            setChooseItem(2);
-
                            break;
                        case R.id.rbPersonal:
 
+
+
+                           keepcar.setVisibility(View.GONE);
+                           add.setBackgroundResource(R.drawable.you);
+                           add.setVisibility(View.VISIBLE);
+                           centerTv.setVisibility(View.VISIBLE);
+                           centerTv.setText("个人中心");
+
+
+
                            setChooseItem(3);
-                           keepcar.setText("个人中心");
-                           theeditor.setVisibility(View.GONE);
-                           menu.setBackground(getResources().getDrawable(R.mipmap.you));
-                           keepcar.setBackgroundColor(Color.parseColor("#343434"));
-                           menu.setVisibility(View.VISIBLE);
-                           add.setVisibility(View.GONE);
+                           flag="b";
+                           add.setTag(flag);
+
                            break;
                    }
                }
@@ -125,7 +166,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             }
         });
     }
-
     private void setChooseItem(int index) {
         FragmentTransaction transaction = manager.beginTransaction();
         hideFragment(transaction);
@@ -168,7 +208,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                break;
        }
     }
-
     private void hideFragment(FragmentTransaction transaction) {
         if(homePageFragment!=null){
             transaction.hide(homePageFragment);
@@ -184,12 +223,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         }
         transaction.commit();
     }
-
     @Override
     protected int getLayoutID() {
       return R.layout.activity_main;
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -199,8 +236,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 address.setText(city);
             }
         }
-    }
 
+    }
         private void initLocation() {
             mLocationClient = new AMapLocationClient(this);
             AMapLocationClientOption option = new AMapLocationClientOption();
@@ -227,71 +264,85 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             });
             mLocationClient.startLocation();
         }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-
             case R.id.add:
-                showToast("11111111111");
+
+                
+                   
+
+
+
+
+
+          if(add.getTag().equals("a")){
+              showToast("1111111111111111");
+          }
+                if(add.getTag().equals("b")){
+                    showToast("22222222222");
+                }
                 break;
-            case R.id.menu:
-//                showToast("2222222222");|
-                View inflate = LayoutInflater.from(this).inflate(R.layout.pop_login, null);
-                final PopupWindow popupWindow = new PopupWindow(inflate, 250, 250);
-                TextView finsh_login = (TextView) inflate.findViewById(R.id.finsh_login);
-                TextView qiehuan_name = (TextView) inflate.findViewById(R.id.qiehuan_name);
-                finsh_login.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, LoginActvitity.class);
-                        startActivity(intent);
-                    }
-                });
-                qiehuan_name.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent1 = new Intent(MainActivity.this, LoginActvitity.class);
-                        startActivity(intent1);
-                    }
-                });
-
-//                WindowManager.LayoutParams attributes = getWindow().getAttributes();
-//                attributes.alpha=0.5f;
-//                getWindow().setAttributes(attributes);
-
-//                popupWindow.setFocusable(true);
-//                popupWindow.setFocusable(true);
-//                popupWindow.showAtLocation(inflate, Gravity.CENTER,0,0);
-//                final PopupWindow pop = new PopupWindow(inflate, ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT, false);
-//////
-// 需要设置一下此参数，点击外边可消失
-                popupWindow.setBackgroundDrawable(new BitmapDrawable());
-//设置点击窗口外边窗口消失
-                popupWindow.setOutsideTouchable(true);
-// 设置此参数获得焦点，否则无法点击
-                popupWindow.setFocusable(true);
-//                menu.setOnClickListener(new View.OnClickListener() {
-
-                   // @Override
+//            case R.id.menu:
+////                showToast("2222222222");|
+//                View inflate = LayoutInflater.from(this).inflate(R.layout.pop_login, null);
+//                final PopupWindow popupWindow = new PopupWindow(inflate, 250, 250);
+//                TextView finsh_login = (TextView) inflate.findViewById(R.id.finsh_login);
+//                TextView qiehuan_name = (TextView) inflate.findViewById(R.id.qiehuan_name);
+//                finsh_login.setOnClickListener(new View.OnClickListener() {
+//                    @Override
 //                    public void onClick(View v) {
-                        if(popupWindow.isShowing()) {
-                            // 隐藏窗口，如果设置了点击窗口外小时即不需要此方式隐藏
-                            popupWindow.dismiss();
-                        } else {
-                            // 显示窗口
-                            popupWindow.showAsDropDown(v);
-                        }
-
+//                        Intent intent = new Intent(MainActivity.this, LoginActvitity.class);
+//                        startActivity(intent);
 //                    }
 //                });
-
-
-                break;
-            case R.id.Theeditor:
-
-                break;
-        }
+//                qiehuan_name.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Intent intent1 = new Intent(MainActivity.this, LoginActvitity.class);
+//                        startActivity(intent1);
+//                    }
+//                });
+//
+////                WindowManager.LayoutParams attributes = getWindow().getAttributes();
+////                attributes.alpha=0.5f;
+////                getWindow().setAttributes(attributes);
+//
+////                popupWindow.setFocusable(true);
+////                popupWindow.setFocusable(true);
+////                popupWindow.showAtLocation(inflate, Gravity.CENTER,0,0);
+////                final PopupWindow pop = new PopupWindow(inflate, ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT, false);
+////////
+//// 需要设置一下此参数，点击外边可消失
+//                popupWindow.setBackgroundDrawable(new BitmapDrawable());
+////设置点击窗口外边窗口消失
+//                popupWindow.setOutsideTouchable(true);
+//// 设置此参数获得焦点，否则无法点击
+//                popupWindow.setFocusable(true);
+////                menu.setOnClickListener(new View.OnClickListener() {
+//
+//                   // @Override
+////                    public void onClick(View v) {
+//                        if(popupWindow.isShowing()) {
+//                            // 隐藏窗口，如果设置了点击窗口外小时即不需要此方式隐藏
+//                            popupWindow.dismiss();
+//                        } else {
+//                            // 显示窗口
+//                            popupWindow.showAsDropDown(v);
+//                        }
+//
+////                    }
+////                });
+//
+//
+//                break;
+//            case R.id.Theeditor:
+//
+//                break;
+       }
     }
+
+
+
 
 }

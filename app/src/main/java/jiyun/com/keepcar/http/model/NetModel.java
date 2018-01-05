@@ -32,4 +32,19 @@ public class NetModel implements InfoContract.Model {
         factory.post(context,page,url, type, httpCallBack);
     }
 
+    @Override
+    public void requestNewsDataTwo(Context context, String page, String url, HttpCallBack httpCallBack) {
+        RequestProduct requestProduct=new RequestProductImpl();
+        RequestFactory factory=requestProduct.create(OkhttpProduct.class);
+        Type[] types=httpCallBack.getClass().getGenericInterfaces();
+        Type[] actualTypeArguments = null;
+        for (int i = 0; i < types.length; i++) {
+            if (types[i] instanceof ParameterizedType) {
+                actualTypeArguments = ((ParameterizedType) types[i]).getActualTypeArguments();
+            }
+        }
+        Type type = actualTypeArguments[0];
+        factory.post(context,page,url, type, httpCallBack);
+    }
+
 }
