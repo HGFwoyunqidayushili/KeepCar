@@ -29,7 +29,7 @@
         android:layout_alignParentBottom="true"
         android:visibility="gone"/>
 
-</merge>
-
 </com.zhy.autolayout.AutoRelativeLayout>
+
+
 
