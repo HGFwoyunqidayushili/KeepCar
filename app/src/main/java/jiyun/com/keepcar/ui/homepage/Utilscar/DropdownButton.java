@@ -62,7 +62,7 @@ public class DropdownButton extends RelativeLayout implements Checkable, View.On
         //菜单按钮的布局
         View view =  LayoutInflater.from(getContext()).inflate(R.layout.dropdown_tab_button,this, true);
         text = (TextView) view.findViewById(R.id.textView);
-        bLine = view.findViewById(R.id.bottomLine);
+
         //点击事件，点击外部区域隐藏popupWindow
         setOnClickListener(this);
     }
@@ -110,7 +110,7 @@ public class DropdownButton extends RelativeLayout implements Checkable, View.On
         if (checked) {
             icon = mContext.getResources().getDrawable(R.drawable.open);
             text.setTextColor(mContext.getResources().getColor(R.color.colorisRadiobutton));
-            bLine.setVisibility(View.VISIBLE);
+//            bLine.setVisibility(View.VISIBLE);
 
             popWinDownUtil.show();
 
@@ -118,7 +118,7 @@ public class DropdownButton extends RelativeLayout implements Checkable, View.On
 
             icon = mContext.getResources().getDrawable(R.drawable.off);
             text.setTextColor(mContext.getResources().getColor(R.color.black));
-            bLine.setVisibility(View.GONE);
+         //   bLine.setVisibility(View.GONE);
             popWinDownUtil.hide();
         }
         //把箭头画到textView右边

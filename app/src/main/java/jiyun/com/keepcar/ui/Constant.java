@@ -7,4 +7,5 @@ public class Constant {
     public static final String HOMEPAGE_IMAURL="http://39.106.173.47:8080/saas-img/";
     public static final String URLIMAGE_STRING="http://39.106.173.47:8080/app/main/queryBrandImg.do";
     public static  final String URL_STRING=" http://39.106.173.47:8080/app";
+    public static final String CITY_ID=MainActivity.address.getText().toString();
 }

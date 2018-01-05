@@ -19,9 +19,9 @@
     <color name="green">#008000</color>
     <color name="black">#000</color>
     <color name="back">#9B9B9B</color>
-    <color name="white">#fff</color>
+    <color name="white">#FFFFFF</color>
 
     <color name="red">#ff0000</color>
-    <color name="sheihui">#343434</color>
+    <color name="sheihui">#606060</color>
 
 </resources>

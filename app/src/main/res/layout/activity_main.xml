@@ -9,19 +9,9 @@
  <com.zhy.autolayout.AutoRelativeLayout
      android:layout_width="match_parent"
      android:layout_height="100px"
-
+     android:background="@color/heise"
      >
- liurongbin4ss
-   <include
-       layout="@layout/apptitle"
-       >
-   </include>
 
-  <com.zhy.autolayout.AutoLinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="100px"
-        android:background="@color/heise"
-      ></com.zhy.autolayout.AutoLinearLayout>
 
    <TextView
        android:layout_width="wrap_content"
@@ -53,21 +43,10 @@
          android:textColor="@color/white"
          android:text=""
          />
+
    <ImageView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-
-       android:layout_centerInParent="true"
-        android:background="@drawable/yangche"
-        android:textColor="@color/white"
-        android:id="@+id/yangche"
-
-             android:textSize="30px"
-       />
-   <ImageView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:background="@drawable/add"
 
        android:background="@mipmap/add"
 
@@ -98,8 +77,8 @@
  <FrameLayout
      android:layout_width="match_parent"
      android:layout_height="0dp"
-      android:layout_weight="1"
-      android:id="@+id/Frame_layout"
+     android:layout_weight="1"
+     android:id="@+id/Frame_layout"
      >
  </FrameLayout>
     <TextView

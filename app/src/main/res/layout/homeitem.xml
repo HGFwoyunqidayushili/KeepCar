@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+      android:orientation="vertical"
+    >
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px">
+        <ImageView
+            android:layout_width="200px"
+            android:layout_height="159px"
+             android:background="@color/black"
+              android:id="@+id/img"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+
+             android:background="@color/qianhui"
+            android:layout_alignTop="@+id/img"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/productName"
+            android:text="精品"
+             android:textSize="40px"
+              android:layout_toRightOf="@+id/img"
+            android:layout_centerVertical="true"
+              android:layout_marginLeft="20px"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:id="@+id/productType"
+             android:text="你好"
+            android:textSize="30px"
+             android:layout_toRightOf="@+id/img"
+
+            android:layout_marginLeft="20px"
+             android:layout_marginTop="20px"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fukuan"
+
+            android:text="你好"
+            android:textSize="30px"
+            android:layout_toRightOf="@+id/img"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20px"
+            android:layout_marginBottom="20px"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:id="@+id/price"
+             android:text="价格"
+             android:textSize="50px"
+              android:layout_toRightOf="@+id/productType"
+               android:layout_marginLeft="200px"
+            android:layout_marginTop="10px"
+            android:textColor="@color/red"
+            />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

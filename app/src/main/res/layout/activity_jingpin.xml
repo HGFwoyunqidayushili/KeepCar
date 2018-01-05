@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="jiyun.com.keepcar.ui.competitiveproducts.activity.JingpinActivity">
+ <include
+     layout="@layout/apptitle"
+     >
+ </include>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+           android:orientation="horizontal"
+          android:id="@+id/line1"
+        >
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/kind"
+            >
+            <CheckBox
+                android:id="@+id/cb_kind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:button="@null"
+                android:drawablePadding="20px"
+                android:drawableRight="@drawable/swich"
+                android:gravity="center"
+                android:text="分类"
+
+                android:textSize="35px"/>
+        </com.zhy.autolayout.AutoLinearLayout>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/no_xianzhi"
+            >
+            <CheckBox
+              android:id="@+id/cb_buxian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:button="@null"
+                android:drawablePadding="20px"
+                android:drawableRight="@drawable/swich"
+                android:gravity="center"
+                android:text="店面不限"
+
+                android:textSize="35px"/>
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/sort_jingpin"
+            >
+            <jiyun.com.keepcar.view.DropdownButton
+
+                  android:id="@+id/cb_sort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:button="@null"
+                android:drawablePadding="20px"
+                android:drawableRight="@drawable/swich"
+                android:gravity="center"
+                android:text="排序"
+
+                android:textSize="35px"/>
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+<android.support.v7.widget.RecyclerView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+     android:layout_weight="1"
+    android:id="@+id/jp_recyclerview"
+    ></android.support.v7.widget.RecyclerView>
+</com.zhy.autolayout.AutoLinearLayout>

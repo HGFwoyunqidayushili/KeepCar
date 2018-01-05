@@ -3,6 +3,7 @@ package jiyun.com.keepcar.utils;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -13,12 +14,12 @@ import jiyun.com.keepcar.R;
 /**
  * Created by 阿三 on 2018/1/3.
  */
-public class Popupwindow {
+public class PopupwindowView {
    private Context context;
    private View contentView;
    private View relayView;
    private PopupWindow popupWindow;
-   public Popupwindow (Context context, View view,View relayView){
+   public PopupwindowView(Context context, View view, View relayView){
        this.context=context;
        this.contentView=view;
        this.relayView=relayView;
@@ -28,7 +29,7 @@ public class Popupwindow {
    private void init() {
       popupWindow = new PopupWindow(contentView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT,true);
       //动画效果
-      popupWindow.setAnimationStyle(R.style.AnimationTopFade);
+
       //菜单背景色
       ColorDrawable dw = new ColorDrawable(Color.TRANSPARENT);
       popupWindow.setBackgroundDrawable(dw);
@@ -40,6 +41,14 @@ public class Popupwindow {
    }
    public void show(){
       //显示位置
+      popupWindow.setAnimationStyle(R.style.AnimationTopFade);
       popupWindow.showAsDropDown(relayView);
+   }
+   public void showAtLocation(){
+      popupWindow.showAtLocation(relayView, Gravity.BOTTOM,0,0);
+   }
+   public PopupWindow popupdismiss() {
+
+     return popupWindow;
    }
 }

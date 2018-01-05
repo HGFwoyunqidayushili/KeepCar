@@ -5,8 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,12 +38,13 @@ import jiyun.com.keepcar.http.presenter.PresenterInfo;
 import jiyun.com.keepcar.ui.App;
 import jiyun.com.keepcar.ui.BaseFragment;
 import jiyun.com.keepcar.ui.Constant;
-
-import jiyun.com.keepcar.ui.homepage.XiCheActivity;
-
 import jiyun.com.keepcar.ui.MainActivity;
 import jiyun.com.keepcar.ui.adapter.carRenewal.activity.RenewalAcrivity;
+import jiyun.com.keepcar.ui.competitiveproducts.activity.JingpinActivity;
 import jiyun.com.keepcar.ui.fourCarshow.activity.FourcarShowActivity;
+import jiyun.com.keepcar.ui.homepage.XiCheActivity;
+import jiyun.com.keepcar.ui.integralsmall.activity.IntegralsmallActivity;
+import jiyun.com.keepcar.ui.wonderful.activity.WonderfulActivity;
 import jiyun.com.keepcar.utils.Cjson;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -77,6 +78,13 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
  //   private String cityId=MainActivity.address.getText().toString();
     private MainActivity activity;
 
+    private CheckBox cb_wonderful;
+    private CheckBox cb_shop;
+    private CheckBox cb_weizhang;
+    private CheckBox cb_yuanjiu;
+
+
+
     private CheckBox radio_baoyang;
     private CheckBox radio_weixiu;
     private CheckBox radio_show;
@@ -84,6 +92,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     private CheckBox radio_jingpin;
     private RecyclerView recyclerView;
     private List<CarActivity.DataBean> carActivityList;
+    private HomeAdapter homeAdapter;
 
     public HomePageFragment() {
         // Required empty public constructor
@@ -105,7 +114,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         banner= (Banner) herder.findViewById(R.id.fly_banner);
         viewFlipper= (ViewFlipper) herder.findViewById(R.id.viewflipager);
 
-        xiiche = herder.findViewById(R.id.xiche);
+        xiiche = (CheckBox) herder.findViewById(R.id.xiche);
         xiiche.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,9 +122,9 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                 startActivity(new Intent(getActivity(), XiCheActivity.class));
             }
         });
-        lv.addHeaderView(herder);
 
-        recyclerView= (RecyclerView) view.findViewById(R.id.recyclerview);
+
+        recyclerView= (RecyclerView) herder.findViewById(R.id.recyclerview);
          lv.addHeaderView(herder);
 
         lv.setAdapter(null);
@@ -132,6 +141,16 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         radio_weixiu.setOnClickListener(this);
         radio_xubao= (CheckBox) view.findViewById(R.id.radio_xubao);
         radio_xubao.setOnClickListener(this);
+
+        cb_wonderful= (CheckBox) view.findViewById(R.id.cb_wonderful);
+        cb_wonderful.setOnClickListener(this);
+        cb_shop= (CheckBox) view.findViewById(R.id.cb_shop);
+        cb_shop.setOnClickListener(this);
+        cb_weizhang= (CheckBox) view.findViewById(R.id.cb_weizhang);
+        cb_weizhang.setOnClickListener(this);
+        cb_yuanjiu= (CheckBox) view.findViewById(R.id.cb_yuanjiu);
+        cb_yuanjiu.setOnClickListener(this);
+
         testList.add( "爸妈爱的“白”娃娃，真是孕期吃出来的吗？");
         testList.add("如果徒步真的需要理由，十四个够不够？");
         testList.add( "享受清爽啤酒的同时，这些常识你真的了解吗？");
@@ -158,7 +177,8 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         PresenterInfo presenterInfo=new PresenterInfo(this,getActivity());
         presenterInfo.getNewsData(Constant.URLIMAGE_STRING,"");
         Map<String,Object> map=new HashMap<>();
-         map.put("cityId","");
+         map.put("cityId",Constant.CITY_ID);
+
           String json=Cjson.toJSONMap(map);
          OkhttpUtils.getInstance().getPost(Constant.URL_STRING + BASE_URLSTRING, json, new Callback() {
              public String string;
@@ -171,14 +191,20 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
              @Override
              public void onResponse(Call call, Response response) throws IOException {
                  string=response.body().string();
+
                  Gson gson=new Gson();
                  CarActivity carActivity=gson.fromJson(string,CarActivity.class);
-                 List<CarActivity.DataBean> data = carActivity.getData();
+                 final List<CarActivity.DataBean> data = carActivity.getData();
+
                  carActivityList.addAll(data);
                  App.activity.runOnUiThread(new Runnable() {
                      @Override
                      public void run() {
-
+                         LinearLayoutManager manager=new LinearLayoutManager(getActivity());
+                         manager.setOrientation(LinearLayoutManager.VERTICAL);
+                         homeAdapter=new HomeAdapter(getActivity(),data);
+                         recyclerView.setAdapter(homeAdapter);
+                         homeAdapter.notifyDataSetChanged();
                      }
                  });
 
@@ -193,13 +219,13 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     public void success(ImageBean imageBean) {
         List<String> listimage=imageBean.getData();
         List<String> list=new ArrayList<>();
-        Log.e("TAG",listimage.size()+"");
+
          for(int i=0;i<listimage.size();i++){
                 list.add(Constant.HOMEPAGE_IMAURL+listimage.get(i));
          }
 //        MyA myA=new MyA(list,getActivity());
 //        lv.setAdapter(myA);myA
-        Log.e("TAG",list.get(0));
+
         banner.setImageLoader(new GlideImageLoader());
         banner.setImages(list);
         banner.start();
@@ -216,13 +242,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
 
     }
 
-    @Override
 
-    
-
-    public void successTwo(ImageBean imageBean) {
-
-    }
 
 
 
@@ -244,6 +264,20 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                  startActivity(intent);
                  break;
              case R.id.radio_jingpin:
+                 intent=new Intent(getActivity(), JingpinActivity.class);
+                 startActivity(intent);
+                 break;
+             case R.id.cb_wonderful:
+                 intent=new Intent(getActivity(), WonderfulActivity.class);
+                 startActivity(intent);
+                 break;
+             case R.id.cb_shop:
+                 intent=new Intent(getActivity(), IntegralsmallActivity.class);
+                 startActivity(intent);
+                 break;
+             case R.id.cb_weizhang:
+                 break;
+             case R.id.cb_yuanjiu:
                  break;
          }
 

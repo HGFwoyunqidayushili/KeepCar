@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+      android:background="#77000000"
+     android:orientation="vertical"
+    >
+    <RadioGroup
+        android:id="@+id/rg_sort_pop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFF"
+        >
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:padding="20px"
+            android:text="默认排序"
+            android:textColor="@drawable/radio"
+            android:textSize="25px"
+            android:background="@color/white"
+            />
+
+        <RadioButton
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:padding="20px"
+            android:text="销量最高"
+            android:textColor="@drawable/radio"
+            android:textSize="25px"
+            android:background="@color/white"
+            />
+        <RadioButton
+
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:padding="20px"
+            android:text="价格最低"
+            android:textColor="@drawable/radio"
+            android:textSize="25px"
+            android:background="@color/white"
+
+            />
+    </RadioGroup>
+
+</com.zhy.autolayout.AutoLinearLayout>

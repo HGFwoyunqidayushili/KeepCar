@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   android:orientation="horizontal"
+
+    >
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:background="@color/black"
+            />
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             android:background="@color/white"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30px"
+                android:id="@+id/productName"
+                android:textColor="@color/black"
+                android:text="你好"
+                android:layout_marginTop="10px"
+                android:layout_marginLeft="15px"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/shopName"
+                android:text="大众"
+                android:layout_marginTop="10px"
+                android:layout_marginLeft="15px"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/product_price"
+                android:textColor="@color/red"
+                android:text="30px"
+                android:layout_marginTop="10px"
+                android:layout_marginLeft="15px"
+
+                />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="15px"
+
+           />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <TextView
+        android:layout_width="20px"
+        android:layout_height="match_parent"
+
+        />
+</com.zhy.autolayout.AutoLinearLayout>

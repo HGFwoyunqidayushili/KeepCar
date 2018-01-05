@@ -64,6 +64,8 @@ public class PopWinDownUtil {
     }
     public interface OnDismissLisener{
         void onDismiss();
+
+
     }
     public boolean isShowing(){
         return popupWindow.isShowing();

@@ -66,27 +66,28 @@
              android:id="@+id/xiche"
             />
         <CheckBox
-
+            android:id="@+id/cb_wonderful"
             style="@style/TabBtn"
             android:drawableTop="@mipmap/jingcaihuodong"
             android:text="精彩活动"
 
             />
         <CheckBox
-
+        android:id="@+id/cb_shop"
             style="@style/TabBtn"
             android:drawableTop="@mipmap/jifenshangcheng"
             android:text="积分商场"
 
             />
         <CheckBox
-
+        android:id="@+id/cb_weizhang"
             style="@style/TabBtn"
             android:drawableTop="@mipmap/weizhangchaxun"
             android:text="违章查询"
 
             />
         <CheckBox
+            android:id="@+id/cb_yuanjiu"
             style="@style/TabBtn"
             android:drawableTop="@mipmap/daolujiuyuan"
             android:text="道路援救"
@@ -155,7 +156,7 @@
      />
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="700px"
         android:id="@+id/recyclerview"
         >
 

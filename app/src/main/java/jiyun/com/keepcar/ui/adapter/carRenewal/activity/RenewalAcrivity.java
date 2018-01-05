@@ -18,7 +18,7 @@ import jiyun.com.keepcar.ui.BaseActivity;
 import jiyun.com.keepcar.ui.Constant;
 import jiyun.com.keepcar.ui.adapter.carRenewal.adapter.InsuranceName;
 import jiyun.com.keepcar.ui.adapter.carRenewal.bean.Insurancecompany;
-import jiyun.com.keepcar.utils.Popupwindow;
+import jiyun.com.keepcar.utils.PopupwindowView;
 import jiyun.com.keepcar.view.MyApptitle;
 
 public class RenewalAcrivity extends BaseActivity implements View.OnClickListener,InfoContract.Views<Insurancecompany> {
@@ -31,7 +31,7 @@ public class RenewalAcrivity extends BaseActivity implements View.OnClickListene
     private TextView textView1;
     private TextView textView2;
     private List<Insurancecompany.DataBean> insurancecompanyList;
-    private Popupwindow popupwindow;
+    private PopupwindowView popupwindow;
     private ListView listView;
     private Button bt_Quotation;
 
@@ -74,15 +74,15 @@ public class RenewalAcrivity extends BaseActivity implements View.OnClickListene
             case R.id.this_Insurance:
                 View contentview= LayoutInflater.from(this).inflate(R.layout.insurance,null);
                 listView= (ListView) contentview.findViewById(R.id.lv_lv);
-                popupwindow=new Popupwindow(this,contentview,textView2);
+                popupwindow=new PopupwindowView(this,contentview,textView2);
                 popupwindow.show();
                 InsuranceName insuranceName=new InsuranceName(this,insurancecompanyList);
                 listView.setAdapter(insuranceName);
                 break;
             case R.id.bt_quotation:
              View contenteview=LayoutInflater.from(this).inflate(R.layout.quotation,null);
-                popupwindow=new Popupwindow(this,contenteview,bt_Quotation);
-                popupwindow.show();
+                popupwindow=new PopupwindowView(this,contenteview,bt_Quotation);
+                popupwindow.showAtLocation();
                 break;
         }
     }
@@ -100,10 +100,7 @@ public class RenewalAcrivity extends BaseActivity implements View.OnClickListene
 
     }
 
-    @Override
-    public void successTwo(Insurancecompany insurancecompany) {
 
-    }
 
 
 }

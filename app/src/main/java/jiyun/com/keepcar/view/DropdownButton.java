@@ -10,11 +10,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Checkable;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jiyun.com.keepcar.R;
@@ -28,7 +28,7 @@ public class DropdownButton extends RelativeLayout implements Checkable, View.On
     /**
      * 菜单按钮文字内容
      */
-    private TextView text;
+    public TextView text;
     /**
      * 菜单按钮底部的提示条
      */
@@ -37,14 +37,12 @@ public class DropdownButton extends RelativeLayout implements Checkable, View.On
     private PopWinDownUtil popWinDownUtil;
     private Context mContext;
     private DropDownAdapter adapter;
-    private int index;
-
-
     /**
      * 传入的数据
      */
     private List<DropBean> drops;
-    private List<DropBean> list=new ArrayList<>();
+    private List<DropBean> list;
+    private int index;
     /**
      * 当前被选择的item位置
      */
@@ -68,7 +66,7 @@ public class DropdownButton extends RelativeLayout implements Checkable, View.On
         //菜单按钮的布局
         View view =  LayoutInflater.from(getContext()).inflate(R.layout.dropdown_tab_button,this, true);
         text = (TextView) view.findViewById(R.id.textView);
-        bLine = view.findViewById(R.id.bottomLine);
+
         //点击事件，点击外部区域隐藏popupWindow
         setOnClickListener(this);
     }
@@ -81,10 +79,12 @@ public class DropdownButton extends RelativeLayout implements Checkable, View.On
             return;
         }
         drops = dropBeans;
-
+        list=dropBeans;
         text.setTextSize(21);
-        drops.get(0).setChoiced(true);
+        drops.get(1).setChoiced(true);
         text.setText(drops.get(0).getName());
+
+         list.remove(0);
         selectPosition = 0;
         View view = LayoutInflater.from(mContext).inflate(R.layout.dropdown_content, null);
         view.findViewById(R.id.content).setOnClickListener(new OnClickListener() {
@@ -96,7 +96,7 @@ public class DropdownButton extends RelativeLayout implements Checkable, View.On
         ListView listView = (ListView) view.findViewById(R.id.list);
         listView.setOnItemClickListener(this);
 
-        adapter = new DropDownAdapter(drops,mContext);
+        adapter = new DropDownAdapter(list,mContext);
         listView.setAdapter(adapter);
 
         popWinDownUtil = new PopWinDownUtil(mContext,view,this);
@@ -117,17 +117,14 @@ public class DropdownButton extends RelativeLayout implements Checkable, View.On
         if (checked) {
             icon = getResources().getDrawable(R.mipmap.up);
             text.setTextColor(Color.parseColor("#ff0000"));
-           // bLine.setVisibility(VISIBLE);
-            if(popWinDownUtil!=null) {
-                popWinDownUtil.show();
-            }
+
+
+            popWinDownUtil.show();
         } else {
             icon = getResources().getDrawable(R.mipmap.off);
             text.setTextColor(getResources().getColor(R.color.black));
-           // bLine.setVisibility(GONE);
-            if(popWinDownUtil!=null) {
-                popWinDownUtil.hide();
-            }
+
+            popWinDownUtil.hide();
         }
         //把箭头画到textView右边
         text.setCompoundDrawablesWithIntrinsicBounds(null, null, icon, null);
@@ -152,12 +149,15 @@ public class DropdownButton extends RelativeLayout implements Checkable, View.On
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        index=position;
+        text.setText(list.get(position).getName());
+        text.setTextColor(Color.parseColor("#ff0000"));
         if(selectPosition == position){
             return;
         }
         drops.get(selectPosition).setChoiced(false);
         drops.get(position).setChoiced(true);
-        text.setText(drops.get(position).getName());
+        //text.setText(drops.get(position).getName());
         adapter.notifyDataSetChanged();
         selectPosition = position;
         popWinDownUtil.hide();
@@ -178,12 +178,9 @@ public class DropdownButton extends RelativeLayout implements Checkable, View.On
     class DropDownAdapter extends BaseAdapter {
         private List<DropBean> drops;
         private Context context;
-
-
         public DropDownAdapter(List<DropBean> drops, Context context){
             this.drops = drops;
             this.context = context;
-
         }
         @Override
         public int getCount() {
@@ -210,21 +207,21 @@ public class DropdownButton extends RelativeLayout implements Checkable, View.On
                 holder = (ViewHolder) convertView.getTag();
             }
 
-          holder.tv.setText(drops.get(position).getName());
-
+            holder.tv.setText(drops.get(position).getName());
+            holder.tv.setTextSize(20);
 
             if(drops.get(position).isChoiced()){
                 holder.tv.setTextColor(Color.parseColor("#ff0000"));
+
             }else{
-                holder.tv.setTextColor(Color.parseColor("#343434"));
+                holder.tv.setTextColor(Color.parseColor("#606060"));
             }
             return convertView;
         }
         private class ViewHolder{
             TextView tv;
-
+            ImageView tig;
         }
     }
-
 
 }

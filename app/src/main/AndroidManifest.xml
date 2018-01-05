@@ -20,11 +20,6 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!-- 用于写入缓存数据到扩展存储卡 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
- 
-
-
-
     android:value="35278530d09e83344679fd865feeea6d" />
     <!-- 用于申请调用A-GPS模块 -->
 
@@ -42,28 +37,17 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.BaseActivity" />
         <!-- 注明设计稿的尺寸 -->
+
+        <activity android:name=".ui.homepage.forecar.Car_details" />
+
         <meta-data
             android:name="design_width"
-
-         
-
-
-
-           
-
-  <activity android:name=".ui.homepage.forecar.Car_details">
-
-  </activity>
-
-
-
-            android:value="750"></meta-data>
+            android:value="768" />
         <meta-data
             android:name="design_height"
             android:value="1334" />
 
-        <activity android:name=".ui.homepage.forecar.Car_details"></activity>
-
+        <activity android:name=".ui.homepage.forecar.Car_details" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -79,38 +63,23 @@
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
+            android:value="35278530d09e83344679fd865feeea6d" />
 
-           
-
-      
-       
         <activity android:name=".ui.homepage.XiCheActivity" />
-        <activity android:name=".ui.homepage.XiCheXiangQiingActivity"></activity>
-
-           android:value="35278530d09e83344679fd865feeea6d" />
-           
-        <activity android:name=".ui.login.LoginActvitity"></activity>
-
-        
-
-
-
-
-
-        </activity>
-
-        
-        <activity android:name=".ui.login.PersonalcenterActivity"></activity>
-        <activity android:name=".ui.login.YouxiangActivity"></activity>
-        <activity android:name=".ui.login.NiChengActivity"></activity>
-        <activity android:name=".ui.login.NameActivity"></activity>
-        <activity android:name=".ui.homepage.fragment.activity.ChooseCarActivity"></activity>
-
+        <activity android:name=".ui.homepage.XiCheXiangQiingActivity" />
+        android:value="35278530d09e83344679fd865feeea6d" />
         <activity android:name=".ui.login.LoginActvitity" />
-               
-        <activity android:name=".ui.adapter.carRenewal.activity.RenewalAcrivity"></activity>
+        <activity android:name=".ui.login.PersonalcenterActivity" />
+        <activity android:name=".ui.login.YouxiangActivity" />
+        <activity android:name=".ui.login.NiChengActivity" />
+        <activity android:name=".ui.login.NameActivity" />
+        <activity android:name=".ui.homepage.fragment.activity.ChooseCarActivity" />
 
-
+        <activity android:name=".ui.adapter.carRenewal.activity.RenewalAcrivity" />
+        <activity android:name=".ui.fourCarshow.activity.FourcarShowActivity" />
+        <activity android:name=".ui.competitiveproducts.activity.JingpinActivity" />
+        <activity android:name=".ui.wonderful.activity.WonderfulActivity" />
+        <activity android:name=".ui.integralsmall.activity.IntegralsmallActivity"></activity>
     </application>
 
 </manifest>
