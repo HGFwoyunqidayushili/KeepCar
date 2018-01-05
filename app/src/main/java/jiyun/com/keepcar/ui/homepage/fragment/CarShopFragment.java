@@ -3,7 +3,9 @@ package jiyun.com.keepcar.ui.homepage.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +24,7 @@ import java.util.Map;
 
 import jiyun.com.keepcar.R;
 import jiyun.com.keepcar.bean.ForeCarBean;
+import jiyun.com.keepcar.bean.TestBean;
 import jiyun.com.keepcar.http.contract.InfoContract;
 import jiyun.com.keepcar.http.presenter.PresenterInfo;
 import jiyun.com.keepcar.ui.adapter.ForeCarAdapter;
@@ -67,13 +71,13 @@ public class CarShopFragment extends Fragment implements InfoContract.Views<Fore
         View inflate = inflater.inflate(R.layout.fragment_car_shop, container, false);
         initView(inflate);
         Map<String, Object> map = new HashMap<>();
-        map.put("brandId","品牌不限");
-        map.put("shopCode","4S店不限");
-        map.put("sortType","默认排序");
+        map.put("brandId", "品牌不限");
+        map.put("shopCode", "4S店不限");
+        map.put("sortType", "默认排序");
 
         String s = ZJson.toJSONMap(map);
         PresenterInfo presenterInfo = new PresenterInfo(this, getActivity());
-        presenterInfo.getNewsData(URL,s);
+        presenterInfo.getNewsData(URL, s);
         return inflate;
     }
 
@@ -124,7 +128,9 @@ public class CarShopFragment extends Fragment implements InfoContract.Views<Fore
              startActivity(intent);
          }
      });
+
     }
+    //
 
     @Override
     public void failure(Throwable e) {

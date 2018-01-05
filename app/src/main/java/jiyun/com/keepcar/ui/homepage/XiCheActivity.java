@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -71,11 +72,29 @@ public class XiCheActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (dianmian.isChecked()) {
+                    dianmian.setTextColor(Color.RED);
                     View popupview = LayoutInflater.from(XiCheActivity.this).inflate(R.layout.xichepopone, null);
                     popupWindow = new PopupWindow(popupview, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                     popupWindow.setBackgroundDrawable(new BitmapDrawable());
+                    popupWindow.setAttachedInDecor(true);
                     popupWindow.setOutsideTouchable(true);
                     popupWindow.showAsDropDown(layout);
+                    if (popupWindow.isShowing()){
+                        WindowManager.LayoutParams lp = getWindow().getAttributes();
+                        lp.alpha=0.5f;
+                        getWindow().setAttributes(lp);
+                        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+                    }
+                    popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+                        @Override
+                        public void onDismiss() {
+                            WindowManager.LayoutParams lp = getWindow().getAttributes();
+                            lp.alpha=1f;
+                            getWindow().setAttributes(lp);
+                            getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+
+                        }
+                    });
                     paixu.setChecked(false);
                     final RadioButton dianmianbuxian = (RadioButton) popupview.findViewById(R.id.dianmian_Nolimit);
                     final RadioButton allxiche = (RadioButton) popupview.findViewById(R.id.allxiche);
@@ -133,6 +152,7 @@ public class XiCheActivity extends AppCompatActivity {
                         }
                     });
                 } else if (!dianmian.isChecked()) {
+                    dianmian.setTextColor(Color.BLACK);
                     popupWindow.dismiss();
                 }
 

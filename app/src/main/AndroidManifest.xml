@@ -20,6 +20,11 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!-- 用于写入缓存数据到扩展存储卡 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+ 
+
+
+
     android:value="35278530d09e83344679fd865feeea6d" />
     <!-- 用于申请调用A-GPS模块 -->
 
@@ -68,6 +73,32 @@
         <activity android:name=".ui.homepage.XiCheActivity" />
         <activity android:name=".ui.homepage.XiCheXiangQiingActivity" />
         android:value="35278530d09e83344679fd865feeea6d" />
+
+        <activity android:name=".ui.homepage.XiCheXiangQiingActivity" />
+        <activity android:name=".ui.homepage.JieZhangXiCheActivity" />
+        <activity android:name=".ui.homepage.Success_Activity"></activity>
+
+        <activity android:name=".ui.homepage.XiCheXiangQiingActivity"></activity>
+
+           android:value="35278530d09e83344679fd865feeea6d" />
+
+        <activity android:name=".ui.login.LoginActvitity"></activity>
+
+
+
+
+
+
+
+        </activity>
+
+
+        <activity android:name=".ui.login.PersonalcenterActivity"></activity>
+        <activity android:name=".ui.login.YouxiangActivity"></activity>
+        <activity android:name=".ui.login.NiChengActivity"></activity>
+        <activity android:name=".ui.login.NameActivity"></activity>
+        <activity android:name=".ui.homepage.fragment.activity.ChooseCarActivity"></activity>
+
         <activity android:name=".ui.login.LoginActvitity" />
         <activity android:name=".ui.login.PersonalcenterActivity" />
         <activity android:name=".ui.login.YouxiangActivity" />
@@ -80,6 +111,8 @@
         <activity android:name=".ui.competitiveproducts.activity.JingpinActivity" />
         <activity android:name=".ui.wonderful.activity.WonderfulActivity" />
         <activity android:name=".ui.integralsmall.activity.IntegralsmallActivity"></activity>
+
+
     </application>
 
 </manifest>

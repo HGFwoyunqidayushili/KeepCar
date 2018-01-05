@@ -38,6 +38,9 @@ import jiyun.com.keepcar.http.presenter.PresenterInfo;
 import jiyun.com.keepcar.ui.App;
 import jiyun.com.keepcar.ui.BaseFragment;
 import jiyun.com.keepcar.ui.Constant;
+
+import jiyun.com.keepcar.ui.homepage.XiCheActivity;
+
 import jiyun.com.keepcar.ui.MainActivity;
 import jiyun.com.keepcar.ui.adapter.carRenewal.activity.RenewalAcrivity;
 import jiyun.com.keepcar.ui.competitiveproducts.activity.JingpinActivity;
@@ -115,6 +118,10 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         viewFlipper= (ViewFlipper) herder.findViewById(R.id.viewflipager);
 
         xiiche = (CheckBox) herder.findViewById(R.id.xiche);
+
+
+
+
         xiiche.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -42,7 +42,6 @@ public class PopWinDownUtil {
             @Override
             public void onDismiss() {
                 if(onDismissLisener != null){
-
                     onDismissLisener.onDismiss();
                 }
             }
