@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.Toast;
@@ -28,6 +29,7 @@ public class JieZhangXiCheActivity extends AppCompatActivity implements View.OnC
     private int[] res = {R.drawable.hanmacar, R.drawable.pao1, R.drawable.pao2};
     private List<ImageView> listdata = new ArrayList<ImageView>();
     private Button lijigoumai;
+    private int a;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +92,7 @@ public class JieZhangXiCheActivity extends AppCompatActivity implements View.OnC
 //        加载popupwndow的布局
                 View popupview1 = LayoutInflater.from(JieZhangXiCheActivity.this).inflate(R.layout.oderiteam, null);
 //        创建一个popupWindow对象
-                final PopupWindow popupWindow1 = new PopupWindow(popupview1, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                final PopupWindow popupWindow1 = new PopupWindow(popupview1, ViewGroup.LayoutParams.MATCH_PARENT, 500);
 //        默认获取不到焦点，设置获取焦点
                 popupWindow1.setFocusable(true);
 //        点击窗口以外的区域，窗口消失
@@ -101,12 +103,32 @@ public class JieZhangXiCheActivity extends AppCompatActivity implements View.OnC
 //        显示popupwindow
                 popupWindow1.showAtLocation(popupview1, Gravity.BOTTOM, 0, 0);
                 Button Determine = (Button) popupview1.findViewById(R.id.Determine);
+                Button shuliangjia = (Button) popupview1.findViewById(R.id.shuliangjia);
+                Button shuliangjian = (Button) popupview1.findViewById(R.id.shuliangjian);
+                final EditText shuliang = (EditText) popupview1.findViewById(R.id.shuzi);
+                a = 1;
+                shuliangjia.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        a++;
+                        shuliang.setText(a+"");
+                    }
+                });
+                shuliangjian.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (a>1){
+                            a--;
+                            shuliang.setText(a+"");
+                        }
+                    }
+                });
                 Determine.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                          popupWindow1.dismiss();
                         View popupview3 = LayoutInflater.from(JieZhangXiCheActivity.this).inflate(R.layout.fukuaniteam, null);
-                        final PopupWindow popupWindow33 = new PopupWindow(popupview3, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                        final PopupWindow popupWindow33 = new PopupWindow(popupview3, ViewGroup.LayoutParams.MATCH_PARENT, 500);
                         popupWindow33.setFocusable(true);
                         popupWindow33.setAnimationStyle(R.style.mypopupwindow);
                         popupWindow33.setBackgroundDrawable(new BitmapDrawable());

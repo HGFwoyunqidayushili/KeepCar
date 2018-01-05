@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
@@ -29,6 +30,7 @@ public class Order_CarActivity extends AppCompatActivity implements View.OnClick
     private Button insertorder;
     private TextView button;
     private Button Immediately_goumai;
+    private int a;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,6 +127,26 @@ public class Order_CarActivity extends AppCompatActivity implements View.OnClick
 
 //        显示popupwindow
                 popupWindow.showAtLocation(popupview, Gravity.BOTTOM, 0, 0);
+                Button jia = (Button) popupview.findViewById(R.id.jia);
+                Button jian = (Button) popupview.findViewById(R.id.jian);
+                final EditText jiage = (EditText) popupview.findViewById(R.id.jiage);
+                a = 1;
+                jia.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                      a++;
+                        jiage.setText(a+"");
+                    }
+                });
+                jian.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (a>1){
+                            a--;
+                            jiage.setText(a+"");
+                        }
+                    }
+                });
                 break;
             case R.id.Immediately_goumai:
 
@@ -144,6 +166,26 @@ public class Order_CarActivity extends AppCompatActivity implements View.OnClick
 
 //        显示popupwindow
                 popupWindow1.showAtLocation(popupview1, Gravity.BOTTOM, 0, 0);
+                Button jia1 = (Button) popupview1.findViewById(R.id.jia);
+                Button jian1 = (Button) popupview1.findViewById(R.id.jian);
+                final EditText jiage1 = (EditText) popupview1.findViewById(R.id.jiage);
+                a = 1;
+                jia1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        a++;
+                        jiage1.setText(a+"");
+                    }
+                });
+                jian1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (a>1){
+                            a--;
+                            jiage1.setText(a+"");
+                        }
+                    }
+                });
                 break;
         }
     }
