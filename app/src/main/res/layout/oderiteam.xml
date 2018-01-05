@@ -73,7 +73,7 @@
             android:layout_weight="0.5"
             android:text="+"/>
     </LinearLayout>
-
+<!---->
     <Button
         android:id="@+id/Determine"
         android:layout_width="match_parent"

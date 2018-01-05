@@ -3,6 +3,7 @@
     <!-- 实心 -->
     <solid android:color="@android:color/white"/>
     <!-- 边框 -->
+    <!---->
     <stroke
         android:width="0.5dp"
         android:color="@color/biankuang"/>

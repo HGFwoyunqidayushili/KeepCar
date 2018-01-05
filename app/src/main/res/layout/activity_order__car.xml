@@ -143,7 +143,7 @@
     android:layout_height="wrap_content"
         android:textColor="#FD1E23"
     android:text="查看更多"/>
-
+<!---->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

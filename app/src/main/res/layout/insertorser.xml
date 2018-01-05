@@ -79,6 +79,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_weight="0.7"/>
+        <!---->
         <Button
             android:id="@+id/jia"
             android:layout_width="0dp"

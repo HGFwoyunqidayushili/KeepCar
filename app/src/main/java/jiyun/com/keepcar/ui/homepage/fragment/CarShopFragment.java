@@ -119,6 +119,7 @@ public class CarShopFragment extends Fragment implements InfoContract.Views<Fore
             }
         });
     }
+    //
 
     @Override
     public void failure(Throwable e) {

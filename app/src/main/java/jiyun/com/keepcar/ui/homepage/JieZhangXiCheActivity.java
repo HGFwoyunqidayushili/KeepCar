@@ -52,7 +52,7 @@ public class JieZhangXiCheActivity extends AppCompatActivity implements View.OnC
             public boolean isViewFromObject(View view, Object object) {
                 return view == object;
             }
-
+//
             @Override
             public Object instantiateItem(ViewGroup container, int position) {
                 ImageView imageView = listdata.get(position);
