@@ -11,7 +11,7 @@
      android:layout_height="100px"
 
      >
- liurongbin4ss
+
    <include
        layout="@layout/apptitle"
        >
@@ -69,7 +69,7 @@
        android:layout_height="wrap_content"
        android:background="@drawable/add"
 
-       android:background="@mipmap/add"
+
 
        android:layout_alignParentRight="true"
        android:layout_centerVertical="true"

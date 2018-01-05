@@ -16,8 +16,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="480px"
-                android:background="@mipmap/ic_launcher">
-                <ImageView
+                android:background="@drawable/baijing">
+                <jiyun.com.keepcar.ui.TuPian
                     android:id="@+id/icon_login"
                     android:layout_width="120px"
                     android:layout_height="120px"

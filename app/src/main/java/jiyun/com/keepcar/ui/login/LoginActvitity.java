@@ -1,5 +1,6 @@
 package jiyun.com.keepcar.ui.login;
 
+import android.content.Intent;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
@@ -9,10 +10,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 
 import jiyun.com.keepcar.R;
 import jiyun.com.keepcar.ui.BaseActivity;
+import jiyun.com.keepcar.ui.MainActivity;
+import jiyun.com.keepcar.utils.Loginutil;
+import jiyun.com.keepcar.utils.UserManager;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;
@@ -41,6 +48,7 @@ public class LoginActvitity extends BaseActivity implements View.OnClickListener
                     break;
                 case 1:
                     Toast.makeText(LoginActvitity.this, "成功-->" + str, Toast.LENGTH_LONG).show();
+
                     Log.e("111111",str);
                     break;
                 case 3:
@@ -54,11 +62,35 @@ public class LoginActvitity extends BaseActivity implements View.OnClickListener
                 case 5:
                     Toast.makeText(LoginActvitity.this, "444444-->" + str, Toast.LENGTH_LONG).show();
                     break;
+                case 7:
+                    try {
+                        JSONObject jsonObject=new JSONObject(str);
+                         String userId=jsonObject.getString("data");
+
+                         Log.e("TAG",userId);
+                        Loginutil loginutil=new Loginutil();
+                         loginutil.setData(userId);
+                        String trim = reginst_ipone.getText().toString().trim();
+
+                        loginutil.setAccountUname(trim);
+                        UserManager.getIntance().saveUser(loginutil);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+//                    Toast.makeText(LoginActvitity.this, "444444-->" + str, Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(LoginActvitity.this, MainActivity.class);
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString("123",reginst_ipone.getText().toString());
+//                    intent.putExtras(bundle);
+                    intent.putExtra("denglu",reginst_ipone.getText().toString());
+
+                    startActivity(intent);
+                    Log.e("123333333",str);
+                    break;
             }
         }
     };
     private String ss;
-
     @Override
     protected void initView() {
         //填写手机号控件
@@ -197,7 +229,7 @@ public class LoginActvitity extends BaseActivity implements View.OnClickListener
             @Override
             public void onFailure(Call call, IOException e) {
                 Message message = new Message();
-                message.what = 0;
+                message.what = 6;
                 message.obj = e.getMessage();
                 handler.sendMessage(message);
                 Toast.makeText(LoginActvitity.this, "11111", Toast.LENGTH_SHORT).show();
@@ -207,7 +239,7 @@ public class LoginActvitity extends BaseActivity implements View.OnClickListener
                 Message message = handler.obtainMessage();
               String   string = response.body().string();
                 message.obj = string;
-                message.what = 1;
+                message.what = 7;
                 handler.sendMessage(message);
             }
         });
