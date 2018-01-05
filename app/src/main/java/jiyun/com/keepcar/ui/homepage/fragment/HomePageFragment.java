@@ -105,7 +105,10 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         banner= (Banner) herder.findViewById(R.id.fly_banner);
         viewFlipper= (ViewFlipper) herder.findViewById(R.id.viewflipager);
 
-        xiiche = herder.findViewById(R.id.xiche);
+        xiiche = (CheckBox) herder.findViewById(R.id.xiche);
+
+
+
         xiiche.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

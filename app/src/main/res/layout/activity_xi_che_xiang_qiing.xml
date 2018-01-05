@@ -115,17 +115,17 @@
 <ImageView
     android:id="@+id/Local_account"
     android:layout_width="0dp"
-    android:layout_height="wrap_content"
+    android:layout_height="40dp"
     android:layout_weight="0.5"
     android:src="@drawable/bendianzhanghu"/>
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="0.5"
             android:src="@drawable/daipingjia"/>
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="0.5"
             android:src="@drawable/daohangss"/>
     </LinearLayout>

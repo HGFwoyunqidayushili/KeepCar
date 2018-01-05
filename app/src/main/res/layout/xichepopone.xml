@@ -11,37 +11,45 @@
     <RadioButton
         android:id="@+id/dianmian_Nolimit"
         android:layout_width="match_parent"
-        android:layout_height="50px"
+        android:layout_height="70px"
         android:drawableLeft="@drawable/ischacked"
         android:button="@null"
         android:text="店面不限"/>
     <RadioButton
         android:id="@+id/allxiche"
         android:layout_width="match_parent"
-        android:layout_height="50px"
+        android:layout_height="70px"
         android:drawableLeft="@drawable/ischacked"
         android:button="@null"
         android:text="全部洗车店"/>
     <RadioButton
         android:id="@+id/allvip"
         android:layout_width="match_parent"
-        android:layout_height="50px"
+        android:layout_height="70px"
         android:button="@null"
         android:drawableLeft="@drawable/ischacked"
         android:text="全部会员店"/>
     <RadioButton
         android:id="@+id/order4s"
         android:layout_width="match_parent"
-        android:layout_height="50px"
+        android:layout_height="70px"
         android:button="@null"
         android:drawableLeft="@drawable/ischacked"
         android:text="品牌4s店"/>
     <RadioButton
         android:id="@+id/historyxidan"
         android:layout_width="match_parent"
-        android:layout_height="50px"
+        android:layout_height="70px"
         android:button="@null"
         android:drawableLeft="@drawable/ischacked"
         android:text="历史下单店"/>
 </RadioGroup>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"></ListView>
+    </LinearLayout>
 </LinearLayout>
