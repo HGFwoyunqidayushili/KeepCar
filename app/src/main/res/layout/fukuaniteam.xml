@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:background="#fff"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 <android.support.v7.widget.Toolbar
     android:layout_width="match_parent"
-    android:layout_height="49dp"
+    android:layout_height="43dp"
     android:background="#EFEFEF"
-    >
+    android:id="@+id/toolbar">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,45 +17,24 @@
         android:textSize="20dp"
         android:gravity="center"/>
 </android.support.v7.widget.Toolbar>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="￥520"
-        android:textSize="30dp"
-        android:textColor="#ff00"
-        android:gravity="center"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-<ImageView
-    android:layout_width="0dp"
-    android:layout_weight="0.1"
-    android:layout_height="30dp"
-    android:src="@drawable/weixn"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="微信支付"
-            android:layout_gravity="center"
-            android:textColor="#A5A5A5"/>
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RadioButton
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-         />
 
-        </RadioGroup>
-    </LinearLayout>
+    <Button
+        android:id="@+id/enter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="立即付款"
+        android:layout_alignParentBottom="true"
+        android:background="#ff00"/>
+<!---->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="45dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_below="@+id/linearLayout4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
         <ImageView
             android:layout_width="0dp"
             android:layout_weight="0.1"
@@ -79,11 +58,50 @@
 
         </RadioGroup>
     </LinearLayout>
-    <Button
-        android:id="@+id/enter"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#fff"
-        android:text="立即付款"
-        android:background="#ff00"/>
-</LinearLayout>
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:id="@+id/linearLayout4"
+        android:layout_below="@+id/textView10"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+<ImageView
+    android:layout_width="0dp"
+    android:layout_weight="0.1"
+    android:layout_height="30dp"
+    android:src="@drawable/weixn"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="微信支付"
+            android:layout_gravity="center"
+            android:textColor="#A5A5A5"/>
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+         />
+
+        </RadioGroup>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="￥520"
+        android:textSize="30dp"
+        android:textColor="#ff00"
+        android:gravity="center"
+        android:layout_marginTop="14dp"
+        android:id="@+id/textView10"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

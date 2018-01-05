@@ -37,18 +37,7 @@ import jiyun.com.keepcar.utils.ZJson;
 public class CarShopFragment extends Fragment implements InfoContract.Views<ForeCarBean> {
 
 
-    private CheckBox brand;
-    private CheckBox storefront;
-    private CheckBox sort;
-    private LinearLayout linlayout;
-    private RadioButton raone;
-    private RadioButton raTwo;
-    private RadioButton raThree;
-    private PopupWindow pinpaiPop2;
-    private PopupWindow pinpaiPop3;
-    private RadioButton aDefault;
-    private RadioButton Distance;
-    private RadioButton Evaluate;
+
     DropdownButton dropdownButton1;
     DropdownButton dropdownButton2;
     DropdownButton dropdownButton3;
@@ -125,10 +114,12 @@ public class CarShopFragment extends Fragment implements InfoContract.Views<Fore
                 Intent intent = new Intent(getActivity(), Car_details.class);
                 intent.putExtra("name", data.get(postion).getProvinceName() + data.get(postion).getCityName());
                 intent.putExtra("carname", data.get(postion).getShopName());
+
                 startActivity(intent);
             }
         });
     }
+    //
 
     @Override
     public void failure(Throwable e) {

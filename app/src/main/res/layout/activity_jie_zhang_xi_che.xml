@@ -197,6 +197,16 @@
                 android:text="x1"
                 android:layout_weight="0.5"/>
         </LinearLayout>
+        <TextView
+            android:layout_width="80dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+
+            android:background="@drawable/textback"
+            android:layout_height="wrap_content"
+            android:textColor="#FD1E23"
+            android:text="查看更多"/>
+        <!---->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

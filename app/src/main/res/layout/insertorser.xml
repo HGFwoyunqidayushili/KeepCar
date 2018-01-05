@@ -64,20 +64,24 @@
             android:text="购买数量:"/>
 
         <Button
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="-"
-            android:id="@+id/button2" />
+            android:id="@+id/jian" />
 
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="1"
+            android:id="@+id/jiage"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_weight="0.7"/>
+        <!---->
         <Button
+            android:id="@+id/jia"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"

@@ -88,12 +88,14 @@
             android:layout_height="wrap_content"
             android:text="6899人付款"/>
     </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="用户评价(2000)"
         android:textColor="#000"/>
-<TextView
+
+    <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="还好"/>
@@ -132,10 +134,16 @@
     android:text="还好"/><TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="还好"/><TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     android:text="还好"/>
+    <TextView
+    android:layout_width="80dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+    android:background="@drawable/textback"
+    android:layout_height="wrap_content"
+        android:textColor="#FD1E23"
+    android:text="查看更多"/>
+<!---->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
