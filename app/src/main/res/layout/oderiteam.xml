@@ -36,19 +36,6 @@
         android:layout_marginBottom="22dp"
         android:id="@+id/textView9" />
 
-    <Button
-        android:id="@+id/Determine"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="确定"
-       android:textColor="#fff"
-        android:textStyle="bold"
-        android:background="#FF7101"
-        android:layout_marginTop="52dp"
-        android:layout_below="@+id/linearLayout2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -84,37 +71,16 @@
             android:text="+"/>
     </LinearLayout>
 
-    <LinearLayout
+    <Button
+        android:id="@+id/Determine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/linearLayout3"
-        android:layout_marginTop="7dp"
+        android:text="确定"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:background="#FF7101"
         android:layout_below="@+id/linearLayout2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="配送方式:"/>
-<ImageView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:src="@drawable/xuanze"/>
-    </LinearLayout>
+        android:layout_alignParentStart="true" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:background="#EFEFEF"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-        <TextView
-            android:layout_width="match_parent"
-            android:gravity="right"
-            android:layout_height="wrap_content"
-            android:text="温馨提示:颜色随机"/>
-    </LinearLayout>
 </RelativeLayout>

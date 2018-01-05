@@ -106,6 +106,9 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         viewFlipper= (ViewFlipper) herder.findViewById(R.id.viewflipager);
 
         xiiche = (CheckBox) herder.findViewById(R.id.xiche);
+
+
+
         xiiche.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,8 +116,6 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
                 startActivity(new Intent(getActivity(), XiCheActivity.class));
             }
         });
-
-
         recyclerView= (RecyclerView) view.findViewById(R.id.recyclerview);
          lv.addHeaderView(herder);
 
@@ -215,6 +216,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
     public void failure(Throwable e) {
 
     }
+
 
 
 

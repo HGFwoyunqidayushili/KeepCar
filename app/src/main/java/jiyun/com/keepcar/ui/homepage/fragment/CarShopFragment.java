@@ -67,13 +67,13 @@ public class CarShopFragment extends Fragment implements InfoContract.Views<Fore
         View inflate = inflater.inflate(R.layout.fragment_car_shop, container, false);
         initView(inflate);
         Map<String, Object> map = new HashMap<>();
-        map.put("brandId","品牌不限");
-        map.put("shopCode","4S店不限");
-        map.put("sortType","默认排序");
+        map.put("brandId", "品牌不限");
+        map.put("shopCode", "4S店不限");
+        map.put("sortType", "默认排序");
 
         String s = ZJson.toJSONMap(map);
         PresenterInfo presenterInfo = new PresenterInfo(this, getActivity());
-        presenterInfo.getNewsData(URL,s);
+        presenterInfo.getNewsData(URL, s);
         return inflate;
     }
 
@@ -112,18 +112,18 @@ public class CarShopFragment extends Fragment implements InfoContract.Views<Fore
 
     @Override
     public void success(ForeCarBean foreCarBean) {
-        final List<ForeCarBean.DataBean> data = foreCarBean.getData();
+        final List<ForeCarBean.DataBean.ListBean> data = foreCarBean.getData().getList();
         ForeCarAdapter foreCarAdapter = new ForeCarAdapter(data, getActivity());
         foreCarListView.setAdapter(foreCarAdapter);
-     foreCarListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-         @Override
-         public void onItemClick(AdapterView<?> adapterView, View view, int postion, long l) {
-             Intent intent = new Intent(getActivity(), Car_details.class);
-             intent.putExtra("name",data.get(postion).getProvinceName()+data.get(postion).getCityName());
-             intent.putExtra("carname",data.get(postion).getShopName());
-             startActivity(intent);
-         }
-     });
+        foreCarListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int postion, long l) {
+                Intent intent = new Intent(getActivity(), Car_details.class);
+                intent.putExtra("name", data.get(postion).getProvinceName() + data.get(postion).getCityName());
+                intent.putExtra("carname", data.get(postion).getShopName());
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
