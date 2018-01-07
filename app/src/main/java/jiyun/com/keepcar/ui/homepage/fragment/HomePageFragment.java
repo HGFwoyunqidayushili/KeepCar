@@ -119,6 +119,7 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
         recyclerView= (RecyclerView) view.findViewById(R.id.recyclerview);
          lv.addHeaderView(herder);
         lv.setAdapter(null);
+
         radio_baoyang= (CheckBox) view.findViewById(R.id.radio_baoyang);
         radio_baoyang.setOnClickListener(this);
         radio_jingpin= (CheckBox) view.findViewById(R.id.radio_jingpin);
