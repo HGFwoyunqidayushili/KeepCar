@@ -3,9 +3,7 @@ package jiyun.com.keepcar.ui.homepage.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,7 +21,6 @@ import java.util.Map;
 
 import jiyun.com.keepcar.R;
 import jiyun.com.keepcar.bean.ForeCarBean;
-import jiyun.com.keepcar.bean.TestBean;
 import jiyun.com.keepcar.http.contract.InfoContract;
 import jiyun.com.keepcar.http.presenter.PresenterInfo;
 import jiyun.com.keepcar.ui.adapter.ForeCarAdapter;
@@ -125,4 +121,6 @@ public class CarShopFragment extends Fragment implements InfoContract.Views<Fore
     public void failure(Throwable e) {
 
     }
+
+
 }

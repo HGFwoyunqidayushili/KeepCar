@@ -19,9 +19,9 @@
             android:text="头像"
             android:textSize="30px" />
 
-        <ImageView
+        <jiyun.com.keepcar.ui.TuPian
             android:id="@+id/touxiang_updata"
-            android:layout_width="wrap_content"
+            android:layout_width="150px"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_margin="20px"

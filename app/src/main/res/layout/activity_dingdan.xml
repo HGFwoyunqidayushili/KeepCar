@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/group"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="30px">
+
+        <RadioButton
+            android:id="@+id/suoha"
+            android:layout_width="0px"
+            android:layout_height="100px"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:button="@null"
+            android:gravity="center"
+            android:checked="false"
+            android:background="@drawable/shape_dindgan"
+            android:text="全部"
+            android:textSize="30px" />
+        <RadioButton
+            android:id="@+id/daifu"
+            android:layout_width="0px"
+            android:layout_height="100px"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:checked="false"
+            android:background="@drawable/shape_dindgan"
+            android:text="代付款"
+            android:textSize="30px" />
+        <RadioButton
+            android:id="@+id/daishi"
+            android:layout_width="0px"
+            android:layout_height="100px"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:checked="false"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_dindgan"
+            android:text="待施工"
+            android:textSize="30px" />
+
+        <RadioButton
+            android:id="@+id/daifa"
+            android:layout_width="0px"
+            android:layout_gravity="center"
+            android:layout_height="100px"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:checked="false"
+            android:background="@drawable/shape_dindgan"
+            android:text="待发货"
+            android:textSize="30px" />
+        <RadioButton
+
+            android:id="@+id/daishou"
+            android:layout_width="0px"
+            android:layout_height="100px"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/shape_dindgan"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="待收货"
+            android:textSize="30px" />
+        <RadioButton
+            android:id="@+id/daiping"
+            android:layout_width="0px"
+            android:layout_height="100px"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:layout_gravity="center"
+            android:checked="false"
+            android:background="@drawable/shape_dindgan"
+            android:text="待评价"
+            android:textSize="30px" />
+    </RadioGroup>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:id="@+id/fram_radio"
+        android:layout_height="match_parent"></FrameLayout>
+</LinearLayout>
