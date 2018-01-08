@@ -14,6 +14,7 @@ public class App extends Application {
     public static BaseActivity activity;
     private static App mApplication;
     public static final String SP_FILE_NAME = "SP_FILE";
+
     private Sp mSpUtil;
     public synchronized static App getInstance() {
         return mApplication;

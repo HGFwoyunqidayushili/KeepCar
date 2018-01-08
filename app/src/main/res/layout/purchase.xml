@@ -3,6 +3,174 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/line1"
+    android:background="@color/whitesss"
     >
 
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:background="#77000000"
+        >
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:background="@color/white"
+            android:layout_marginTop="30px"
+
+            >
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+      <com.zhy.autolayout.AutoRelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          >
+        <ImageView
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:background="@mipmap/home"
+            android:layout_marginLeft="20px"
+            android:id="@+id/img"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/price"
+            android:text="200"
+             android:layout_toRightOf="@+id/img"
+            android:layout_centerVertical="true"
+             android:textColor="@color/red"
+            android:textSize="50px"
+
+            />
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/name"
+              android:text="黄国峰"
+              android:textSize="30px"
+               android:layout_below="@+id/price"
+              android:layout_toRightOf="@+id/img"
+              android:layout_marginTop="10px"
+              />
+
+      </com.zhy.autolayout.AutoRelativeLayout>
+
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/qianhui"
+        android:textColor="@color/qianhui"
+        android:layout_below="@+id/name"
+
+        />
+
+<com.zhy.autolayout.AutoRelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="120px"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:text="购买数量"
+        android:textSize="30px"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20px"
+        />
+  <Button
+      android:layout_width="80px"
+      android:layout_height="80px"
+       android:layout_alignParentRight="true"
+      android:layout_centerVertical="true"
+       android:background="@color/qianhui"
+      android:text="+"
+      android:textSize="30px"
+       android:id="@+id/add"
+      android:layout_marginRight="20px"
+
+      />
+    <TextView
+        android:layout_width="100px"
+        android:layout_height="80px"
+         android:text="年后"
+        android:gravity="center"
+     android:layout_centerVertical="true"
+        android:id="@+id/num"
+        android:layout_toLeftOf="@+id/add"
+        />
+    <Button
+        android:layout_width="80px"
+        android:layout_height="80px"
+        android:layout_centerVertical="true"
+        android:background="@color/qianhui"
+        android:text="-"
+        android:textSize="30px"
+        android:id="@+id/jia"
+         android:layout_toLeftOf="@+id/num"
+        />
+</com.zhy.autolayout.AutoRelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/qianhui"
+        android:textColor="@color/qianhui"
+        android:layout_below="@+id/name"
+
+        />
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="购买数量"
+            android:textSize="30px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请选择"
+            android:textSize="31px"
+            android:layout_marginLeft="20px"
+            android:layout_centerVertical="true"
+            android:textColor="@color/huise"
+            android:layout_alignParentRight="true"
+            android:drawableRight="@mipmap/swich"
+            android:layout_marginRight="20px"
+            android:drawablePadding="20px"
+            />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+         android:background="#c4c4c4"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:text="温馨提示:颜色随机"
+            android:textColor="@color/sheihui"
+              android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+           android:layout_marginRight="20px"
+            />
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+         android:background="@color/red"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:textSize="30px"
+        android:id="@+id/determine"
+        />
 </com.zhy.autolayout.AutoLinearLayout>

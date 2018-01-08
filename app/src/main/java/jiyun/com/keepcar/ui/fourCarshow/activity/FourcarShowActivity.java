@@ -34,6 +34,7 @@ public class FourcarShowActivity extends BaseActivity implements View.OnClickLis
         usedCar_show= (TextView) findViewById(R.id.usedCar_show);
         usedCar_show.setOnClickListener(this);
         manager.beginTransaction().replace(R.id.Frame_layout,newCarshowFragment).commit();
+
     }
 
     @Override
