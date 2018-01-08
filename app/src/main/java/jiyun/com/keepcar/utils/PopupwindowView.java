@@ -55,7 +55,7 @@ public class PopupwindowView {
 
          int y =location[1];
 
-         popupWindow.showAtLocation(relayView,Gravity.NO_GRAVITY,0,y+relayView.getHeight());
+         popupWindow.showAsDropDown(relayView,0,relayView.getHeight());
       }
 
    }
