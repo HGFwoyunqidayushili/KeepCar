@@ -2,6 +2,8 @@ package jiyun.com.keepcar.ui.homepage.fragment;
 
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
@@ -17,15 +19,20 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import jiyun.com.keepcar.R;
+import jiyun.com.keepcar.ui.TuPian;
 import jiyun.com.keepcar.ui.homepage.fragment.activity.ChooseCarActivity;
+import jiyun.com.keepcar.ui.login.DingdanActivity;
+import jiyun.com.keepcar.ui.login.LoginActvitity;
 import jiyun.com.keepcar.ui.login.PersonalcenterActivity;
 import jiyun.com.keepcar.ui.zhanghu_fragment.Zhanghu_fragment;
+import jiyun.com.keepcar.utils.UserManager;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class PersonalFragment extends Fragment implements View.OnClickListener {
-    private ImageView icon_login;
+    private TuPian icon_login;
+    private Bitmap photobitmap;
     private TextView name_login;
     private RadioButton daifukuan_rabtn;
     private RadioButton daishigong_rabtn;
@@ -55,9 +62,8 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
     private  TextView my_dingdan;
 
     public PersonalFragment() {
-        // Required empty public constructor
-    }
 
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -70,7 +76,6 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
         initListener();
         return inflate;
     }
-
     private void initListener() {
         rid_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -80,6 +85,7 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
                         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                         FragmentTransaction add = fragmentTransaction.replace(R.id.frag_zhanghu, Zhanghu_fragment.newInstance("第一个fragment"));
                         add.commit();
+//                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                         break;
                     case R.id.chuzhi_btn:
                         FragmentTransaction f1 = getFragmentManager().beginTransaction();
@@ -104,12 +110,15 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
             }
         });
     }
-
     private void initView(View inflate) {
         my_dingdan= (TextView) inflate.findViewById(R.id.my_dingdan);
         my_dingdan.setOnClickListener(this);
-        icon_login = (ImageView) inflate.findViewById(R.id.icon_login);
+        icon_login = (TuPian) inflate.findViewById(R.id.icon_login);
         name_login = (TextView) inflate.findViewById(R.id.name_login);
+        String userName = UserManager.getIntance().getUserName();
+        name_login.setText(userName);
+        String denglu = getActivity().getIntent().getStringExtra("denglu");
+        name_login.setText(denglu);
         daifukuan_rabtn = (RadioButton) inflate.findViewById(R.id.daifukuan_rabtn);
         daishigong_rabtn = (RadioButton) inflate.findViewById(R.id.daishigong_rabtn);
         daifahuo_rabtn = (RadioButton) inflate.findViewById(R.id.daifahuo_rabtn);
@@ -139,32 +148,49 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
         my_car.setOnClickListener(this);
         dangqian_car = (RelativeLayout) inflate.findViewById(R.id.dangqian_car);
         dangqian_car.setOnClickListener(this);
-
+        group_dingdan.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                switch (checkedId){
+                    case R.id.daifukuan_rabtn:
+                        Intent intent2 = new Intent(getActivity(), DingdanActivity.class);
+                        startActivity(intent2);
+                        break;
+                }
+            }
+        });
     }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.icon_login:
-                Intent intent = new Intent(getActivity(), PersonalcenterActivity.class);
-                startActivityForResult(intent, 100);
+                if(UserManager.getIntance().isLogin()) {
+                    Intent intent = new Intent(getActivity(), PersonalcenterActivity.class);
+                    startActivityForResult(intent, 100);
+
+            }else {
+                    Intent intent = new Intent(getActivity(), LoginActvitity.class);
+                    startActivity(intent);
+                }
+
                 break;
             case R.id.my_car:
                 Intent intent1 = new Intent(getActivity(), ChooseCarActivity.class);
                 startActivity(intent1);
                 break;
             case R.id.my_dingdan:
-
                 break;
         }
     }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 100 && resultCode == 100) {
-            String tex = data.getStringExtra("tex");
-            name_login.setText(tex);
+        if (requestCode == 100 && resultCode == 200) {
+//            String tex = data.getStringExtra("image");
+            byte[] images = data.getByteArrayExtra("image");
+            photobitmap= BitmapFactory.decodeByteArray(images, 0, images.length);
+            icon_login.setImageBitmap(photobitmap);
+//            icon_login.setImageBitmap();
         }
     }
 }

@@ -41,7 +41,7 @@ public class OkhttpProduct<T> extends RequestFactory<T> {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String str=response.body().string();
-                Log.e("TAG",str);
+               Log.e("TAG",str);
                 Gson gson = new Gson();
                 final T o = gson.fromJson(str,type);
                 App.activity.runOnUiThread(new Runnable() {
@@ -75,7 +75,7 @@ public class OkhttpProduct<T> extends RequestFactory<T> {
                 App.activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-
+                        httpCallBack.successTwo(o);
                     }
                 });
 

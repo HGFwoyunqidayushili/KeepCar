@@ -81,8 +81,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_gravity="bottom"
-        android:orientation="horizontal">8
-
+        android:orientation="horizontal">
         <RadioButton
             android:id="@+id/guanlianVIP"
             android:layout_width="0px"
@@ -100,11 +99,11 @@
             android:layout_width="0px"
             android:layout_height="120px"
             android:layout_weight="1"
+            android:background="@drawable/buttonloginground2"
             android:button="@null"
             android:gravity="center"
-            android:textColor="@color/white"
-            android:background="@drawable/buttonloginground2"
             android:text="添加爱车"
+            android:textColor="@color/white"
             android:textSize="35px" />
     </RadioGroup>
 </LinearLayout>

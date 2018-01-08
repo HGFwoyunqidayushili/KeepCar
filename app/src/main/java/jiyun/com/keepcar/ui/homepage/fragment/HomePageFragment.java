@@ -52,6 +52,7 @@ import jiyun.com.keepcar.utils.Cjson;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+import jiyun.com.keepcar.ui.homepage.XiCheActivity;
 
 
 /**
@@ -181,42 +182,35 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     protected void initData() {
-        PresenterInfo presenterInfo=new PresenterInfo(this,getActivity());
-        presenterInfo.getNewsData(Constant.URLIMAGE_STRING,"");
-        Map<String,Object> map=new HashMap<>();
-         map.put("cityId",Constant.CITY_ID);
-
-          String json=Cjson.toJSONMap(map);
-         OkhttpUtils.getInstance().getPost(Constant.URL_STRING + BASE_URLSTRING, json, new Callback() {
-             public String string;
-
-             @Override
-             public void onFailure(Call call, IOException e) {
-
-             }
-
-             @Override
-             public void onResponse(Call call, Response response) throws IOException {
-                 string=response.body().string();
-
-                 Gson gson=new Gson();
-                 CarActivity carActivity=gson.fromJson(string,CarActivity.class);
-                 final List<CarActivity.DataBean> data = carActivity.getData();
-
-                 carActivityList.addAll(data);
-                 App.activity.runOnUiThread(new Runnable() {
-                     @Override
-                     public void run() {
-                         LinearLayoutManager manager=new LinearLayoutManager(getActivity());
-                         manager.setOrientation(LinearLayoutManager.VERTICAL);
-                         homeAdapter=new HomeAdapter(getActivity(),data);
-                         recyclerView.setAdapter(homeAdapter);
-                         homeAdapter.notifyDataSetChanged();
-                     }
-                 });
-
-             }
-         });
+//        PresenterInfo presenterInfo=new PresenterInfo(this,getActivity());
+//        presenterInfo.getNewsData(Constant.URLIMAGE_STRING,"");
+//        Map<String,Object> map=new HashMap<>();
+//         map.put("cityId","");
+//          String json=Cjson.toJSONMap(map);
+//         OkhttpUtils.getInstance().getPost(Constant.URL_STRING + BASE_URLSTRING, json, new Callback() {
+//             public String string;
+//
+//             @Override
+//             public void onFailure(Call call, IOException e) {
+//
+//             }
+//
+//             @Override
+//             public void onResponse(Call call, Response response) throws IOException {
+//                 string=response.body().string();
+//                 Gson gson=new Gson();
+//                 CarActivity carActivity=gson.fromJson(string,CarActivity.class);
+//                 List<CarActivity.DataBean> data = carActivity.getData();
+//                 carActivityList.addAll(data);
+//                 App.activity.runOnUiThread(new Runnable() {
+//                     @Override
+//                     public void run() {
+//
+//                     }
+//                 });
+//
+//             }
+//         });
 
 
     }

@@ -1,7 +1,16 @@
 package jiyun.com.keepcar.ui;
 
 import android.content.Intent;
+
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
+
+
+import android.view.LayoutInflater;
+
+
+import android.widget.PopupWindow;
+
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
@@ -25,6 +34,7 @@ import jiyun.com.keepcar.ui.homepage.fragment.HomePageFragment;
 import jiyun.com.keepcar.ui.homepage.fragment.PersonalFragment;
 import jiyun.com.keepcar.ui.homepage.fragment.ShoppingcartFragment;
 import jiyun.com.keepcar.ui.login.LoginActvitity;
+import jiyun.com.keepcar.utils.UserManager;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
     private HomePageFragment homePageFragment;
@@ -249,6 +259,45 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                         public void onClick(View v) {
                            // UserManager.getIntance().clearUser();
                             popupWindow.dismiss();
+                        }
+                    });
+                    qiehuan_name.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            UserManager.getIntance().clearUser();
+                            Intent intent1 = new Intent(MainActivity.this, LoginActvitity.class);
+                            startActivity(intent1);
+                        }
+                    });
+
+//////
+// 需要设置一下此参数，点击外边可消失
+                    popupWindow.setBackgroundDrawable(new BitmapDrawable());
+//设置点击窗口外边窗口消失
+                    popupWindow.setOutsideTouchable(true);
+// 设置此参数获得焦点，否则无法点击
+                    popupWindow.setFocusable(true);
+
+                    if(popupWindow.isShowing()) {
+                        // 隐藏窗口，如果设置了点击窗口外小时即不需要此方式隐藏
+                        popupWindow.dismiss();
+                    } else {
+                        // 显示窗口
+                        popupWindow.showAsDropDown(v);
+                    }
+
+                }
+                break;
+
+//            case R.id.menu:
+////                showToast("2222222222");|
+//                View inflate = LayoutInflater.from(this).inflate(R.layout.pop_login, null);
+//                final PopupWindow popupWindow = new PopupWindow(inflate, 250, 250);
+//                TextView finsh_login = (TextView) inflate.findViewById(R.id.finsh_login);
+//                TextView qiehuan_name = (TextView) inflate.findViewById(R.id.qiehuan_name);
+//                finsh_login.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
 //                        Intent intent = new Intent(MainActivity.this, LoginActvitity.class);
 //                        startActivity(intent);
                         }

@@ -12,12 +12,12 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
 
-        android:drawablePadding="20px"
+        android:drawablePadding="2dp"
         android:drawableRight="@mipmap/off"
         android:ellipsize="end"
         android:maxLines="1"
         android:textSize="30px"
-
+        android:textColor="#222222"
 
         />
 
@@ -30,6 +30,4 @@
         <!--android:visibility="gone"/>-->
 
 </com.zhy.autolayout.AutoRelativeLayout>
-
-
 
