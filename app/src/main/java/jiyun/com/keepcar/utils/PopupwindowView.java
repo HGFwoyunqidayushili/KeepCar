@@ -111,7 +111,7 @@ public class PopupwindowView {
 
           int y =location[1];
            popupWindow.setAnimationStyle(R.style.mypopupwindow);
-          popupWindow.showAtLocation(relayView,Gravity.BOTTOM,0,y+relayView.getHeight());
+          popupWindow.showAtLocation(relayView,Gravity.BOTTOM,0,-location[1]);
        }
 
    }
