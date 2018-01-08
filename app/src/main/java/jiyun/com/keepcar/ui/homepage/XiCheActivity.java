@@ -79,6 +79,7 @@ public class XiCheActivity extends AppCompatActivity {
                     popupWindow.setAttachedInDecor(true);
                     popupWindow.setOutsideTouchable(true);
                     popupWindow.showAsDropDown(layout);
+
                     if (popupWindow.isShowing()){
                         WindowManager.LayoutParams lp = getWindow().getAttributes();
                         lp.alpha=0.5f;
