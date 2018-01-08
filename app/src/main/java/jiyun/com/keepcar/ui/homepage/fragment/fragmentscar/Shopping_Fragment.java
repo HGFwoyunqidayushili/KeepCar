@@ -57,6 +57,7 @@ public class Shopping_Fragment extends Fragment implements InfoContract.Views<Fo
     }
 
     private void initView(View inflate) {
+        //
         rexyxView = (XRecyclerView) inflate.findViewById(R.id.rexyxView);
     }
 

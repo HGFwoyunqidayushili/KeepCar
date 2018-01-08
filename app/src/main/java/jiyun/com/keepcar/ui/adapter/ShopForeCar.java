@@ -35,6 +35,9 @@ public class ShopForeCar extends XRecyclerView.Adapter<ShopForeCar.ViewHolder> {
         this.context = context;
     }
 
+    //
+    //
+    //
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
