@@ -19,35 +19,22 @@ import android.widget.ViewFlipper;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.google.gson.Gson;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import jiyun.com.keepcar.R;
 import jiyun.com.keepcar.entity.homepage.CarActivity;
 import jiyun.com.keepcar.entity.homepage.ImageBean;
-import jiyun.com.keepcar.http.OkhttpUtils;
 import jiyun.com.keepcar.http.contract.InfoContract;
-import jiyun.com.keepcar.http.presenter.PresenterInfo;
-import jiyun.com.keepcar.ui.App;
 import jiyun.com.keepcar.ui.BaseFragment;
 import jiyun.com.keepcar.ui.Constant;
-
-import jiyun.com.keepcar.ui.homepage.XiCheActivity;
-
 import jiyun.com.keepcar.ui.MainActivity;
 import jiyun.com.keepcar.ui.adapter.carRenewal.activity.RenewalAcrivity;
 import jiyun.com.keepcar.ui.fourCarshow.activity.FourcarShowActivity;
-import jiyun.com.keepcar.utils.Cjson;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
+import jiyun.com.keepcar.ui.homepage.XiCheActivity;
 
 
 /**
@@ -155,35 +142,35 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     protected void initData() {
-        PresenterInfo presenterInfo=new PresenterInfo(this,getActivity());
-        presenterInfo.getNewsData(Constant.URLIMAGE_STRING,"");
-        Map<String,Object> map=new HashMap<>();
-         map.put("cityId","");
-          String json=Cjson.toJSONMap(map);
-         OkhttpUtils.getInstance().getPost(Constant.URL_STRING + BASE_URLSTRING, json, new Callback() {
-             public String string;
-
-             @Override
-             public void onFailure(Call call, IOException e) {
-
-             }
-
-             @Override
-             public void onResponse(Call call, Response response) throws IOException {
-                 string=response.body().string();
-                 Gson gson=new Gson();
-                 CarActivity carActivity=gson.fromJson(string,CarActivity.class);
-                 List<CarActivity.DataBean> data = carActivity.getData();
-                 carActivityList.addAll(data);
-                 App.activity.runOnUiThread(new Runnable() {
-                     @Override
-                     public void run() {
-
-                     }
-                 });
-
-             }
-         });
+//        PresenterInfo presenterInfo=new PresenterInfo(this,getActivity());
+//        presenterInfo.getNewsData(Constant.URLIMAGE_STRING,"");
+//        Map<String,Object> map=new HashMap<>();
+//         map.put("cityId","");
+//          String json=Cjson.toJSONMap(map);
+//         OkhttpUtils.getInstance().getPost(Constant.URL_STRING + BASE_URLSTRING, json, new Callback() {
+//             public String string;
+//
+//             @Override
+//             public void onFailure(Call call, IOException e) {
+//
+//             }
+//
+//             @Override
+//             public void onResponse(Call call, Response response) throws IOException {
+//                 string=response.body().string();
+//                 Gson gson=new Gson();
+//                 CarActivity carActivity=gson.fromJson(string,CarActivity.class);
+//                 List<CarActivity.DataBean> data = carActivity.getData();
+//                 carActivityList.addAll(data);
+//                 App.activity.runOnUiThread(new Runnable() {
+//                     @Override
+//                     public void run() {
+//
+//                     }
+//                 });
+//
+//             }
+//         });
 
 
     }

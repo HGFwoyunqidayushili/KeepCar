@@ -9,20 +9,24 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="480px"
                 android:background="@drawable/baijing">
+
                 <jiyun.com.keepcar.ui.TuPian
                     android:id="@+id/icon_login"
                     android:layout_width="120px"
                     android:layout_height="120px"
                     android:layout_centerInParent="true"
                     android:src="@mipmap/dianjingpin" />
+
                 <TextView
                     android:id="@+id/name_login"
                     android:layout_width="wrap_content"
@@ -33,17 +37,20 @@
                     android:text="1111"
                     android:textSize="30px" />
             </RelativeLayout>
+
             <LinearLayout
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20px"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="35px"
                     android:src="@mipmap/dingdan" />
+
                 <TextView
                     android:id="@+id/my_dingdan"
                     android:layout_width="wrap_content"
@@ -53,17 +60,20 @@
                     android:textColor="#ef8318"
                     android:textSize="30px" />
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2px"
                 android:layout_marginTop="30px"
                 android:background="#c2c2c6"></View>
+
             <RadioGroup
                 android:id="@+id/group_dingdan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20px"
                 android:orientation="horizontal">
+
                 <RadioButton
                     android:id="@+id/daifukuan_rabtn"
                     android:layout_width="0dp"
@@ -76,6 +86,7 @@
                     android:text="待付款"
                     android:textColor="#999"
                     android:textSize="26px" />
+
                 <RadioButton
                     android:id="@+id/daishigong_rabtn"
                     android:layout_width="0dp"
@@ -87,6 +98,7 @@
                     android:text="待施工"
                     android:textColor="#999"
                     android:textSize="26px" />
+
                 <RadioButton
                     android:id="@+id/daifahuo_rabtn"
                     android:layout_width="0dp"
@@ -98,6 +110,7 @@
                     android:text="待发货"
                     android:textColor="#999"
                     android:textSize="26px" />
+
                 <RadioButton
                     android:id="@+id/daishouhuo_rabtn"
                     android:layout_width="0dp"
@@ -109,6 +122,7 @@
                     android:text="待收货"
                     android:textColor="#999"
                     android:textSize="26px" />
+
                 <RadioButton
                     android:id="@+id/daipingjia_rabtn"
                     android:layout_width="0dp"
@@ -120,6 +134,7 @@
                     android:text="待评价"
                     android:textColor="#999"
                     android:textSize="26px" />
+
                 <RadioButton
                     android:id="@+id/yiquxiao_rabtn"
                     android:layout_width="0dp"
@@ -132,23 +147,27 @@
                     android:textColor="#999"
                     android:textSize="26px" />
             </RadioGroup>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="30px"
                 android:layout_marginTop="20px"
                 android:background="#eae9e9"></View>
+
             <RelativeLayout
                 android:id="@+id/my_car"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20px"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:id="@+id/mycars_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="35px"
                     android:src="@mipmap/mycars" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -157,6 +176,7 @@
                     android:text="我的车辆"
                     android:textColor="#17a1e6"
                     android:textSize="30px" />
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -164,16 +184,19 @@
                     android:layout_marginRight="20px"
                     android:src="@mipmap/bianji" />
             </RelativeLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2px"
                 android:layout_marginTop="20px"
                 android:background="#eae9e9"></View>
+
             <RelativeLayout
                 android:id="@+id/dangqian_car"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20px">
+
                 <TextView
                     android:id="@+id/current_car"
                     android:layout_width="wrap_content"
@@ -182,6 +205,7 @@
                     android:text="当前车辆"
                     android:textColor="#343434"
                     android:textSize="30px" />
+
                 <ImageView
                     android:id="@+id/img_go"
                     android:layout_width="wrap_content"
@@ -190,6 +214,7 @@
                     android:layout_centerInParent="true"
                     android:layout_marginRight="20px"
                     android:src="@mipmap/gos" />
+
                 <TextView
                     android:id="@+id/current_cars"
                     android:layout_width="wrap_content"
@@ -199,21 +224,25 @@
                     android:text="1111"
                     android:textSize="26px" />
             </RelativeLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="30px"
                 android:layout_marginTop="20px"
                 android:background="#eae9e9"></View>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30px"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="35px"
                     android:src="@mipmap/myzhanghu" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -222,15 +251,18 @@
                     android:textColor="#ef8318"
                     android:textSize="30px" />
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2px"
                 android:layout_marginTop="30px"
                 android:background="#c2c2c6"></View>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20px">
+
                 <TextView
                     android:id="@+id/current_dianmian"
                     android:layout_width="wrap_content"
@@ -239,6 +271,7 @@
                     android:text="所在店面"
                     android:textColor="#343434"
                     android:textSize="30px" />
+
                 <ImageView
                     android:id="@+id/img_gos"
                     android:layout_width="wrap_content"
@@ -247,6 +280,7 @@
                     android:layout_centerInParent="true"
                     android:layout_marginRight="20px"
                     android:src="@mipmap/gos" />
+
                 <TextView
                     android:id="@+id/dianmian_current"
                     android:layout_width="wrap_content"
@@ -256,29 +290,34 @@
                     android:text="1111"
                     android:textSize="26px" />
             </RelativeLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="30px"
                 android:layout_marginTop="25px"
                 android:orientation="horizontal"
                 android:visibility="gone">
+
                 <View
                     android:layout_width="0px"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:background="#ef8318"></View>
+
                 <View
                     android:layout_width="0px"
                     android:layout_height="wrap_content"
                     android:layout_weight="7"
                     android:background="#ffff"></View>
             </LinearLayout>
+
             <RadioGroup
                 android:id="@+id/rid_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="30px"
                 android:orientation="horizontal">
+
                 <RadioButton
                     android:id="@+id/jifen_btn"
                     android:layout_width="0px"
@@ -292,6 +331,7 @@
                     android:paddingLeft="40px"
                     android:text="积分"
                     android:textSize="26px" />
+
                 <RadioButton
                     android:id="@+id/xiangmu_btn"
                     android:layout_width="0px"
@@ -306,6 +346,7 @@
                     android:text="项目"
                     android:textSize="26px"
                     android:visibility="gone" />
+
                 <RadioButton
                     android:id="@+id/chuzhi_btn"
                     android:layout_width="0px"
@@ -320,6 +361,7 @@
                     android:paddingLeft="40px"
                     android:text="储值"
                     android:textSize="26px" />
+
                 <RadioButton
                     android:id="@+id/xiche_btn"
                     android:layout_width="0px"
@@ -335,6 +377,7 @@
                     android:text="洗车"
                     android:textSize="26px"
                     android:visibility="gone" />
+
                 <RadioButton
                     android:id="@+id/yuequan_btn"
                     android:layout_width="0px"
@@ -349,6 +392,7 @@
                     android:paddingLeft="40px"
                     android:text="余额券"
                     android:textSize="26px" />
+
                 <RadioButton
                     android:id="@+id/jibiezhekou_btn"
                     android:layout_width="0px"
@@ -364,6 +408,7 @@
                     android:text="级别折扣"
                     android:textSize="26px"
                     android:visibility="gone" />
+
                 <RadioButton
                     android:id="@+id/dingequan_btn"
                     android:layout_width="0px"
@@ -379,6 +424,7 @@
                     android:text="定额券"
                     android:textSize="26px" />
             </RadioGroup>
+
             <FrameLayout
                 android:id="@+id/frag_zhanghu"
                 android:layout_width="match_parent"
