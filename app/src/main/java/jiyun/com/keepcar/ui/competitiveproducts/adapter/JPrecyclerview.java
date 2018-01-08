@@ -20,7 +20,7 @@ import jiyun.com.keepcar.ui.competitiveproducts.bean.Competpd;
 public class JPrecyclerview extends RecyclerView.Adapter<JPrecyclerview.ViewHolder> {
     private Context context;
     private List<Competpd.DataBean.ListBean> listBeen;
-
+    private ItemOnclick itemOnclick;
     public JPrecyclerview(JingpinActivity jingpinActivity, List<Competpd.DataBean.ListBean> listBeen) {
         this.context = jingpinActivity;
         this.listBeen = listBeen;
@@ -35,11 +35,17 @@ public class JPrecyclerview extends RecyclerView.Adapter<JPrecyclerview.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
             holder.productName.setText(listBeen.get(position).getProductName());
             holder.shopName.setText(listBeen.get(position).getShopName());
             holder.product_price.setText(listBeen.get(position).getOriginalPrice()+"");
         Log.e("TAG","-------------------------------------"+listBeen.get(position).getProductName());
+           holder.rootView.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   itemOnclick.setItemOnclick(position);
+               }
+           });
     }
 
     @Override
@@ -66,4 +72,12 @@ public class JPrecyclerview extends RecyclerView.Adapter<JPrecyclerview.ViewHold
         }
 
     }
+    public interface ItemOnclick{
+        void setItemOnclick(int position);
+    }
+    public void ItemOnclick(ItemOnclick itemOnclick){
+        this.itemOnclick=itemOnclick;
+    }
+
+
 }

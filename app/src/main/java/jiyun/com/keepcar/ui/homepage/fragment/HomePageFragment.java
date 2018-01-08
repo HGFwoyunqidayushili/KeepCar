@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +18,6 @@ import android.widget.ViewFlipper;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.google.gson.Gson;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
 
@@ -182,35 +180,43 @@ public class HomePageFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     protected void initData() {
-//        PresenterInfo presenterInfo=new PresenterInfo(this,getActivity());
-//        presenterInfo.getNewsData(Constant.URLIMAGE_STRING,"");
-//        Map<String,Object> map=new HashMap<>();
-//         map.put("cityId","");
-//          String json=Cjson.toJSONMap(map);
-//         OkhttpUtils.getInstance().getPost(Constant.URL_STRING + BASE_URLSTRING, json, new Callback() {
-//             public String string;
-//
-//             @Override
-//             public void onFailure(Call call, IOException e) {
-//
-//             }
-//
-//             @Override
-//             public void onResponse(Call call, Response response) throws IOException {
+        PresenterInfo presenterInfo=new PresenterInfo(this,getActivity());
+        presenterInfo.getNewsData(Constant.URLIMAGE_STRING,"");
+        Map<String,Object> map=new HashMap<>();
+         map.put("cityId",Constant.CITY_ID);
+         map.put("pageNum","0");
+         map.put("pageSize","10");
+          String json=Cjson.toJSONMap(map);
+         OkhttpUtils.getInstance().getPost(Constant.URL_STRING + BASE_URLSTRING, json, new Callback() {
+             public String string;
+
+             @Override
+             public void onFailure(Call call, IOException e) {
+
+             }
+
+             @Override
+             public void onResponse(Call call, Response response) throws IOException {
 //                 string=response.body().string();
+//                 Log.e("TAG",string);
 //                 Gson gson=new Gson();
 //                 CarActivity carActivity=gson.fromJson(string,CarActivity.class);
-//                 List<CarActivity.DataBean> data = carActivity.getData();
+//                 final List<CarActivity.DataBean> data = carActivity.getData();
+//
 //                 carActivityList.addAll(data);
 //                 App.activity.runOnUiThread(new Runnable() {
 //                     @Override
 //                     public void run() {
-//
+//                         LinearLayoutManager manager=new LinearLayoutManager(getActivity());
+//                         manager.setOrientation(LinearLayoutManager.VERTICAL);
+//                         homeAdapter=new HomeAdapter(getActivity(),data);
+//                         recyclerView.setAdapter(homeAdapter);
+//                         homeAdapter.notifyDataSetChanged();
 //                     }
 //                 });
-//
-//             }
-//         });
+
+             }
+         });
 
 
     }

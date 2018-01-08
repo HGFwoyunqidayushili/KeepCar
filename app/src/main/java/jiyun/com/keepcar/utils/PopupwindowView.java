@@ -3,6 +3,7 @@ package jiyun.com.keepcar.utils;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,8 @@ public class PopupwindowView {
    private View contentView;
    private View relayView;
    private PopupWindow popupWindow;
+   private View parent;
+
    public PopupwindowView(Context context, View view, View relayView){
        this.context=context;
        this.contentView=view;
@@ -41,11 +44,34 @@ public class PopupwindowView {
    }
    public void show(){
       //显示位置
-      popupWindow.setAnimationStyle(R.style.AnimationTopFade);
-      popupWindow.showAsDropDown(relayView);
+      if(Build.VERSION.SDK_INT<24){
+         popupWindow.setAnimationStyle(R.style.AnimationTopFade);
+         popupWindow.showAsDropDown(relayView);
+      }
+    else {
+         int[]location=new int[2];
+         relayView .getLocationOnScreen(location);
+         int x=location[0];
+
+         int y =location[1];
+
+         popupWindow.showAtLocation(relayView,Gravity.NO_GRAVITY,0,y+relayView.getHeight());
+      }
+
    }
    public void showAtLocation(){
-      popupWindow.showAtLocation(relayView, Gravity.BOTTOM,0,0);
+       if(Build.VERSION.SDK_INT<24){
+          popupWindow.showAtLocation(relayView, Gravity.BOTTOM,0,0);
+       }
+       else {
+          int[]location=new int[2];
+          relayView .getLocationOnScreen(location);
+          int x=location[0];
+
+          int y =location[1];
+          popupWindow.showAtLocation(relayView,Gravity.BOTTOM,0,y+relayView.getHeight());
+       }
+
    }
    public PopupWindow popupdismiss() {
 

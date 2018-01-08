@@ -47,6 +47,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.BaseActivity" />
         <!-- 注明设计稿的尺寸 -->
+
+        <activity android:name=".ui.homepage.forecar.Car_details" />
+
         <meta-data
             android:name="design_width"
             android:value="768" />
@@ -54,7 +57,7 @@
             android:name="design_height"
             android:value="1334" />
 
-        <activity android:name=".ui.homepage.forecar.Car_details" />
+   
 
         <activity android:name=".ui.MainActivity">
             <intent-filter>
@@ -76,44 +79,40 @@
         <activity android:name=".ui.homepage.XiCheActivity" />
         <activity android:name=".ui.homepage.XiCheXiangQiingActivity" />
         android:value="35278530d09e83344679fd865feeea6d" />
-
-        <activity android:name=".ui.homepage.XiCheXiangQiingActivity" />
         <activity android:name=".ui.homepage.JieZhangXiCheActivity" />
-        <activity android:name=".ui.homepage.Success_Activity"></activity>
+        <activity android:name=".ui.homepage.Success_Activity" />
+        android:value="35278530d09e83344679fd865feeea6d" />
 
-        <activity android:name=".ui.homepage.XiCheXiangQiingActivity"></activity>
 
            android:value="35278530d09e83344679fd865feeea6d" />
-           
+
         <activity android:name=".ui.login.LoginActvitity"></activity>
 
-        
 
 
 
 
 
-        </activity>
 
-        
+
+
+
         <activity android:name=".ui.login.PersonalcenterActivity"></activity>
         <activity android:name=".ui.login.YouxiangActivity"></activity>
         <activity android:name=".ui.login.NiChengActivity"></activity>
         <activity android:name=".ui.login.NameActivity"></activity>
         <activity android:name=".ui.homepage.fragment.activity.ChooseCarActivity"></activity>
 
-        <activity android:name=".ui.login.LoginActvitity" />
-        <activity android:name=".ui.login.PersonalcenterActivity" />
-        <activity android:name=".ui.login.YouxiangActivity" />
-        <activity android:name=".ui.login.NiChengActivity" />
-        <activity android:name=".ui.login.NameActivity" />
-        <activity android:name=".ui.homepage.fragment.activity.ChooseCarActivity" />
+
 
         <activity android:name=".ui.adapter.carRenewal.activity.RenewalAcrivity" />
         <activity android:name=".ui.fourCarshow.activity.FourcarShowActivity" />
         <activity android:name=".ui.competitiveproducts.activity.JingpinActivity" />
         <activity android:name=".ui.wonderful.activity.WonderfulActivity" />
-        <activity android:name=".ui.integralsmall.activity.IntegralsmallActivity"></activity>
+        <activity android:name=".ui.integralsmall.activity.IntegralsmallActivity" />
+        <activity android:name=".ui.homepage.forecar.Order_CarActivity" />
+        <activity android:name=".ui.competitiveproducts.activity.CpvProductItemActivity"></activity>
+
     <activity android:name=".ui.login.DingdanActivity"></activity>
     <activity android:name=".ui.login.DetailsActivity"></activity>
 
@@ -123,7 +122,7 @@
             android:value="@integer/google_play_services_version" />
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.zz.fileprovider"
+            android:authorities="jiyun.com.keepcar"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

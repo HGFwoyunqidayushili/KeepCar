@@ -1,5 +1,6 @@
 package jiyun.com.keepcar.ui.competitiveproducts.activity;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -135,6 +136,12 @@ public class JingpinActivity extends BaseActivity implements View.OnClickListene
         jp_recyclerview.setLayoutManager(manager);
         JPrecyclerview jPrecyclerview=new JPrecyclerview(this,listBeen);
         jp_recyclerview.setAdapter(jPrecyclerview);
+        jPrecyclerview.ItemOnclick(new JPrecyclerview.ItemOnclick() {
+            @Override
+            public void setItemOnclick(int position) {
+                 startActivity(new Intent(JingpinActivity.this,CpvProductItemActivity.class));
+            }
+        });
     }
 
     @Override
