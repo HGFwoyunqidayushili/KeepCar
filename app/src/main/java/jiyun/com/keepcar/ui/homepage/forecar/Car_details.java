@@ -28,11 +28,10 @@ public class Car_details extends AppCompatActivity implements View.OnClickListen
     private ImageView yue;
     private ImageView faxian;
     private LinearLayout topLinlayout;
-    private ViewPager foreViewpagers;
+    private ViewPagers foreViewpagers;
     private TabLayout tabLayout;
     private TextView fore_address;
     private TextView fore_name;
-
     //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +60,7 @@ public class Car_details extends AppCompatActivity implements View.OnClickListen
                 fragments.add(new Shopping_Fragment());
                 tabLayout.setupWithViewPager(foreViewpagers);
             }
+
             InsertFragment insertFragment = new InsertFragment(getSupportFragmentManager(), fragments, strings);
             foreViewpagers.setAdapter(insertFragment);
         }
@@ -78,7 +78,7 @@ public class Car_details extends AppCompatActivity implements View.OnClickListen
         faxian.setOnClickListener(this);
         topLinlayout = (LinearLayout) findViewById(R.id.topLinlayout);
         topLinlayout.setOnClickListener(this);
-        foreViewpagers = (ViewPager) findViewById(R.id.foreViewpagers);
+        foreViewpagers = (ViewPagers) findViewById(R.id.foreViewpagers);
         foreViewpagers.setOnClickListener(this);
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setOnClickListener(this);
@@ -93,7 +93,8 @@ public class Car_details extends AppCompatActivity implements View.OnClickListen
         switch (v.getId()) {
             case R.id.faxian:
                 View popupview2 = LayoutInflater.from(Car_details.this).inflate(R.layout.popupfaxian, null);
-                PopupWindow pinpaiPop2 = new PopupWindow(popupview2, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+                PopupWindow pinpaiPop2 = new PopupWindow(popupview2, 80, ViewGroup.LayoutParams.WRAP_CONTENT);
                 pinpaiPop2.setBackgroundDrawable(new BitmapDrawable());
                 pinpaiPop2.setBackgroundDrawable(new ColorDrawable());
 
