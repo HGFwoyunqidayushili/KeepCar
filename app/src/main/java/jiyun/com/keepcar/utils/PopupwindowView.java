@@ -78,7 +78,6 @@ public class PopupwindowView {
 
    }
    public void showAtLocation(){
-
             new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -102,7 +101,7 @@ public class PopupwindowView {
        popupdismiss();
        if(Build.VERSION.SDK_INT<24){
            popupWindow.setAnimationStyle(R.style.mypopupwindow);
-          popupWindow.showAtLocation(relayView,Gravity.BOTTOM,0,0);
+           popupWindow.showAtLocation(relayView,Gravity.BOTTOM,0,0);
        }
        else {
           int[]location=new int[2];
