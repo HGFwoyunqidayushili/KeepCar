@@ -92,7 +92,7 @@ public class JieZhangXiCheActivity extends AppCompatActivity implements View.OnC
 //        加载popupwndow的布局
                 View popupview1 = LayoutInflater.from(JieZhangXiCheActivity.this).inflate(R.layout.oderiteam, null);
 //        创建一个popupWindow对象
-                final PopupWindow popupWindow1 = new PopupWindow(popupview1, ViewGroup.LayoutParams.MATCH_PARENT, 600);
+                final PopupWindow popupWindow1 = new PopupWindow(popupview1, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 //        默认获取不到焦点，设置获取焦点
                 popupWindow1.setFocusable(true);
 //        点击窗口以外的区域，窗口消失
@@ -128,7 +128,7 @@ public class JieZhangXiCheActivity extends AppCompatActivity implements View.OnC
                     public void onClick(View v) {
                          popupWindow1.dismiss();
                         View popupview3 = LayoutInflater.from(JieZhangXiCheActivity.this).inflate(R.layout.fukuaniteam, null);
-                        final PopupWindow popupWindow33 = new PopupWindow(popupview3, ViewGroup.LayoutParams.MATCH_PARENT, 600  );
+                        final PopupWindow popupWindow33 = new PopupWindow(popupview3, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT  );
                         popupWindow33.setFocusable(true);
                         popupWindow33.setAnimationStyle(R.style.mypopupwindow);
                         popupWindow33.setBackgroundDrawable(new BitmapDrawable());

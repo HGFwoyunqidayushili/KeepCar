@@ -22,47 +22,39 @@
     <LinearLayout
         android:id="@+id/layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <RadioButton
-            android:layout_width="50px"
-            android:layout_height="43px"
-            android:button="@null"
-            android:gravity="center"
-            />
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
 <CheckBox
     android:id="@+id/dianmian"
     android:text="店面"
-    android:layout_width="184px"
+    android:layout_width="0dp"
+    android:layout_weight="1"
     android:layout_height="43px"
     android:layout_gravity="center"
     android:gravity="center"
     android:button="@null"
     android:drawableRight="@drawable/forecarstyle"/>
-        <RadioButton
-            android:layout_width="184px"
-            android:layout_height="43px"
-            android:button="@null"
-            android:gravity="center"
-          />
+
+
+
 
     <CheckBox
         android:id="@+id/paixu"
         android:text="排序"
-        android:layout_width="184px"
+        android:layout_gravity="center"
+        android:layout_width="0dp"
+        android:layout_weight="0.8"
         android:layout_height="43px"
         android:button="@null"
         android:gravity="center"
         android:drawableRight="@drawable/forecarstyle"/>
-        <CheckBox
-            android:layout_width="50px"
-            android:layout_height="43px"
-            android:button="@null"
-            android:gravity="center"
-            />
+
     </LinearLayout>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:focusable="false"
         android:id="@+id/xicheListView"></ListView>
 </LinearLayout>

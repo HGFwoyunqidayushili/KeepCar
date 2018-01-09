@@ -18,14 +18,21 @@ import android.widget.PopupWindow;
 import android.widget.RadioButton;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import jiyun.com.keepcar.R;
 import jiyun.com.keepcar.bean.TestBean;
+import jiyun.com.keepcar.bean.XiCheBean;
+import jiyun.com.keepcar.http.contract.InfoContract;
+import jiyun.com.keepcar.http.presenter.PresenterInfo;
 import jiyun.com.keepcar.ui.adapter.TestAdapter;
+import jiyun.com.keepcar.utils.ZJson;
 
-public class XiCheActivity extends AppCompatActivity {
+public class XiCheActivity extends AppCompatActivity implements InfoContract.Views<XiCheBean> {
 
-
+    private final String URL = "http://39.106.173.47:8080/app/washcar/queryWashShops.do?ak=f4474404846d470a8e1f6c081a28acc5&channel=android";
     private CheckBox dianmian;
     private CheckBox paixu;
     private LinearLayout activity_xi_che;
@@ -40,25 +47,23 @@ public class XiCheActivity extends AppCompatActivity {
         setContentView(R.layout.activity_xi_che);
         initView();
         initData();
-        initAdapter();
+
     }
 
-    private void initAdapter() {
-        TestAdapter testAdapter = new TestAdapter(testBeen, XiCheActivity.this);
-        xicheListView.setAdapter(testAdapter);
-        xicheListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                startActivity(new Intent(XiCheActivity.this,XiCheXiangQiingActivity.class));
-            }
-        });
-    }
+
 
     private void initData() {
-        testBeen = new ArrayList<>();
-        for (int i = 1; i < 15; i++) {
-            testBeen.add(new TestBean("http://img0.imgtn.bdimg.com/it/u=107793191,2487536113&fm=27&gp=0.jpg","第"+i+"台汽车","这是好车","3200","(豪华轿车)"));
-        }
+        Map<String, Object> map = new HashMap<>();
+
+        map.put("shopCode","店面不限");
+        map.put("searchType","默认排序");
+
+        map.put("pageNum",0);
+        map.put("pageSize",5);
+        String s = ZJson.toJSONMap(map);
+        PresenterInfo presenterInfo = new PresenterInfo(this, this);
+        presenterInfo.getNewsData(URL,s);
+
     }
 
 
@@ -179,5 +184,24 @@ public class XiCheActivity extends AppCompatActivity {
         });
         layout = (LinearLayout) findViewById(R.id.layout);
         xicheListView = (ListView) findViewById(R.id.xicheListView);
+    }
+
+    @Override
+    public void success(XiCheBean xiCheBean) {
+        List<XiCheBean.DataBean.ListBean> list = xiCheBean.getData().getList();
+        TestAdapter testAdapter = new TestAdapter(list,XiCheActivity.this);
+        xicheListView.setAdapter(testAdapter);
+        xicheListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity(new Intent(XiCheActivity.this,XiCheXiangQiingActivity.class));
+            }
+        });
+
+    }
+
+    @Override
+    public void failure(Throwable e) {
+
     }
 }

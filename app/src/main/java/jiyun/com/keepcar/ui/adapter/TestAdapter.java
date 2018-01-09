@@ -10,19 +10,21 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import jiyun.com.keepcar.R;
 import jiyun.com.keepcar.bean.TestBean;
+import jiyun.com.keepcar.bean.XiCheBean;
 
 /**
  * 这个世界上没有天才和大神,只有不努力的笨蛋和菜鸟   ____刘荣斌_____
  */
 public class TestAdapter extends BaseAdapter {
-    private ArrayList<TestBean> arrayList;
+    private List<XiCheBean.DataBean.ListBean> arrayList;
     private Context context;
     private ViewHolder viewHolder;
 
-    public TestAdapter(ArrayList<TestBean> arrayList, Context context) {
+    public TestAdapter(List<XiCheBean.DataBean.ListBean> arrayList, Context context) {
         this.arrayList = arrayList;
         this.context = context;
     }
@@ -47,11 +49,11 @@ public class TestAdapter extends BaseAdapter {
         if (view == null) {
             view = View.inflate(context, R.layout.testiteam, null);
              viewHolder = new ViewHolder(view);
-            Glide.with(context).load(arrayList.get(i).getImage()).into(viewHolder.xiecheImage);
-            viewHolder.xicheName.setText(arrayList.get(i).getName());
-            viewHolder.xicheContent.setText(arrayList.get(i).getContent());
-            viewHolder.xichePrice.setText(arrayList.get(i).getPrice());
-            viewHolder.xicheShuxing.setText(arrayList.get(i).getCarattribute());
+            Glide.with(context).load("http://img0.imgtn.bdimg.com/it/u=107793191,2487536113&fm=27&gp=0.jpg").into(viewHolder.xiecheImage);
+            viewHolder.xicheName.setText(arrayList.get(i).getShopName());
+            viewHolder.xicheContent.setText(arrayList.get(i).getProvinceName()+""+arrayList.get(i).getCityName());
+            viewHolder.xichePrice.setText("18.00");
+            viewHolder.xicheShuxing.setText("(五座轿车)");
             view.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) view.getTag();

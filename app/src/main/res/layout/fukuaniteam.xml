@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="#fff"
+    android:background="@color/touming"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#fff"
+        android:layout_alignParentBottom="true">
 <android.support.v7.widget.Toolbar
     android:layout_width="match_parent"
     android:layout_height="43dp"
@@ -18,18 +25,21 @@
         android:gravity="center"/>
 </android.support.v7.widget.Toolbar>
 
-    <Button
-        android:id="@+id/enter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#fff"
-        android:text="立即付款"
-        android:layout_alignParentBottom="true"
-        android:background="#ff00"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="￥520"
+            android:textSize="30dp"
+            android:textColor="#ff00"
+            android:gravity="center"
+            android:layout_marginTop="14dp"
+            android:id="@+id/textView10"
+            android:layout_below="@+id/toolbar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 <!---->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="45dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@+id/linearLayout4"
@@ -92,16 +102,15 @@
         </RadioGroup>
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="￥520"
-        android:textSize="30dp"
-        android:textColor="#ff00"
-        android:gravity="center"
-        android:layout_marginTop="14dp"
-        android:id="@+id/textView10"
-        android:layout_below="@+id/toolbar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+
+        <Button
+            android:id="@+id/enter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="立即付款"
+
+            android:layout_alignParentBottom="true"
+            android:background="#ff00"/>
+    </LinearLayout>
 </RelativeLayout>
