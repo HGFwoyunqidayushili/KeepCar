@@ -1,6 +1,7 @@
 package jiyun.com.keepcar.ui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,8 @@ import java.util.List;
 
 import jiyun.com.keepcar.R;
 import jiyun.com.keepcar.bean.ForeCarXaingQingBean;
+import jiyun.com.keepcar.ui.homepage.forecar.Car_details;
+import jiyun.com.keepcar.ui.homepage.forecar.Order_CarActivity;
 
 /**
  * 这个世界上没有天才和大神,只有不努力的笨蛋和菜鸟   ____刘荣斌_____
@@ -52,8 +55,15 @@ public class ShopForeCar extends XRecyclerView.Adapter<ShopForeCar.ViewHolder> {
         Glide.with(context).load("https://img02.sogoucdn.com/net/a/04/link?url=http%3A%2F%2Fi01.pictn.sogoucdn.com%2F6f8ce2037d5016fe&appid=122").into(holder.foreshoplogo);
         holder.foreshopTitle.setText(arrayList.get(position).getProductName());
         holder.foreshopLogName.setText(arrayList.get(position).getShopName());
-        holder.foreshopLogPrice.setText(arrayList.get(position).getDiscountPrice()+"");
+        holder.foreshopLogPrice.setText(arrayList.get(position).getOriginalPrice()+"");
         holder.foreshoppeople.setText("69999人付过款");
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, Order_CarActivity.class));
+
+            }
+        });
     }
 
     @Override

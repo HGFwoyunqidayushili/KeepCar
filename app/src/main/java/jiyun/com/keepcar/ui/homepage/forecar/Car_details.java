@@ -71,7 +71,6 @@ public class Car_details extends AppCompatActivity implements View.OnClickListen
         yue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Car_details.this, Order_CarActivity.class));
             }
         });
         faxian = (ImageView) findViewById(R.id.faxian);
