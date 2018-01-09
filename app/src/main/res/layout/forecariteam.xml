@@ -4,6 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 <ImageView
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp"
     android:id="@+id/foreshopImage"
     android:src="@mipmap/ic_launcher"
     android:layout_width="188dp"
@@ -14,6 +18,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:text="店家"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -26,6 +34,10 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
             android:src="@mipmap/ic_launcher"
             android:id="@+id/foreshoplogo"/>
         <TextView
@@ -41,12 +53,20 @@
         android:orientation="horizontal">
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="0.65"
             android:textColor="#ff00"
-            android:textSize="30dp"
+            android:textSize="20dp"
             android:text="价格"
             android:layout_height="wrap_content"
             android:id="@+id/foreshopLogPrice"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:textColor="#ff00"
+            android:textSize="15dp"
+            android:visibility="invisible"
+            android:layout_height="wrap_content"
+          />
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"

@@ -1,14 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="数据"
-    android:textSize="20dp"
-    android:textStyle="bold"
-    android:gravity="center"
-    android:id="@+id/testText"
-    />
+
+    <ImageView
+        android:layout_width="158dp"
+        android:scaleType="fitXY"
+        android:layout_height="97dp"
+        android:id="@+id/xiecheImage"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="洗车姓名"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:id="@+id/xicheName"/>
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ratingBar2"
+            style="@style/foodRatingBar"
+            android:rating="3.2"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_vertical"
+ />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="洗车内容"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:layout_marginTop="10dp"
+            android:id="@+id/xicheContent"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="￥23"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/xichePrice"
+            android:textSize="20dp"
+            android:textColor="#ff00"
+/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/xicheShuxing"
+            android:text="(豪华轿车)"
+           />
+    </LinearLayout>
 </LinearLayout>

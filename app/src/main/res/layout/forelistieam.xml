@@ -5,10 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 <ImageView
-    android:layout_width="150dp"
+    android:layout_width="100dp"
+    android:layout_marginTop="3dp"
+    android:layout_marginBottom="3dp"
+    android:layout_marginLeft="3dp"
+    android:layout_marginRight="3dp"
     android:src="@drawable/hanmacar"
-    android:layout_height="130dp"
+    android:layout_height="80dp"
     android:id="@+id/forecar_Image"/>
+
+    <ImageView
+        android:id="@+id/fprecarlogo"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/link"
+        android:background="@color/touming"
+        android:layout_marginRight="19dp"
+        android:layout_marginEnd="19dp"
+        android:layout_below="@+id/forecarName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,28 +34,8 @@
         android:text="1.8km北京市朝阳区"
         android:id="@+id/forecarContent"
         android:layout_alignBottom="@+id/forecar_Image"
-        android:layout_toRightOf="@+id/forecar_Image"
-        android:layout_toEndOf="@+id/forecar_Image"
-        android:layout_marginBottom="10dp" />
-
-    <ImageView
-        android:id="@+id/fprecarlogo"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/carlogo"
-        android:layout_marginRight="19dp"
-        android:layout_marginEnd="19dp"
-        android:layout_below="@+id/forecarName"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <RatingBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ratingBar2"
-        style="@style/foodRatingBar"
-        android:layout_alignBottom="@+id/fprecarlogo"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/forecarName"
+        android:layout_alignStart="@+id/forecarName" />
 
     <TextView
         android:id="@+id/forecarName"
@@ -48,8 +44,19 @@
         android:text="公司名称"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:layout_marginTop="14dp"
         android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/ratingBar2"
+        android:layout_alignStart="@+id/ratingBar2" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBar2"
+        style="@style/foodRatingBar"
+        android:rating="3.2"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:layout_above="@+id/forecarContent"
         android:layout_toRightOf="@+id/forecar_Image"
         android:layout_toEndOf="@+id/forecar_Image" />
 </RelativeLayout>

@@ -4,7 +4,10 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -43,22 +46,35 @@ public class TestAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
             view = View.inflate(context, R.layout.testiteam, null);
-            viewHolder =new ViewHolder(view);
+             viewHolder = new ViewHolder(view);
+            Glide.with(context).load(arrayList.get(i).getImage()).into(viewHolder.xiecheImage);
+            viewHolder.xicheName.setText(arrayList.get(i).getName());
+            viewHolder.xicheContent.setText(arrayList.get(i).getContent());
+            viewHolder.xichePrice.setText(arrayList.get(i).getPrice());
+            viewHolder.xicheShuxing.setText(arrayList.get(i).getCarattribute());
             view.setTag(viewHolder);
-        }else {
+        } else {
             viewHolder = (ViewHolder) view.getTag();
         }
-        viewHolder.testText.setText(arrayList.get(i).getName());
         return view;
     }
 
+
     public static class ViewHolder {
         public View rootView;
-        public TextView testText;
+        public ImageView xiecheImage;
+        public TextView xicheName;
+        public TextView xicheContent;
+        public TextView xichePrice;
+        public TextView xicheShuxing;
 
         public ViewHolder(View rootView) {
             this.rootView = rootView;
-            this.testText = (TextView) rootView.findViewById(R.id.testText);
+            this.xiecheImage = (ImageView) rootView.findViewById(R.id.xiecheImage);
+            this.xicheName = (TextView) rootView.findViewById(R.id.xicheName);
+            this.xicheContent = (TextView) rootView.findViewById(R.id.xicheContent);
+            this.xichePrice = (TextView) rootView.findViewById(R.id.xichePrice);
+            this.xicheShuxing = (TextView) rootView.findViewById(R.id.xicheShuxing);
         }
 
     }

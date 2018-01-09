@@ -57,7 +57,7 @@ public class XiCheActivity extends AppCompatActivity {
     private void initData() {
         testBeen = new ArrayList<>();
         for (int i = 1; i < 15; i++) {
-            testBeen.add(new TestBean("昌平区第"+i+"条大街"));
+            testBeen.add(new TestBean("http://img0.imgtn.bdimg.com/it/u=107793191,2487536113&fm=27&gp=0.jpg","第"+i+"台汽车","这是好车","3200","(豪华轿车)"));
         }
     }
 
@@ -76,7 +76,6 @@ public class XiCheActivity extends AppCompatActivity {
                     View popupview = LayoutInflater.from(XiCheActivity.this).inflate(R.layout.xichepopone, null);
                     popupWindow = new PopupWindow(popupview, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                     popupWindow.setBackgroundDrawable(new BitmapDrawable());
-                    popupWindow.setAttachedInDecor(true);
                     popupWindow.setOutsideTouchable(true);
                     popupWindow.showAsDropDown(layout);
 
